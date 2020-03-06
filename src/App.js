@@ -2,29 +2,36 @@ import React from 'react';
 import './App.css';
 import Home from './components/Home';
 import VendorDetail from './components/VendorDetail';
-import ListingDetail from './components/ListingDetail';
+import FoodDetail from './components/FoodDetail';
 import { Route, Link, Switch } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import LoginForm from './components/LoginForm';
+import VendorProfile from './components/VendorProfile';
+import ListingDetail from './components/ListingDetail';
 
 function App() {
-  return (
-    <div className="App">
-      <head></head>
-      <main>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/vendor" component={VendorDetail} />
-          <Route exact path="/listing" component={ListingDetail} />
-        </Switch>
-        <footer>
-          <nav>
-            <Link href="">Page</Link>
-            <Link href="">Home</Link>
-            <Link href="">User</Link>
-          </nav>
-        </footer>
-      </main>
-    </div>
-  );
+    return (
+        <div className="App">
+            <head></head>
+            <main>
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/vendor" component={VendorDetail} />
+                    <Route exact path="/listing" component={FoodDetail} />
+                    <Route exact path="/login" component={LoginForm} />
+                    <Route
+                        exact
+                        path="/vendor-profile"
+                        component={VendorProfile}
+                    />
+                    <Route exact path="/listing/id" component={ListingDetail} />
+                </Switch>
+                <footer>
+                    <NavBar />
+                </footer>
+            </main>
+        </div>
+    );
 }
 
 export default App;
