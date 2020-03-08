@@ -11,14 +11,14 @@ export default function Splash({hideSplash, splash}) {
     useEffect(() => {
       setTimeout(() => {
         hideSplash()
-      }, 2000);
+      }, 3000);
     }, []);
 
     return (
-        <section id='splash' className={splash ? null : 'splash-hidden'}>
-            <h1>Splash Page</h1>
-        </section>
-    )
+      <section id="splash" className={splash ? null : 'splash-hidden'}>
+        <img src="/images/splash-logo.svg" className='splash-logo'></img>
+      </section>
+    );
 }
 
 

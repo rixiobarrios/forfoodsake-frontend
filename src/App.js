@@ -14,7 +14,7 @@ function App() {
     return (
         <div className="App">
             <head></head>
-            <main>
+            <main className='app-content'>
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/vendor" component={VendorDetail} />
@@ -27,10 +27,10 @@ function App() {
                     />
                     <Route exact path="/listing/id" component={ListingDetail} />
                 </Switch>
-                <footer>
-                    <NavBar />
-                </footer>
             </main>
+            <footer>
+                <NavBar />
+            </footer>
         </div>
     );
 }

@@ -17,6 +17,7 @@ const NavBar = props => {
             }}
             showLabels
             className={classes.root}
+            id='nav'
         >
             <BottomNavigationAction
                 component={Link}

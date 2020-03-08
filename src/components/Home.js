@@ -106,7 +106,7 @@
 // export default Home;
 
 
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -114,6 +114,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
+import Splash from './Splash';
 
 const useStyles = makeStyles(theme => ({
   // root: {
@@ -142,14 +143,21 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function MediaControlCard() {
+export default function Home() {
   const classes = useStyles();
   const theme = useTheme();
 
+  const [splash, setSplash] = useState(true);
+
+    const hideSplash = () => {
+      setSplash(false);
+    }
+
   return (
     <>
+      <Splash hideSplash={hideSplash} splash={splash} />
+      <section id="home" className={splash ? 'home-hidden' : null}>
         <Grid className={classes.marginAutoContainer}>
-          {/* <Card className={classes.root}> */}
           <Grid item xs={8} className={classes.details}>
             <CardContent className={classes.content}>
               <Typography component="h5" variant="h5">
@@ -169,7 +177,6 @@ export default function MediaControlCard() {
           </Grid>
         </Grid>
         <Grid className={classes.marginAutoContainer}>
-          {/* <Card className={classes.root}> */}
           <Grid item xs={8} className={classes.details}>
             <CardContent className={classes.content}>
               <Typography component="h5" variant="h5">
@@ -189,7 +196,6 @@ export default function MediaControlCard() {
           </Grid>
         </Grid>
         <Grid spacing={2} className={classes.marginAutoContainer}>
-          {/* <Card className={classes.root}> */}
           <Grid item xs={8} className={classes.details}>
             <CardContent className={classes.content}>
               <Typography component="h5" variant="h5">
@@ -208,6 +214,7 @@ export default function MediaControlCard() {
             />
           </Grid>
         </Grid>
+      </section>
     </>
   );
 }
