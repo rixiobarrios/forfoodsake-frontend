@@ -6,7 +6,7 @@ const FoodDetail = () => {
         <>
             {/* change id to dynamic route */}
             <Link to="/listing/id">
-                <h1>Food name</h1>
+                <h1>Food Detail</h1>
             </Link>
             <img src="" alt="food image" />
             <p>price $$$$</p>
