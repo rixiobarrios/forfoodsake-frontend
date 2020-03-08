@@ -5,7 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-// import { pink } from '@material-ui/core/colors';
+import { pink } from '@material-ui/core/colors';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
   cover: {
     width: 151,
-    // backgroundColor: black,
+    backgroundColor: pink,
   },
 }));
 
@@ -38,9 +38,9 @@ const Home = () => {
 
   return (
     <>
+      <Splash hideSplash={hideSplash} splash={splash} />
+      <section id="home" className={splash ? 'home-hidden' : null}>
       <Card className={classes.root}>
-        <Splash hideSplash={hideSplash} splash={splash} />
-        <section id="home" className={splash ? 'home-hidden' : null}>
           <div className={classes.details}>
             <CardContent className={classes.content}>
               <Typography component="h5" variant="h5">
@@ -50,10 +50,11 @@ const Home = () => {
           </div>
           <CardMedia
             className={classes.cover}
-            image="/public/images/home-placeholder.jpg"
-            title="placeholder image for vendor"
+            // image="/public/images/home-placeholder.jpg"
+            // title="placeholder image for vendor"
           />
-
+      </Card>
+      
           {/* <div className={classes.details}>
             <CardContent className={classes.content}>
               <a href="/vendor">restaurant 2</a>
@@ -98,7 +99,6 @@ const Home = () => {
             title="placeholder image for vendor"
           /> */}
         </section>
-      </Card>
     </>
   );
 };
