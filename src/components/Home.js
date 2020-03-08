@@ -183,8 +183,8 @@ export default Home;
 //                         /></CardActions><CardActionArea>
 
 //                     </Grid>
-{
-    /* </Grid>
+// {
+/* </Grid>
                 <Grid className={classes.marginAutoContainer}>
                     <Grid item xs={8} className={classes.details}>
                         <CardContent className={classes.content}>
@@ -229,10 +229,10 @@ export default Home;
                         />
                     </Grid>
                 </Grid> */
-}
-{
-    /* </section>
-        </>
-    );
-} */
-}
+// }
+// {
+//     /* </section>
+//         </>
+//     );
+// } */
+// }
