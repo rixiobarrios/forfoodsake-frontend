@@ -3,7 +3,10 @@ import React from 'react';
 const VendorProfile = () => {
     return (
         <>
-            <img src="" alt="vendor profile image" />
+            <img
+                src="/images/home-placeholder.jpg"
+                alt="vendor profile image"
+            />
             <h2>Vendor Name</h2>
             <p>Email: test@gmail.com</p>
             <p>Address: 234 Happy St</p>

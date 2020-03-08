@@ -8,13 +8,12 @@ import NavBar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 import VendorProfile from './components/VendorProfile';
 import ListingDetail from './components/ListingDetail';
-import Splash from './components/Splash';
 
-function App() {    
+function App() {
     return (
         <div className="App">
             <head></head>
-            <main className='app-content'>
+            <main className="app-content">
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/vendor" component={VendorDetail} />
