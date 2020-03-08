@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Home from './components/Home';
 import VendorDetail from './components/VendorDetail';
@@ -8,8 +8,9 @@ import NavBar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 import VendorProfile from './components/VendorProfile';
 import ListingDetail from './components/ListingDetail';
+import Splash from './components/Splash';
 
-function App() {
+function App() {    
     return (
         <div className="App">
             <head></head>
