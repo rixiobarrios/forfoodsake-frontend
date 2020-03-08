@@ -90,7 +90,7 @@ const ListingDetail = () => {
             <Typography gutterBottom variant="h5" component="h2">
                 Item Name
             </Typography>
-            <Typography>Price: $0,00</Typography>
+            <Typography>Price: $0.00</Typography>
             <Typography>Description</Typography>
             <Typography>Pickup by 6:00 pm</Typography>
             <Typography>123 Happy St, New York, NY 00000</Typography>
