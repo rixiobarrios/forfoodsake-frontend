@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6542f763ad6a2fad15abfee41365e8e4",
+    "revision": "757c494f7563bf41850a5db8f97c5359",
     "url": "/forfoodsake-frontend/index.html"
   },
   {
-    "revision": "b7df078ba8cc4de2e431",
+    "revision": "8a6e97069002f39247fa",
     "url": "/forfoodsake-frontend/static/css/main.b8491af4.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/forfoodsake-frontend/static/js/2.7c0e5f25.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b7df078ba8cc4de2e431",
-    "url": "/forfoodsake-frontend/static/js/main.53e60dcd.chunk.js"
+    "revision": "8a6e97069002f39247fa",
+    "url": "/forfoodsake-frontend/static/js/main.a4e9d250.chunk.js"
   },
   {
     "revision": "4f991a80c7bf62798b4d",

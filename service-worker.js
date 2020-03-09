@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/forfoodsake-frontend/precache-manifest.8d0ac87697c6aa1dadf1fe484621d95e.js"
+  "/forfoodsake-frontend/precache-manifest.ebf0207b925e8fe3081d49a21e6bc38f.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/forfoodsake-frontend/static/css/main.b8491af4.chunk.css",
-    "main.js": "/forfoodsake-frontend/static/js/main.53e60dcd.chunk.js",
-    "main.js.map": "/forfoodsake-frontend/static/js/main.53e60dcd.chunk.js.map",
+    "main.js": "/forfoodsake-frontend/static/js/main.a4e9d250.chunk.js",
+    "main.js.map": "/forfoodsake-frontend/static/js/main.a4e9d250.chunk.js.map",
     "runtime-main.js": "/forfoodsake-frontend/static/js/runtime-main.7d66437d.js",
     "runtime-main.js.map": "/forfoodsake-frontend/static/js/runtime-main.7d66437d.js.map",
     "static/js/2.7c0e5f25.chunk.js": "/forfoodsake-frontend/static/js/2.7c0e5f25.chunk.js",
     "static/js/2.7c0e5f25.chunk.js.map": "/forfoodsake-frontend/static/js/2.7c0e5f25.chunk.js.map",
     "index.html": "/forfoodsake-frontend/index.html",
-    "precache-manifest.8d0ac87697c6aa1dadf1fe484621d95e.js": "/forfoodsake-frontend/precache-manifest.8d0ac87697c6aa1dadf1fe484621d95e.js",
+    "precache-manifest.ebf0207b925e8fe3081d49a21e6bc38f.js": "/forfoodsake-frontend/precache-manifest.ebf0207b925e8fe3081d49a21e6bc38f.js",
     "service-worker.js": "/forfoodsake-frontend/service-worker.js",
     "static/css/main.b8491af4.chunk.css.map": "/forfoodsake-frontend/static/css/main.b8491af4.chunk.css.map",
     "static/js/2.7c0e5f25.chunk.js.LICENSE.txt": "/forfoodsake-frontend/static/js/2.7c0e5f25.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.7d66437d.js",
     "static/js/2.7c0e5f25.chunk.js",
     "static/css/main.b8491af4.chunk.css",
-    "static/js/main.53e60dcd.chunk.js"
+    "static/js/main.a4e9d250.chunk.js"
   ]
 }
