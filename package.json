@@ -2,7 +2,7 @@
   "name": "forfoodsake-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mmarmol88.github.io/forfoodsake",
+  "homepage": "https://mmarmol88.github.io/forfoodsake-frontend",
   "dependencies": {
     "@material-ui/core": "^4.9.5",
     "@material-ui/icons": "^4.9.1",

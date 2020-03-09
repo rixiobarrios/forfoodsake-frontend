@@ -13,7 +13,8 @@ import { createMuiTheme } from '@material-ui/core/styles';
 function App() {
   const [splash, setSplash] = useState(true);
   const [user, setUser] = useState();
-  const [loginData, setLoginData] = useState({ username: '', password: '' });
+  // const url = useState('http://forfoodsake-backend.herokuapp.com/api');
+  const url = useState('http://localhost:5000/api');
 
   const hideSplash = () => {
     setSplash(false);
@@ -34,7 +35,11 @@ function App() {
           />
           <Route exact path="/vendor" component={VendorDetail} />
           <Route exact path="/listing" component={FoodDetail} />
-          <Route exact path="/login" component={LoginForm} />
+          <Route
+            exact
+            path="/login"
+            component={() => <LoginForm url={url} />}
+          />
           <Route exact path="/vendor-profile" component={VendorProfile} />
           <Route exact path="/listing/id" component={ListingDetail} />
         </Switch>

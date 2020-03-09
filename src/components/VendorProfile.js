@@ -37,7 +37,7 @@ const VendorProfile = () => {
     <Box>
       <Box className={classes.imgContainer}>
         <img
-          src="/images/home-placeholder.jpg"
+          src={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
           alt="vendor profile"
           className={classes.img}
         />

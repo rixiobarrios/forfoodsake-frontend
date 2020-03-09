@@ -3,13 +3,11 @@ import {
   FormControl,
   FormGroup,
   InputLabel,
-  FormHelperText,
   Input,
   Button,
   Box,
   Tabs,
-  Tab,
-  Paper
+  Tab
 } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/styles';
 
@@ -50,7 +48,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const LoginForm = () => {
+const LoginForm = ({ url }) => {
   const classes = useStyles();
   const [userString, setUserString] = useState('');
   const [passwordString, setPasswordString] = useState('');
@@ -61,8 +59,18 @@ const LoginForm = () => {
   };
 
   const signUp = e => {
-    e.preventDefault();
-    console.log('sign up');
+    fetch(`http://localhost:5000/api/vendors/new`, {
+      method: 'POST',
+      body: JSON.stringify({
+        name: userString,
+        password: passwordString
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
   };
   const logIn = e => {
     e.preventDefault();
@@ -72,13 +80,7 @@ const LoginForm = () => {
   return (
     <Box className={classes.container}>
       <h2>Welcome to ForFoodSake</h2>
-      <FormGroup
-        onSubmit={e => {
-          e.preventDefault();
-          signUp(e);
-        }}
-        className={classes.form}
-      >
+      <FormGroup className={classes.form}>
         <Tabs
           onChange={handleChange}
           value={formType}
@@ -125,8 +127,7 @@ const LoginForm = () => {
             className={classes.submitLogin}
             variant="outlined"
             color="secondary"
-            href="/"
-            type="submit"
+            onClick={formType ? logIn : signUp}
           >
             {formType ? 'Log In' : 'Sign Up'}
           </Button>

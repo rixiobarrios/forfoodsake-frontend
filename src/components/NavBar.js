@@ -17,7 +17,6 @@ const useStyles = makeStyles(theme => ({
 
 const NavBar = () => {
   const classes = useStyles();
-  console.log(classes);
   const [value, setValue] = useState();
   return (
     <BottomNavigation
