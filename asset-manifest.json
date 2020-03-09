@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/forfoodsake/static/css/main.5ad51ced.chunk.css",
+    "main.js": "/forfoodsake/static/js/main.89b960ed.chunk.js",
+    "main.js.map": "/forfoodsake/static/js/main.89b960ed.chunk.js.map",
+    "runtime-main.js": "/forfoodsake/static/js/runtime-main.fd9d2408.js",
+    "runtime-main.js.map": "/forfoodsake/static/js/runtime-main.fd9d2408.js.map",
+    "static/js/2.252ba3da.chunk.js": "/forfoodsake/static/js/2.252ba3da.chunk.js",
+    "static/js/2.252ba3da.chunk.js.map": "/forfoodsake/static/js/2.252ba3da.chunk.js.map",
+    "index.html": "/forfoodsake/index.html",
+    "precache-manifest.73dd258c0ba085791f229f2517dd8135.js": "/forfoodsake/precache-manifest.73dd258c0ba085791f229f2517dd8135.js",
+    "service-worker.js": "/forfoodsake/service-worker.js",
+    "static/css/main.5ad51ced.chunk.css.map": "/forfoodsake/static/css/main.5ad51ced.chunk.css.map",
+    "static/js/2.252ba3da.chunk.js.LICENSE.txt": "/forfoodsake/static/js/2.252ba3da.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fd9d2408.js",
+    "static/js/2.252ba3da.chunk.js",
+    "static/css/main.5ad51ced.chunk.css",
+    "static/js/main.89b960ed.chunk.js"
+  ]
+}
