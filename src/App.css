@@ -1,26 +1,50 @@
+:root {
+  --orange: #f16642;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+a {
+  color: inherit;
+}
+
 .App {
-    text-align: center;
+  text-align: center;
+  min-height: 100vh;
 }
 
 .home-hidden {
-    display: none;
+  display: none;
+}
+
+.nav-hidden {
+  display: none;
+}
+
+.splash {
+  background: url('/images/splash-bkgd.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .splash-hidden {
-    display: none;
-}
-
-#splash {
-    background: url('/images/splash-bkgd.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  display: none;
 }
 
 .splash-logo {
-    height: 30vh;
-    padding: 10vh;
+  height: 30vh;
+  padding: 10vh;
 }
 
 /* .app-content{
@@ -37,3 +61,9 @@
   flex-shrink: 0;
   border: solid black;
 } */
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
