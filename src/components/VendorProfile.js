@@ -1,27 +1,3 @@
-// import React from 'react';
-// import Box from '@material-ui/core/Box';
-
-// const VendorProfile = () => {
-//     return (
-//         <>
-//             <img
-//                 src="/images/home-placeholder.jpg"
-//                 alt="vendor profile image"
-//             />
-//             <h2>Vendor Name</h2>
-//             <p>Email: test@gmail.com</p>
-//             <p>Address: 234 Happy St</p>
-//             <p>Phone: (123)456-7890</p>
-//             <p>Closing Time: 11 pm</p>
-//             <p>Description</p>
-//             <button type="submit">Delete Account</button>
-//             <button type="submit">Update Account</button>
-//         </>
-//     );
-// };
-
-// export default VendorProfile;
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -37,7 +13,6 @@ const useStyles = makeStyles(() => ({
     overflow: 'hidden'
   },
   vendorInfo: {
-    textAlign: 'left',
     borderBottom: '1px solid #bbb',
     height: '250px',
     display: 'flex',
@@ -50,7 +25,6 @@ const useStyles = makeStyles(() => ({
   },
   description: {
     margin: '0 auto',
-    textAlign: 'left',
     fontSize: '1.2rem',
     lineHeight: '1.4',
     width: 'calc(100% - 4rem)',

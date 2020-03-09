@@ -14,7 +14,6 @@ a {
 }
 
 .App {
-  text-align: center;
   min-height: 100vh;
 }
 
@@ -36,6 +35,8 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 5;
 }
 
 .splash-hidden {
@@ -46,21 +47,6 @@ a {
   height: 30vh;
   padding: 10vh;
 }
-
-/* .app-content{
-  min-height: 100vh;
-  border:solid red;
-}
-
-
-#nav{
-  position: static;
-  bottom: 0; 
-  font-size: small;
-  width: 100%;
-  flex-shrink: 0;
-  border: solid black;
-} */
 
 footer {
   position: fixed;

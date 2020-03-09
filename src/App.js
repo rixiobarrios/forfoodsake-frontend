@@ -12,12 +12,8 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 function App() {
   const [splash, setSplash] = useState(true);
-  //   const [colors] = useState({
-  //     primary: '#F16642', // orange
-  //     secondary: '#B6D2C4', // light blue
-  //     beige: '#EDE9E7',
-  //     dark: '#1A1A1A'
-  //   });
+  const [user, setUser] = useState();
+  const [loginData, setLoginData] = useState({ username: '', password: '' });
 
   const hideSplash = () => {
     setSplash(false);
@@ -43,7 +39,7 @@ function App() {
           <Route exact path="/listing/id" component={ListingDetail} />
         </Switch>
       </main>
-      <footer className={`nav-container ${splash ? 'nav-hidden' : null}`}>
+      <footer className="nav-container">
         <NavBar splash={splash} />
       </footer>
     </div>
