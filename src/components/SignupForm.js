@@ -52,14 +52,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const LoginForm = ({
+const SignupForm = ({
   userString,
   passwordString,
+  confirmPasswordString,
   setUserString,
   setPasswordString,
+  setConfirmPasswordString,
   validName,
   validPassword,
-  logIn
+  passwordMatch,
+  signUp
 }) => {
   const classes = useStyles();
   return (
@@ -86,19 +89,29 @@ const LoginForm = ({
             id="my-input2"
           />
         </FormControl>
+        <FormControl>
+          <InputLabel htmlFor="my-input2">Confirm password</InputLabel>
+          <Input
+            error={!passwordMatch}
+            value={confirmPasswordString}
+            onChange={e => setConfirmPasswordString(e.target.value)}
+            type="password"
+            id="my-input2"
+          />
+        </FormControl>
       </Box>
       <FormControl>
         <Button
           className={classes.submitLogin}
           variant="outlined"
           color="secondary"
-          onClick={logIn}
+          onClick={signUp}
         >
-          Log In
+          Continue
         </Button>
       </FormControl>
     </>
   );
 };
 
-export default LoginForm;
+export default SignupForm;
