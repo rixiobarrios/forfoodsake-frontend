@@ -73,21 +73,22 @@ const LoginForm = ({ url, valid, showValid, setUser }) => {
       passwordString &&
       passwordString === confirmPasswordString
     ) {
-      fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/new`, {
-        method: 'POST',
-        body: JSON.stringify({
-          name: userString,
-          password: passwordString
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        .then(res => res.json())
-        .then(data => {
-          setUser(data);
-          history.push('/');
-        });
+      // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/new`, {
+        fetch(`http://localhost:5000/api/vendors/new`, {
+          method: 'POST',
+          body: JSON.stringify({
+            name: userString,
+            password: passwordString
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+          .then(res => res.json())
+          .then(data => {
+            setUser(data);
+            history.push('/');
+          });
     } else {
       tempValid.username = !!userString; //true if string isnt empty
       tempValid.password = !!passwordString;
@@ -102,7 +103,7 @@ const LoginForm = ({ url, valid, showValid, setUser }) => {
     // if username/password isnt empty, or password/confirm match
     console.log(userString, passwordString);
     if (userString && passwordString) {
-      fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/login`, {
+      fetch(`http://localhost:5000/api/vendors/login`, {
         method: 'POST',
         body: JSON.stringify({
           name: userString,

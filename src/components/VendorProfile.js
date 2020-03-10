@@ -35,11 +35,16 @@ const useStyles = makeStyles(() => ({
 
 const VendorProfile = ({ match, user, setUser }) => {
   const [vendor, setVendor] = useState();
+  
+
   console.log('match', match);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/${match.params.id}`)
+    // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/${match.params.id}`)
+    fetch(`http://localhost:5000/api/vendors/${match.params.id}`)
       .then(res => res.json())
-      .then(data => setVendor(data))
+      .then(data => {
+        setVendor(data)
+      })
       .catch(err => console.error(err));
   }, [match.params.id]);
 
@@ -86,8 +91,18 @@ const VendorProfile = ({ match, user, setUser }) => {
             <Button variant="outlined" color="primary" onClick={editAccount}>
               Update Account
             </Button>
+            <Link to="/newlisting">
+              <Button variant="outlined" color="primary">
+                Add listing
+              </Button>
+            </Link>
           </>
         ) : null}
+        <Box>
+          {vendor.Listings.map(listing => (
+            <Box>{listing.name}</Box>
+          ))}
+        </Box>
       </Box>
     );
   } else {

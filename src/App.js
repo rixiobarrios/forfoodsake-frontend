@@ -8,6 +8,7 @@ import LoginForm from './components/LoginForm';
 import VendorProfile from './components/VendorProfile';
 import ListingDetail from './components/ListingDetail';
 import { createMuiTheme } from '@material-ui/core/styles';
+import CreateListing from './components/CreateListing'
 
 function App() {
   const [splash, setSplash] = useState(true);
@@ -66,6 +67,9 @@ function App() {
             )}
           />
           <Route exact path="/listing/id" component={ListingDetail} />
+          <Route exact path="/newlisting" render={routerProps => {
+            return <CreateListing user={user} />;
+          }}/>
         </Switch>
       </main>
       <footer className="nav-container">

@@ -45,7 +45,8 @@ const Home = ({ hideSplash, splash }) => {
 
   useEffect(() => {
     console.log(process.env.REACT_APP_SERVER_URL);
-    fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/`)
+    // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/`)
+    fetch(`http://localhost:5000/api/vendors/`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
