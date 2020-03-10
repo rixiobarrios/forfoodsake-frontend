@@ -53,9 +53,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const LoginForm = ({
-  userString,
+  emailString,
   passwordString,
-  setUserString,
+  setEmailString,
   setPasswordString,
   validName,
   validPassword,
@@ -69,8 +69,8 @@ const LoginForm = ({
           <InputLabel htmlFor="my-input1">Username</InputLabel>
           <Input
             error={!validName}
-            value={userString}
-            onChange={e => setUserString(e.target.value)}
+            value={emailString}
+            onChange={e => setEmailString(e.target.value)}
             id="my-input1"
             type="text"
             aria-describedby="my-helper-text"

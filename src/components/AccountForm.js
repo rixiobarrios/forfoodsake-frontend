@@ -55,40 +55,65 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const AccountForm = ({ url, setUser }) => {
-  const [valid, setValid] = useState({
-    username: true,
-    password: true,
-    passwordsMatch: true,
-    verified: true
-  });
-  const [validName, setValidName] = useState(true);
+  // Account info fields
+  const [emailString, setEmailString] = useState('');
+  const [passwordString, setPasswordString] = useState('');
+  const [nameString, setNameString] = useState('');
+  const [confirmPasswordString, setConfirmPasswordString] = useState('');
+  const [streetString, setStreetString] = useState('');
+  const [cityString, setCityString] = useState('');
+  const [stateString, setStateString] = useState('');
+  const [zipCodeString, setZipCodeString] = useState('');
+  const [typeString, setTypeString] = useState('');
+  const [phoneString, setPhoneString] = useState('');
+  const [descriptionString, setDescriptionString] = useState('');
+  const [imageString, setImageString] = useState('');
+  const [closingString, setClosingString] = useState('');
+
+  // Validation
+  const [validEmail, setValidEmail] = useState(true);
   const [validPassword, setValidPassword] = useState(true);
   const [passwordMatch, setPasswordMatch] = useState(true);
-
+  const [validName, setValidName] = useState(true);
+  const [validCity, setValidCity] = useState(true);
+  const [validState, setValidState] = useState(true);
+  const [validZipCode, setValidZipCode] = useState(true);
+  const [validType, setValidType] = useState(true);
+  const [validStreet, setValidStreet] = useState(true);
+  const [validPhone, setValidPhone] = useState(true);
+  const [validDescription, setValidDescription] = useState(true);
+  const [validImage, setValidImage] = useState(true);
+  const [validClosing, setValidClosing] = useState(true);
+  // Switch between login and signup
+  const [formType, setFormType] = useState(1);
   let history = useHistory();
   const classes = useStyles();
-  const [userString, setUserString] = useState('');
-  const [passwordString, setPasswordString] = useState('');
-  const [confirmPasswordString, setConfirmPasswordString] = useState('');
-  const [formType, setFormType] = useState(1);
+
+  // Signup steps
+  const [signupStep, setSignupStep] = useState(1);
+  const incrementSignup = () => {
+    setSignupStep(signupStep + 1);
+  };
+
   const changeTabs = (e, newValue) => {
     setFormType(newValue);
     // reset fields
-    setUserString('');
+    setEmailString('');
     setPasswordString('');
     setConfirmPasswordString('');
 
+    setSignupStep(1);
+
     // reset errors
-    setValidName(true);
+    setValidEmail(true);
     setValidPassword(true);
     setPasswordMatch(true);
   };
-  const [signupStep, setSignupStep] = useState(1);
   const signUp = e => {
     e.preventDefault();
     // if username/password isnt empty, or password/confirm match
     if (
-      userString &&
+      emailString &&
       passwordString &&
       passwordString === confirmPasswordString
     ) {
@@ -96,7 +121,7 @@ const AccountForm = ({ url, setUser }) => {
       fetch(`http://localhost:5000/api/vendors/new`, {
         method: 'POST',
         body: JSON.stringify({
-          name: userString,
+          email: emailString,
           password: passwordString
         }),
         headers: {
@@ -109,21 +134,21 @@ const AccountForm = ({ url, setUser }) => {
           history.push('/');
         });
     } else {
-      setValidName(!!userString); //true if string isnt empty
+      setValidEmail(!!emailString); //true if string isnt empty
       setValidPassword(!!passwordString);
       setPasswordMatch(passwordString === confirmPasswordString);
     }
   };
   const logIn = e => {
     e.preventDefault();
-    // if username and password aren't empty, and password and confirmPassword match
-    console.log('check', userString, passwordString);
-    if (userString && passwordString) {
+    // if email and password aren't empty, and password and confirmPassword match
+    console.log('check', emailString, passwordString);
+    if (emailString && passwordString) {
       console.log('pass');
       fetch(`http://localhost:5000/api/vendors/login`, {
         method: 'POST',
         body: JSON.stringify({
-          name: userString,
+          email: emailString,
           password: passwordString
         }),
         headers: {
@@ -144,7 +169,7 @@ const AccountForm = ({ url, setUser }) => {
         })
         .catch(err => console.error(err));
     } else {
-      setValidName(!!userString); //true if string isnt empty
+      setValidEmail(!!emailString); //true if string isnt empty
       setValidPassword(!!passwordString);
     }
   };
@@ -164,26 +189,53 @@ const AccountForm = ({ url, setUser }) => {
         </Tabs>
         {formType ? (
           <LoginForm
-            userString={userString}
+            emailString={emailString}
             passwordString={passwordString}
-            setUserString={setUserString}
+            setEmailString={setEmailString}
             setPasswordString={setPasswordString}
-            validName={validName}
+            validEmail={validEmail}
             validPassword={validPassword}
             logIn={logIn}
           />
         ) : (
           <SignupForm
-            userString={userString}
+            // fields
+            emailString={emailString}
             passwordString={passwordString}
             confirmPasswordString={confirmPasswordString}
-            setUserString={setUserString}
+            nameString={nameString}
+            streetString={streetString}
+            cityString={cityString}
+            stateString={stateString}
+            zipCodeString={zipCodeString}
+            typeString={typeString}
+            phoneString={phoneString}
+            descriptionString={descriptionString}
+            imageString={imageString}
+            closingString={closingString}
+            // set fields
+            setEmailString={setEmailString}
             setPasswordString={setPasswordString}
             setConfirmPasswordString={setConfirmPasswordString}
+            setNameString={setNameString}
+            setStreetString={setStreetString}
+            setCityString={setCityString}
+            setStateString={setStateString}
+            setZipCodeString={setZipCodeString}
+            setTypeString={setTypeString}
+            setPhoneString={setPhoneString}
+            setDescriptionString={setDescriptionString}
+            setImageString={setImageString}
+            setClosingString={setClosingString}
+            // validation
+            validEmail={validEmail}
             validName={validName}
             validPassword={validPassword}
             passwordMatch={passwordMatch}
+            // else
             signUp={signUp}
+            signupStep={signupStep}
+            incrementSignup={incrementSignup}
           />
         )}
       </FormGroup>

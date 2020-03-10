@@ -52,28 +52,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const SignupForm = ({
-  userString,
-  passwordString,
-  confirmPasswordString,
-  setUserString,
-  setPasswordString,
-  setConfirmPasswordString,
-  validName,
-  validPassword,
-  passwordMatch,
-  signUp
-}) => {
+const SignupForm = props => {
   const classes = useStyles();
+
   return (
     <>
       <Box className={classes.formContent}>
         <FormControl>
-          <InputLabel htmlFor="my-input1">Username</InputLabel>
+          <InputLabel htmlFor="my-input1">Email</InputLabel>
           <Input
-            error={!validName}
-            value={userString}
-            onChange={e => setUserString(e.target.value)}
+            error={!props.validName}
+            value={props.emailString}
+            onChange={e => props.setEmailString(e.target.value)}
             id="my-input1"
             type="text"
             aria-describedby="my-helper-text"
@@ -82,9 +72,9 @@ const SignupForm = ({
         <FormControl>
           <InputLabel htmlFor="my-input2">Password</InputLabel>
           <Input
-            error={!validPassword}
-            value={passwordString}
-            onChange={e => setPasswordString(e.target.value)}
+            error={!props.validPassword}
+            value={props.passwordString}
+            onChange={e => props.setPasswordString(e.target.value)}
             type="password"
             id="my-input2"
           />
@@ -92,23 +82,34 @@ const SignupForm = ({
         <FormControl>
           <InputLabel htmlFor="my-input2">Confirm password</InputLabel>
           <Input
-            error={!passwordMatch}
-            value={confirmPasswordString}
-            onChange={e => setConfirmPasswordString(e.target.value)}
+            error={!props.passwordMatch}
+            value={props.confirmPasswordString}
+            onChange={e => props.setConfirmPasswordString(e.target.value)}
             type="password"
             id="my-input2"
           />
         </FormControl>
       </Box>
       <FormControl>
-        <Button
-          className={classes.submitLogin}
-          variant="outlined"
-          color="secondary"
-          onClick={signUp}
-        >
-          Continue
-        </Button>
+        {props.signupStep === 1 ? (
+          <Button
+            className={classes.submitLogin}
+            variant="outlined"
+            color="secondary"
+            onClick={props.incrementSignup}
+          >
+            Continue
+          </Button>
+        ) : (
+          <Button
+            className={classes.submitLogin}
+            variant="outlined"
+            color="secondary"
+            onClick={props.signUp}
+          >
+            Sign up
+          </Button>
+        )}
       </FormControl>
     </>
   );
