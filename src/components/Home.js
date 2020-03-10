@@ -1,24 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Splash from './Splash';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+  Box
+} from '@material-ui/core/';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { pink } from '@material-ui/core/colors';
 import { Link } from 'react-router-dom';
 
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: 'Montserrat, sans-serif'
+  }
+});
+
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex'
-  },
-  details: {
     display: 'flex',
-    flexDirection: 'column'
+    justifyContent: 'space-between'
   },
-  content: {
-    flex: '1 0 auto'
+  container: {
+    padding: 10,
+    background: '#EDE9E7'
   },
+  card: {
+    margin: '10px 0'
+  },
+  content: {},
   cover: {
     width: 151,
     backgroundColor: pink
@@ -26,71 +39,55 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Home = ({ hideSplash, splash }) => {
+  const [vendors, setVendors] = useState([]);
   const classes = useStyles();
   const theme = useTheme();
 
+  useEffect(() => {
+    console.log(process.env.REACT_APP_SERVER_URL);
+    fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setVendors(data);
+      })
+      .catch(err => console.error(err));
+  }, []);
+
   return (
     <>
+      {/*====================SPLASH PAGE====================*/}
       <Splash hideSplash={hideSplash} splash={splash} />
       <section id="home" className={splash ? 'home-hidden' : null}>
-        <Card className={classes.root}>
-          <div className={classes.details}>
-            <CardContent className={classes.content}>
-              <Typography component="h5" variant="h5">
-                <Link to="/vendor">restaurant 1</Link>
-              </Typography>
-            </CardContent>
-          </div>
-          <CardMedia
-            className={classes.cover}
-            image="/public/images/home-placeholder.jpg"
-            title="placeholder image for vendor"
-          />
-        </Card>
+        <Box className={classes.container}>
+          {vendors.map(vendor => {
+            return (
+              <CardActionArea
+                key={vendor.id}
+                className={classes.card}
+                component={Link}
+                to={`/vendors/${vendor.id}`}
+              >
+                <Card className={classes.root}>
+                  <CardContent className={classes.content}>
+                    <Typography component="h5" variant="h5">
+                      {vendor.name}
+                    </Typography>
+                    <Typography>
+                      {vendor.street}, {vendor.city}, {vendor.state}
+                    </Typography>
+                  </CardContent>
 
-        <div className={classes.details}>
-          <CardContent className={classes.content}>
-            <Link to="/vendor">restaurant 2</Link>
-          </CardContent>
-        </div>
-        <CardMedia
-          className={classes.cover}
-          image="home-placeholder.jpg"
-          title="placeholder image for vendor"
-        />
-
-        <div className={classes.details}>
-          <CardContent className={classes.content}>
-            <Link to="/vendor">restaurant 3</Link>
-          </CardContent>
-        </div>
-        <CardMedia
-          className={classes.cover}
-          image="home-placeholder.jpg"
-          title="placeholder image for vendor"
-        />
-
-        <div className={classes.details}>
-          <CardContent className={classes.content}>
-            <Link to="/vendor">restaurant 4</Link>
-          </CardContent>
-        </div>
-        <CardMedia
-          className={classes.cover}
-          image="home-placeholder.jpg"
-          title="placeholder image for vendor"
-        />
-
-        <div className={classes.details}>
-          <CardContent className={classes.content}>
-            <Link to="/vendor">restaurant 5</Link>
-          </CardContent>
-        </div>
-        <CardMedia
-          className={classes.cover}
-          image="home-placeholder.jpg"
-          title="placeholder image for vendor"
-        />
+                  <CardMedia
+                    className={classes.cover}
+                    image={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
+                    title="placeholder image for vendor"
+                  />
+                </Card>
+              </CardActionArea>
+            );
+          })}
+        </Box>
       </section>
     </>
   );

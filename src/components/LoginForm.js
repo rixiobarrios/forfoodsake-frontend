@@ -9,6 +9,7 @@ import {
   Tabs,
   Tab
 } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 import { withStyles, makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -51,7 +52,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const LoginForm = ({ url }) => {
+const LoginForm = ({ url, valid, showValid, setUser }) => {
+  let history = useHistory();
   const classes = useStyles();
   const [userString, setUserString] = useState('');
   const [passwordString, setPasswordString] = useState('');
@@ -61,24 +63,74 @@ const LoginForm = ({ url }) => {
     setFormType(newValue);
   };
   const [step, setStep] = useState(1);
-
   const signUp = e => {
-    fetch(`http://localhost:5000/api/vendors/new`, {
-      method: 'POST',
-      body: JSON.stringify({
-        name: userString,
-        password: passwordString
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => res.json())
-      .then(data => console.log(data));
+    e.preventDefault();
+    let tempValid = valid;
+    // if username/password isnt empty, or password/confirm match
+    console.log(userString, passwordString);
+    if (
+      userString &&
+      passwordString &&
+      passwordString === confirmPasswordString
+    ) {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/new`, {
+        method: 'POST',
+        body: JSON.stringify({
+          name: userString,
+          password: passwordString
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          setUser(data);
+          history.push('/');
+        });
+    } else {
+      tempValid.username = !!userString; //true if string isnt empty
+      tempValid.password = !!passwordString;
+      tempValid.passwordsMatch = passwordString === confirmPasswordString;
+      console.log(tempValid);
+      showValid(tempValid);
+    }
   };
   const logIn = e => {
     e.preventDefault();
-    console.log('log in');
+    let tempValid = valid;
+    // if username/password isnt empty, or password/confirm match
+    console.log(userString, passwordString);
+    if (userString && passwordString) {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/login`, {
+        method: 'POST',
+        body: JSON.stringify({
+          name: userString,
+          password: passwordString
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then((res, err) => {
+          if (err) {
+            console.log(err);
+            return;
+          }
+          console.log(res);
+          return res.json();
+        })
+        .then(data => {
+          setUser(data);
+          history.push('/');
+        })
+        .catch(err => console.error(err));
+    } else {
+      tempValid.username = !!userString; //true if string isnt empty
+      tempValid.password = !!passwordString;
+      console.log(tempValid);
+      showValid(tempValid);
+    }
   };
 
   return (
@@ -98,6 +150,7 @@ const LoginForm = ({ url }) => {
           <FormControl>
             <InputLabel htmlFor="my-input1">Username</InputLabel>
             <Input
+              error={!valid.userString}
               value={userString}
               onChange={e => setUserString(e.target.value)}
               id="my-input1"

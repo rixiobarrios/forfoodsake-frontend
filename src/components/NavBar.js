@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
   const classes = useStyles();
   const [value, setValue] = useState();
   return (
@@ -42,13 +42,15 @@ const NavBar = () => {
         label="Home"
         icon={<HomeIcon />}
       />
-      <BottomNavigationAction
-        component={Link}
-        className={classes.navIcon}
-        to="/vendor-profile"
-        label="Profile"
-        icon={<PersonIcon />}
-      />
+      {user ? (
+        <BottomNavigationAction
+          component={Link}
+          className={classes.navIcon}
+          to={`/vendors/${user.id}`}
+          label="Profile"
+          icon={<PersonIcon />}
+        />
+      ) : null}
     </BottomNavigation>
   );
 };

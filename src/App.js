@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Home from './components/Home';
-import VendorDetail from './components/VendorDetail';
 import FoodDetail from './components/FoodDetail';
 import { Route, Link, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar';
@@ -16,18 +15,21 @@ function App() {
   const [valid, setValid] = useState({
     username: true,
     password: true,
+    passwordsMatch: true,
     verified: true
   });
   // const url = useState('http://forfoodsake-backend.herokuapp.com/api');
   const url = useState('http://localhost:5000/api');
-
+  const showValid = data => {
+    setValid(data);
+  };
   const hideSplash = () => {
     setSplash(false);
   };
   useEffect(() => {
     setTimeout(() => {
       hideSplash();
-    }, 3000);
+    }, 1000);
   }, []);
   return (
     <div className="App">
@@ -38,19 +40,36 @@ function App() {
             path="/"
             component={() => <Home hideSplash={hideSplash} splash={splash} />}
           />
-          <Route exact path="/vendor" component={VendorDetail} />
           <Route exact path="/listing" component={FoodDetail} />
           <Route
             exact
             path="/login"
-            component={() => <LoginForm valid={valid} url={url} />}
+            component={() => (
+              <LoginForm
+                valid={valid}
+                showValid={showValid}
+                url={url}
+                setUser={setUser}
+                user={user}
+              />
+            )}
           />
-          <Route exact path="/vendor-profile" component={VendorProfile} />
+          <Route
+            exact
+            path="/vendors/:id"
+            render={routerProps => (
+              <VendorProfile
+                match={routerProps.match}
+                user={user}
+                setUser={setUser}
+              />
+            )}
+          />
           <Route exact path="/listing/id" component={ListingDetail} />
         </Switch>
       </main>
       <footer className="nav-container">
-        <NavBar splash={splash} />
+        <NavBar splash={splash} user={user} />
       </footer>
     </div>
   );
