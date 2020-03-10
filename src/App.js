@@ -4,7 +4,7 @@ import Home from './components/Home';
 import FoodDetail from './components/FoodDetail';
 import { Route, Link, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import LoginForm from './components/LoginForm';
+import AccountForm from './components/AccountForm';
 import VendorProfile from './components/VendorProfile';
 import ListingDetail from './components/ListingDetail';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -38,7 +38,7 @@ function App() {
             exact
             path="/login"
             component={() => (
-              <LoginForm url={url} setUser={setUser} user={user} />
+              <AccountForm url={url} setUser={setUser} user={user} />
             )}
           />
           <Route
