@@ -57,7 +57,7 @@ const LoginForm = ({
   passwordString,
   setEmailString,
   setPasswordString,
-  validName,
+  validEmail,
   validPassword,
   logIn
 }) => {
@@ -66,9 +66,9 @@ const LoginForm = ({
     <>
       <Box className={classes.formContent}>
         <FormControl>
-          <InputLabel htmlFor="my-input1">Username</InputLabel>
+          <InputLabel htmlFor="my-input1">Email</InputLabel>
           <Input
-            error={!validName}
+            error={!validEmail}
             value={emailString}
             onChange={e => setEmailString(e.target.value)}
             id="my-input1"
