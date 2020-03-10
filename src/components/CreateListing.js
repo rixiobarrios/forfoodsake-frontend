@@ -77,7 +77,10 @@ export default function CreateListing({ user }) {
               headers: {
                 'Content-Type': 'application/json'
               }
-            }).then(res => console.log(res));
+            }).then(res => {
+                console.log(res)
+                history.push(`/vendors/${user.id}`)
+            });
         } else {
             history.push('/login')
         }

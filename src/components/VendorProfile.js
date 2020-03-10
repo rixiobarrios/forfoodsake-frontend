@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
 import { Link } from 'react-router-dom';
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+  Box
+} from '@material-ui/core/';
 
 const useStyles = makeStyles(() => ({
   img: {
@@ -100,7 +107,7 @@ const VendorProfile = ({ match, user, setUser }) => {
         ) : null}
         <Box>
           {vendor.Listings.map(listing => (
-            <Box>{listing.name}</Box>
+            <Box>{listing.name}{listing.price}</Box>
           ))}
         </Box>
       </Box>
