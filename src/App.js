@@ -8,22 +8,14 @@ import LoginForm from './components/LoginForm';
 import VendorProfile from './components/VendorProfile';
 import ListingDetail from './components/ListingDetail';
 import { createMuiTheme } from '@material-ui/core/styles';
-import CreateListing from './components/CreateListing'
+import CreateListing from './components/CreateListing';
 
 function App() {
   const [splash, setSplash] = useState(true);
   const [user, setUser] = useState();
-  const [valid, setValid] = useState({
-    username: true,
-    password: true,
-    passwordsMatch: true,
-    verified: true
-  });
+
   // const url = useState('http://forfoodsake-backend.herokuapp.com/api');
   const url = useState('http://localhost:5000/api');
-  const showValid = data => {
-    setValid(data);
-  };
   const hideSplash = () => {
     setSplash(false);
   };
@@ -46,13 +38,7 @@ function App() {
             exact
             path="/login"
             component={() => (
-              <LoginForm
-                valid={valid}
-                showValid={showValid}
-                url={url}
-                setUser={setUser}
-                user={user}
-              />
+              <LoginForm url={url} setUser={setUser} user={user} />
             )}
           />
           <Route
@@ -67,9 +53,13 @@ function App() {
             )}
           />
           <Route exact path="/listing/id" component={ListingDetail} />
-          <Route exact path="/newlisting" render={routerProps => {
-            return <CreateListing user={user} />;
-          }}/>
+          <Route
+            exact
+            path="/newlisting"
+            render={routerProps => {
+              return <CreateListing user={user} />;
+            }}
+          />
         </Switch>
       </main>
       <footer className="nav-container">

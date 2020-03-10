@@ -52,57 +52,72 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const LoginForm = ({ url, valid, showValid, setUser }) => {
+const LoginForm = ({ url, setUser }) => {
+  const [valid, setValid] = useState({
+    username: true,
+    password: true,
+    passwordsMatch: true,
+    verified: true
+  });
+  const [validName, setValidName] = useState(true);
+  const [validPassword, setValidPassword] = useState(true);
+  const [passwordMatch, setPasswordMatch] = useState(true);
+
   let history = useHistory();
   const classes = useStyles();
   const [userString, setUserString] = useState('');
   const [passwordString, setPasswordString] = useState('');
   const [confirmPasswordString, setConfirmPasswordString] = useState('');
   const [formType, setFormType] = useState(1);
-  const handleChange = (e, newValue) => {
+  const changeTabs = (e, newValue) => {
     setFormType(newValue);
+    // reset fields
+    setUserString('');
+    setPasswordString('');
+    setConfirmPasswordString('');
+
+    // reset errors
+    setValidName(true);
+    setValidPassword(true);
+    setPasswordMatch(true);
   };
   const [step, setStep] = useState(1);
   const signUp = e => {
     e.preventDefault();
-    let tempValid = valid;
     // if username/password isnt empty, or password/confirm match
-    console.log(userString, passwordString);
     if (
       userString &&
       passwordString &&
       passwordString === confirmPasswordString
     ) {
       // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/new`, {
-        fetch(`http://localhost:5000/api/vendors/new`, {
-          method: 'POST',
-          body: JSON.stringify({
-            name: userString,
-            password: passwordString
-          }),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-          .then(res => res.json())
-          .then(data => {
-            setUser(data);
-            history.push('/');
-          });
+      fetch(`http://localhost:5000/api/vendors/new`, {
+        method: 'POST',
+        body: JSON.stringify({
+          name: userString,
+          password: passwordString
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          setUser(data);
+          history.push('/');
+        });
     } else {
-      tempValid.username = !!userString; //true if string isnt empty
-      tempValid.password = !!passwordString;
-      tempValid.passwordsMatch = passwordString === confirmPasswordString;
-      console.log(tempValid);
-      showValid(tempValid);
+      setValidName(!!userString); //true if string isnt empty
+      setValidPassword(!!passwordString);
+      setPasswordMatch(passwordString === confirmPasswordString);
     }
   };
   const logIn = e => {
     e.preventDefault();
-    let tempValid = valid;
-    // if username/password isnt empty, or password/confirm match
-    console.log(userString, passwordString);
+    // if username and password aren't empty, and password and confirmPassword match
+    console.log('check', userString, passwordString);
     if (userString && passwordString) {
+      console.log('pass');
       fetch(`http://localhost:5000/api/vendors/login`, {
         method: 'POST',
         body: JSON.stringify({
@@ -127,10 +142,8 @@ const LoginForm = ({ url, valid, showValid, setUser }) => {
         })
         .catch(err => console.error(err));
     } else {
-      tempValid.username = !!userString; //true if string isnt empty
-      tempValid.password = !!passwordString;
-      console.log(tempValid);
-      showValid(tempValid);
+      setValidName(!!userString); //true if string isnt empty
+      setValidPassword(!!passwordString);
     }
   };
 
@@ -139,7 +152,7 @@ const LoginForm = ({ url, valid, showValid, setUser }) => {
       <h2>Welcome to ForFoodSake</h2>
       <FormGroup className={classes.form}>
         <Tabs
-          onChange={handleChange}
+          onChange={changeTabs}
           value={formType}
           className={classes.tabs}
           variant="fullWidth"
@@ -151,7 +164,7 @@ const LoginForm = ({ url, valid, showValid, setUser }) => {
           <FormControl>
             <InputLabel htmlFor="my-input1">Username</InputLabel>
             <Input
-              error={!valid.userString}
+              error={!validName}
               value={userString}
               onChange={e => setUserString(e.target.value)}
               id="my-input1"
@@ -162,6 +175,7 @@ const LoginForm = ({ url, valid, showValid, setUser }) => {
           <FormControl>
             <InputLabel htmlFor="my-input2">Password</InputLabel>
             <Input
+              error={!validPassword}
               value={passwordString}
               onChange={e => setPasswordString(e.target.value)}
               type="password"
@@ -172,6 +186,7 @@ const LoginForm = ({ url, valid, showValid, setUser }) => {
             <FormControl>
               <InputLabel htmlFor="my-input2">Confirm password</InputLabel>
               <Input
+                error={!passwordMatch}
                 value={confirmPasswordString}
                 onChange={e => setConfirmPasswordString(e.target.value)}
                 type="password"
