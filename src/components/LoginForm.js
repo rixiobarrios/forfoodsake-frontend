@@ -22,10 +22,11 @@ const useStyles = makeStyles(theme => ({
   },
   form: {
     border: '1px solid black',
-    height: 310,
-    width: 300,
+    height: 320,
+    width: 310,
     background: '#fff'
   },
+  tabIndicator: {},
   formContent: {
     maxWidth: '100%',
     display: 'flex',
@@ -35,14 +36,16 @@ const useStyles = makeStyles(theme => ({
     height: 130
   },
   tabs: {
-    indicatorColor: '#ff0000',
+    indicatorColor: 'blue',
     color: 'black'
   },
   submitLogin: {
     margin: '30px auto',
     width: 200
   },
-  tab: {},
+  tab: {
+    height: '100%'
+  },
   paper: {
     background: 'transparent'
   }
@@ -57,6 +60,7 @@ const LoginForm = ({ url }) => {
   const handleChange = (e, newValue) => {
     setFormType(newValue);
   };
+  const [step, setStep] = useState(1);
 
   const signUp = e => {
     fetch(`http://localhost:5000/api/vendors/new`, {
@@ -87,8 +91,8 @@ const LoginForm = ({ url }) => {
           className={classes.tabs}
           variant="fullWidth"
         >
-          <Tab label="Sign Up" />
-          <Tab label="Log In" />
+          <Tab label="Sign Up" className={classes.tab} />
+          <Tab label="Log In" className={classes.tab} />
         </Tabs>
         <Box className={classes.formContent}>
           <FormControl>
@@ -129,7 +133,7 @@ const LoginForm = ({ url }) => {
             color="secondary"
             onClick={formType ? logIn : signUp}
           >
-            {formType ? 'Log In' : 'Sign Up'}
+            {formType ? 'Log In' : 'Continue'}
           </Button>
         </FormControl>
       </FormGroup>

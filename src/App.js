@@ -13,6 +13,11 @@ import { createMuiTheme } from '@material-ui/core/styles';
 function App() {
   const [splash, setSplash] = useState(true);
   const [user, setUser] = useState();
+  const [valid, setValid] = useState({
+    username: true,
+    password: true,
+    verified: true
+  });
   // const url = useState('http://forfoodsake-backend.herokuapp.com/api');
   const url = useState('http://localhost:5000/api');
 
@@ -38,7 +43,7 @@ function App() {
           <Route
             exact
             path="/login"
-            component={() => <LoginForm url={url} />}
+            component={() => <LoginForm valid={valid} url={url} />}
           />
           <Route exact path="/vendor-profile" component={VendorProfile} />
           <Route exact path="/listing/id" component={ListingDetail} />

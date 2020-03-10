@@ -43,9 +43,19 @@ a {
   display: none;
 }
 
+/*Splash image cause bg doesnt work*/
+.splash-bg {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 6;
+}
+
 .splash-logo {
   height: 30vh;
   padding: 10vh;
+  position: relative;
+  z-index: 7;
 }
 
 footer {

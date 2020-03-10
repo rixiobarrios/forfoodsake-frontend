@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { pink } from '@material-ui/core/colors';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,7 +37,7 @@ const Home = ({ hideSplash, splash }) => {
           <div className={classes.details}>
             <CardContent className={classes.content}>
               <Typography component="h5" variant="h5">
-                <a href="/vendor">restaurant 1</a>
+                <Link to="/vendor">restaurant 1</Link>
               </Typography>
             </CardContent>
           </div>
@@ -49,7 +50,7 @@ const Home = ({ hideSplash, splash }) => {
 
         <div className={classes.details}>
           <CardContent className={classes.content}>
-            <a href="/vendor">restaurant 2</a>
+            <Link to="/vendor">restaurant 2</Link>
           </CardContent>
         </div>
         <CardMedia
@@ -60,7 +61,7 @@ const Home = ({ hideSplash, splash }) => {
 
         <div className={classes.details}>
           <CardContent className={classes.content}>
-            <a href="/vendor">restaurant 3</a>
+            <Link to="/vendor">restaurant 3</Link>
           </CardContent>
         </div>
         <CardMedia
@@ -71,7 +72,7 @@ const Home = ({ hideSplash, splash }) => {
 
         <div className={classes.details}>
           <CardContent className={classes.content}>
-            <a href="/vendor">restaurant 4</a>
+            <Link to="/vendor">restaurant 4</Link>
           </CardContent>
         </div>
         <CardMedia
@@ -82,7 +83,7 @@ const Home = ({ hideSplash, splash }) => {
 
         <div className={classes.details}>
           <CardContent className={classes.content}>
-            <a href="/vendor">restaurant 5</a>
+            <Link to="/vendor">restaurant 5</Link>
           </CardContent>
         </div>
         <CardMedia
