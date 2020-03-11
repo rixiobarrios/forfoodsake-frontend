@@ -24,32 +24,17 @@ const useStyles = makeStyles(theme => ({
         background: '#EDE9E7'
     },
     form: {
-        height: 320,
+        minHeight: 350,
         width: 310,
         background: '#fff'
     },
     tabIndicator: {},
-    formContent: {
-        maxWidth: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        padding: '10px 20px',
-        height: 130
-    },
     tabs: {
         indicatorColor: 'blue',
         color: 'black'
     },
-    submitLogin: {
-        margin: '30px auto',
-        width: 200
-    },
     tab: {
         height: '100%'
-    },
-    paper: {
-        background: 'transparent'
     }
 }));
 
@@ -91,6 +76,25 @@ const AccountForm = ({ url, setUser }) => {
     // Signup steps
     const [signupStep, setSignupStep] = useState(1);
     const incrementSignup = () => {
+        switch (signupStep) {
+            case 1:
+                if (
+                    !emailString ||
+                    !passwordString ||
+                    confirmPasswordString !== passwordString
+                ) {
+                    setValidEmail(!!emailString);
+                    setValidPassword(!!passwordString);
+                    setPasswordMatch(confirmPasswordString === passwordString);
+                    return;
+                }
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+        }
         setSignupStep(signupStep + 1);
     };
 
@@ -144,7 +148,6 @@ const AccountForm = ({ url, setUser }) => {
         // if email and password aren't empty, and password and confirmPassword match
         console.log('check', emailString, passwordString);
         if (emailString && passwordString) {
-            console.log('pass');
             fetch(`http://localhost:5000/api/vendors/login`, {
                 method: 'POST',
                 body: JSON.stringify({
@@ -232,6 +235,7 @@ const AccountForm = ({ url, setUser }) => {
                         validName={validName}
                         validPassword={validPassword}
                         passwordMatch={passwordMatch}
+                        validType={validType}
                         // else
                         signUp={signUp}
                         signupStep={signupStep}
