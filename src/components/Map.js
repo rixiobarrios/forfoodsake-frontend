@@ -4,7 +4,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
     map: {
         width: '100%',
-        height: 150,
+        height: 160,
         border: 0
     }
 }));
@@ -24,7 +24,7 @@ const Map = ({ user }) => {
                 user.state,
                 user.zipCode
             )}`}
-            allowfullscreen
+            allowFullScreen
         ></iframe>
     );
 };
