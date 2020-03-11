@@ -1,13 +1,59 @@
 import React, { useEffect, useState } from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { Grid, Typography, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/Styles';
 import Map from './Map';
 const useStyles = makeStyles({
-    root: {
-        maxWidth: 600
+    mediaContainer: {
+        width: '100%',
+        height: 200,
+        overflow: 'hidden',
+        position: 'relative',
+        zIndex: 5
     },
-    media: { maxHeight: 200 }
+    imgOverlay: {
+        position: 'absolute',
+        height: '100%',
+        width: '100%',
+        background: 'linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.2))',
+        color: '#fff',
+        fontSize: '1.5rem',
+        padding: 20
+    },
+    media: {
+        width: '100%'
+    },
+    listingInfo: {
+        borderBottom: '1px solid #bbb',
+        height: '250px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-evenly',
+        alignItems: 'flex-start',
+        margin: '0 auto',
+        width: 'calc(100% - 4rem)'
+    },
+    info1: {
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    name: {
+        maxWidth: 220
+    },
+    price: {
+        fontSize: '1.2rem',
+        transform: 'translateY(-5px)'
+    },
+    description: {
+        margin: '0 auto',
+        fontSize: '1.2rem',
+        lineHeight: '1.4',
+        width: 'calc(100% - 4rem)',
+        padding: '2rem 1rem'
+    }
 });
 const ListingDetail = ({ match }) => {
     const classes = useStyles();
@@ -42,21 +88,52 @@ const ListingDetail = ({ match }) => {
     };
     if (listing) {
         return (
-            <Grid container direction="column" spacing={2}>
-                <img
-                    src="/images/food-placeholder.jpg"
-                    alt="food"
-                    className={classes.media}
-                />
-                <Typography gutterBottom variant="h5" component="h2">
-                    Item Name
+            <Box>
+                <Box className={classes.mediaContainer}>
+                    <Box className={classes.imgOverlay}>
+                        <Link to={`/vendors/${vendor.id}`}>
+                            <ArrowBackIosIcon
+                                style={{
+                                    transform: 'translateY(4px)',
+                                    marginRight: -5
+                                }}
+                            />{' '}
+                            {vendor.name}
+                        </Link>
+                    </Box>
+                    <img
+                        src={`${process.env.PUBLIC_URL}/images/food-placeholder.jpg`}
+                        alt="food"
+                        className={classes.media}
+                    />
+                </Box>
+                <Box className={classes.listingInfo}>
+                    <Box className={classes.info1}>
+                        <Typography
+                            className={classes.name}
+                            gutterBottom
+                            variant="h5"
+                            component="h5"
+                        >
+                            {listing.name}
+                        </Typography>
+                        <Typography className={classes.price}>
+                            ${listing.price}
+                        </Typography>
+                    </Box>
+                    <Typography className={classes.closing}>
+                        Pick up by {vendor.closing_time}
+                    </Typography>
+                    <Typography>
+                        {vendor.street}, {vendor.city}, {vendor.state}{' '}
+                        {vendor.zip_code}
+                    </Typography>
+                </Box>
+                <Typography className={classes.description}>
+                    {listing.description}
                 </Typography>
-                <Typography>Price: {listing.price}</Typography>
-                <Typography>Description</Typography>
-                <Typography>Pickup by 6:00 pm</Typography>
-                <Typography>123 Happy St, New York, NY 00000</Typography>
                 {vendor ? <Map user={vendor} /> : null}
-            </Grid>
+            </Box>
         );
     } else {
         return null;
