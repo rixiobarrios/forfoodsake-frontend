@@ -110,14 +110,14 @@ const VendorProfile = ({ match, user, setUser }) => {
         <Box>
           {vendor.Listings.map(listing => (
             // need a key in here
-            <Link to={`vendors/${vendor.id}/listings/${listing.id}`}>
+            <Link to={`vendors/${vendor.id}/listings/${listing.id}`} key={vendor.id}>
               <Grid>
                 <Grid item xs={6}>
                   <Card variant="outlined">
                     <CardActionArea>
                       <CardMedia
                         className={classes.CardMedia}
-                        image=""
+                        src={classes.image}
                         title="listing food picture"
                       />
                       <CardContent>
