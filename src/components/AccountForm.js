@@ -23,33 +23,24 @@ const useStyles = makeStyles(theme => ({
         minHeight: '100vh',
         background: '#EDE9E7'
     },
+    loginLogo: {
+        height: 120,
+        position: 'absolute',
+        top: 25,
+        left: 35
+    },
     form: {
-        height: 320,
-        width: 310,
+        minHeight: 400,
+        width: 300,
         background: '#fff'
     },
     tabIndicator: {},
-    formContent: {
-        maxWidth: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        padding: '10px 20px',
-        height: 130
-    },
     tabs: {
         indicatorColor: 'blue',
         color: 'black'
     },
-    submitLogin: {
-        margin: '30px auto',
-        width: 200
-    },
     tab: {
         height: '100%'
-    },
-    paper: {
-        background: 'transparent'
     }
 }));
 
@@ -91,6 +82,25 @@ const AccountForm = ({ url, setUser }) => {
     // Signup steps
     const [signupStep, setSignupStep] = useState(1);
     const incrementSignup = () => {
+        switch (signupStep) {
+            case 1:
+                if (
+                    !emailString ||
+                    !passwordString ||
+                    confirmPasswordString !== passwordString
+                ) {
+                    setValidEmail(!!emailString);
+                    setValidPassword(!!passwordString);
+                    setPasswordMatch(confirmPasswordString === passwordString);
+                    return;
+                }
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+        }
         setSignupStep(signupStep + 1);
     };
 
@@ -110,41 +120,40 @@ const AccountForm = ({ url, setUser }) => {
     };
     const signUp = e => {
         e.preventDefault();
-        // if username/password isnt empty, or password/confirm match
-        if (
-            emailString &&
-            passwordString &&
-            passwordString === confirmPasswordString
-        ) {
-            // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/new`, {
-            fetch(`http://localhost:5000/api/vendors/new`, {
-                method: 'POST',
-                body: JSON.stringify({
-                    email: emailString,
-                    password: passwordString
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log('data', data);
-                    setUser(data);
-                    history.push('/');
-                });
-        } else {
-            setValidEmail(!!emailString); //true if string isnt empty
-            setValidPassword(!!passwordString);
-            setPasswordMatch(passwordString === confirmPasswordString);
-        }
+
+        // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/new`, {
+        fetch(`http://localhost:5000/api/vendors/new`, {
+            method: 'POST',
+            body: JSON.stringify({
+                name: nameString,
+                type: typeString,
+                phone: phoneString,
+                email: emailString,
+                password: passwordString,
+                closing_time: closingString,
+                street: streetString,
+                city: cityString,
+                state: stateString,
+                zip_code: zipCodeString,
+                description: descriptionString,
+                image: imageString
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('data', data);
+                setUser(data);
+                history.push('/');
+            });
     };
     const logIn = e => {
         e.preventDefault();
         // if email and password aren't empty, and password and confirmPassword match
         console.log('check', emailString, passwordString);
         if (emailString && passwordString) {
-            console.log('pass');
             fetch(`http://localhost:5000/api/vendors/login`, {
                 method: 'POST',
                 body: JSON.stringify({
@@ -176,7 +185,11 @@ const AccountForm = ({ url, setUser }) => {
 
     return (
         <Box className={classes.container}>
-            <h2>Welcome to ForFoodSake</h2>
+            <img
+                src={`${process.env.PUBLIC_URL}/images/logo.png`}
+                alt="ForFoodSake Logo"
+                className={classes.loginLogo}
+            />
             <FormGroup className={classes.form}>
                 <Tabs
                     onChange={changeTabs}
@@ -232,6 +245,7 @@ const AccountForm = ({ url, setUser }) => {
                         validName={validName}
                         validPassword={validPassword}
                         passwordMatch={passwordMatch}
+                        validType={validType}
                         // else
                         signUp={signUp}
                         signupStep={signupStep}
