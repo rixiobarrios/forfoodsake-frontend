@@ -8,7 +8,9 @@ it('should render the information specific to the listing', async () => {
     id: 1
   };
   const listing = {
-    id: '3'
+    id: '3',
+    image: 'kaknhaksnbkjsa',
+    price: '7'
   };
   render(<FoodListItem listing={listing} vendor={vendor} />);
 });
