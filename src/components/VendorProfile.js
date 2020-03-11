@@ -8,7 +8,8 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  Box
+  Box,
+  Grid
 } from '@material-ui/core/';
 
 const useStyles = makeStyles(() => ({
@@ -107,7 +108,33 @@ const VendorProfile = ({ match, user, setUser }) => {
         ) : null}
         <Box>
           {vendor.Listings.map(listing => (
-            <Box>{listing.name}{listing.price}</Box>
+              // need a key in here
+            <Grid>
+              <Grid item xs={6}>
+                <Card variant="outlined">
+                  <CardActionArea>
+                    <CardMedia
+                      className={classes.CardMedia}
+                      image=""
+                      title="listing food picture"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {listing.name}
+                      </Typography>
+                      <Typography
+                        gutterBottom
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        ${listing.price}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+            </Grid>
           ))}
         </Box>
       </Box>
