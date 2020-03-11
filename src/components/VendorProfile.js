@@ -12,6 +12,7 @@ import {
     Box,
     Grid
 } from '@material-ui/core/';
+import FoodListItem from './FoodListItem';
 
 const useStyles = makeStyles(() => ({
     img: {
