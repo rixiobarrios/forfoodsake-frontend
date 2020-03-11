@@ -67,7 +67,7 @@
 //     );
 // }
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/Styles';
@@ -78,8 +78,28 @@ const useStyles = makeStyles({
     },
     media: { maxHeight: 200 }
 });
-const ListingDetail = () => {
+const ListingDetail = ({ match }) => {
     const classes = useStyles();
+    console.log(match)
+    const [vendor, setVendor] = useState(0);
+    const [listing, setListing] = useState(0)
+    useEffect(() => {
+        console.log('IS THIS WORKING')
+        fetch(`http://localhost:5000/api/vendors/${match.vendorId}`)
+          .then(res => res.json()).then(data => {
+              console.log(data)
+              setVendor(data);
+              setListing(
+                data.Listings.find(
+                  listing => listing.id === parseInt(match.listingId)
+                )
+              );
+          })
+
+        
+    }, [])
+
+
     return (
         <Grid container direction="column" spacing={2}>
             <img
@@ -94,7 +114,7 @@ const ListingDetail = () => {
             <Typography>Description</Typography>
             <Typography>Pickup by 6:00 pm</Typography>
             <Typography>123 Happy St, New York, NY 00000</Typography>
-            <Map />
+            {/* <Map user={vendor}/> */}
         </Grid>
     );
 };

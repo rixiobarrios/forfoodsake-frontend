@@ -9,7 +9,8 @@ import {
     CardContent,
     CardMedia,
     Typography,
-    Box
+    Box,
+    Grid
 } from '@material-ui/core/';
 
 const useStyles = makeStyles(() => ({
@@ -63,66 +64,87 @@ const VendorProfile = ({ match, user, setUser }) => {
     };
     const editAccount = () => {};
 
-    if (vendor) {
-        return (
-            <Box>
-                <Box className={classes.imgContainer}>
-                    <img
-                        src={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
-                        alt="vendor profile"
-                        className={classes.img}
-                    />
-                </Box>
-                <Box className={classes.vendorInfo}>
-                    <h2>{vendor.name}</h2>
-                    <a href={`mailto:${vendor.email}`}>{vendor.email}</a>
-                    <div className={classes.address}>
-                        {vendor.street}
-                        <br />
-                        {vendor.city}
-                        <br />
-                        {vendor.state} {vendor.zipCode}
-                    </div>
-                    <p>{vendor.phone}</p>
-                </Box>
-                <Box className={classes.description}>{vendor.description}</Box>
-                <Map user={vendor} />
-                {user && user.id === vendor.id ? (
-                    <>
-                        <Button
-                            variant="outlined"
-                            color="secondary"
-                            onClick={deleteAccount}
+  if (vendor) {
+    return (
+      <Box>
+        <Box className={classes.imgContainer}>
+          <img
+            src={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
+            alt="vendor profile"
+            className={classes.img}
+          />
+        </Box>
+        <Box className={classes.vendorInfo}>
+          <h2>{vendor.name}</h2>
+          <a href={`mailto:${vendor.email}`}>{vendor.email}</a>
+          <div className={classes.address}>
+            {vendor.street}
+            <br />
+            {vendor.city}
+            <br />
+            {vendor.state} {vendor.zipCode}
+          </div>
+          <p>{vendor.phone}</p>
+        </Box>
+        <Box className={classes.description}>{vendor.description}</Box>
+        <Map user={vendor} />
+        {user && user.id === vendor.id ? (
+          <>
+            <Button
+              variant="outlined"
+              color="secondary"
+              onClick={deleteAccount}
+            >
+              Delete Account
+            </Button>
+            <Button variant="outlined" color="primary" onClick={editAccount}>
+              Update Account
+            </Button>
+            <Link to="/newlisting">
+              <Button variant="outlined" color="primary">
+                Add listing
+              </Button>
+            </Link>
+          </>
+        ) : null}
+        <Box>
+          {vendor.Listings.map(listing => (
+            // need a key in here
+            <Link to={`vendors/${vendor.id}/listings/${listing.id}`}>
+              <Grid>
+                <Grid item xs={6}>
+                  <Card variant="outlined">
+                    <CardActionArea>
+                      <CardMedia
+                        className={classes.CardMedia}
+                        image=""
+                        title="listing food picture"
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {listing.name}
+                        </Typography>
+                        <Typography
+                          gutterBottom
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
                         >
-                            Delete Account
-                        </Button>
-                        <Button
-                            variant="outlined"
-                            color="primary"
-                            onClick={editAccount}
-                        >
-                            Update Account
-                        </Button>
-                        <Link to="/newlisting">
-                            <Button variant="outlined" color="primary">
-                                Add listing
-                            </Button>
-                        </Link>
-                    </>
-                ) : null}
-                <Box>
-                    {vendor.Listings.map(listing => (
-                        <Box>
-                            {listing.name}
-                            {listing.price}
-                        </Box>
-                    ))}
-                </Box>
-            </Box>
-        );
-    } else {
-        return <Box></Box>;
-    }
+                          ${listing.price}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Grid>
+              </Grid>
+            </Link>
+          ))}
+        </Box>
+      </Box>
+    );
+  } else {
+    return <Box></Box>;
+  }
 };
 
 export default VendorProfile;

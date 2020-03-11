@@ -52,7 +52,7 @@ function App() {
               />
             )}
           />
-          <Route exact path="/listing/id" component={ListingDetail} />
+          <Route exact path="/vendors/:vendorId/listings/:listingId" render= { routerProps => <ListingDetail match={routerProps.match}/>} />
           <Route
             exact
             path="/newlisting"
