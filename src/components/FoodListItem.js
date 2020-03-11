@@ -38,10 +38,13 @@ const useStyles = makeStyles(() => ({
     lineHeight: '1.4',
     width: 'calc(100% - 4rem)',
     padding: '1rem'
+  },
+  media: {
+    height: 200,
   }
 }));
 
-const FoodListItem = ({ listing }) => {
+const FoodListItem = ({ listing, vendor }) => {
      const classes = useStyles();
     return (
       <>
@@ -54,8 +57,8 @@ const FoodListItem = ({ listing }) => {
               <Card variant="outlined">
                 <CardActionArea>
                   <CardMedia
-                    className={classes.CardMedia}
-                    src={classes.image}
+                    className={classes.media}
+                    image={listing.image}
                     title="listing food picture"
                   />
                   <CardContent>
