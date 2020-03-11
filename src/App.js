@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Home from './components/Home';
-import FoodDetail from './components/FoodDetail';
+import FoodDetail from './components/FoodListItem';
 import { Route, Link, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import AccountForm from './components/AccountForm';
