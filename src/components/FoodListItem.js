@@ -41,12 +41,12 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const FoodDetail = ({ listing }) => {
+const FoodListItem = ({ listing }) => {
      const classes = useStyles();
     return (
       <>
         <Link
-          to={`vendors/${vendor.id}/listings/${listing.id}`}
+          to={`/vendors/${vendor.id}/listings/${listing.id}`}
           key={vendor.id}
         >
           <Grid>
@@ -80,4 +80,4 @@ const FoodDetail = ({ listing }) => {
     );
 };
 
-export default FoodDetail;
+export default FoodListItem;
