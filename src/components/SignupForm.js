@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { withStyles, makeStyles } from '@material-ui/styles';
+const states = require('./states.json');
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -54,60 +55,6 @@ const useStyles = makeStyles(theme => ({
         background: 'transparent'
     }
 }));
-
-const states = [
-    'AL',
-    'AK',
-    'AZ',
-    'AR',
-    'CA',
-    'CO',
-    'CT',
-    'DE',
-    'DC',
-    'FL',
-    'GA',
-    'HI',
-    'ID',
-    'IL',
-    'IN',
-    'IA',
-    'KS',
-    'KY',
-    'LA',
-    'ME',
-    'MD',
-    'MA',
-    'MI',
-    'MN',
-    'MS',
-    'MO',
-    'MT',
-    'NE',
-    'NV',
-    'NH',
-    'NJ',
-    'NM',
-    'NY',
-    'NC',
-    'ND',
-    'OH',
-    'OK',
-    'OR',
-    'PA',
-    'RI',
-    'SC',
-    'SD',
-    'TN',
-    'TX',
-    'UT',
-    'VT',
-    'VA',
-    'WA',
-    'WV',
-    'WI',
-    'WY'
-];
 
 const SignupForm = props => {
     const classes = useStyles();
@@ -280,13 +227,17 @@ const SignupForm = props => {
             <>
                 <Box className={classes.formContent}>
                     <FormControl>
-                        <InputLabel htmlFor="street">Street</InputLabel>
+                        <InputLabel htmlFor="description">
+                            Description
+                        </InputLabel>
                         <Input
-                            value={props.streetString}
+                            value={props.descriptionString}
                             onChange={e =>
-                                props.setStreetString(e.target.value)
+                                props.setDescriptionString(e.target.value)
                             }
-                            id="street"
+                            multiline
+                            rows="4"
+                            id="description"
                             type="text"
                             aria-describedby="my-helper-text"
                         />

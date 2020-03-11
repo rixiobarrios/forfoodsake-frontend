@@ -23,6 +23,12 @@ const useStyles = makeStyles(theme => ({
         minHeight: '100vh',
         background: '#EDE9E7'
     },
+    loginLogo: {
+        height: 120,
+        position: 'absolute',
+        top: 25,
+        left: 35
+    },
     form: {
         minHeight: 350,
         width: 310,
@@ -114,34 +120,34 @@ const AccountForm = ({ url, setUser }) => {
     };
     const signUp = e => {
         e.preventDefault();
-        // if username/password isnt empty, or password/confirm match
-        if (
-            emailString &&
-            passwordString &&
-            passwordString === confirmPasswordString
-        ) {
-            // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/new`, {
-            fetch(`http://localhost:5000/api/vendors/new`, {
-                method: 'POST',
-                body: JSON.stringify({
-                    email: emailString,
-                    password: passwordString
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log('data', data);
-                    setUser(data);
-                    history.push('/');
-                });
-        } else {
-            setValidEmail(!!emailString); //true if string isnt empty
-            setValidPassword(!!passwordString);
-            setPasswordMatch(passwordString === confirmPasswordString);
-        }
+
+        // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/new`, {
+        fetch(`http://localhost:5000/api/vendors/new`, {
+            method: 'POST',
+            body: JSON.stringify({
+                name: nameString,
+                type: typeString,
+                phone: phoneString,
+                email: emailString,
+                password: passwordString,
+                closing_time: closingString,
+                street: streetString,
+                city: cityString,
+                state: stateString,
+                zip_code: zipCodeString,
+                description: descriptionString,
+                image: imageString
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('data', data);
+                setUser(data);
+                history.push('/');
+            });
     };
     const logIn = e => {
         e.preventDefault();
@@ -179,7 +185,11 @@ const AccountForm = ({ url, setUser }) => {
 
     return (
         <Box className={classes.container}>
-            <h2>Welcome to ForFoodSake</h2>
+            <img
+                src={`${process.env.PUBLIC_URL}/images/logo.png`}
+                alt="ForFoodSake Logo"
+                className={classes.loginLogo}
+            />
             <FormGroup className={classes.form}>
                 <Tabs
                     onChange={changeTabs}
