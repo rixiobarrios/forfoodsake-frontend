@@ -25,11 +25,13 @@ const useStyles = makeStyles(theme => ({
     tabIndicator: {},
     formContent: {
         maxWidth: '100%',
+        padding: '15px 20px',
+        minHeight: 160,
         display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        padding: '10px 20px',
-        height: 130
+        flexDirection: 'column'
+    },
+    inputField: {
+        marginBottom: 35
     },
     tabs: {
         indicatorColor: 'blue',
@@ -63,6 +65,7 @@ const LoginForm = ({
                 <FormControl error={!validEmail}>
                     <InputLabel htmlFor="email">Email</InputLabel>
                     <Input
+                        className={classes.inputField}
                         value={emailString}
                         onChange={e => setEmailString(e.target.value)}
                         id="email"
@@ -76,6 +79,7 @@ const LoginForm = ({
                 <FormControl error={!validPassword}>
                     <InputLabel htmlFor="password">Password</InputLabel>
                     <Input
+                        className={classes.inputField}
                         value={passwordString}
                         onChange={e => setPasswordString(e.target.value)}
                         type="password"
