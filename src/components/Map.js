@@ -13,6 +13,7 @@ const Map = ({ user }) => {
                     process.env.REACT_APP_GMAPS_KEY
                 }&q=${encodeURIComponent(
                     user.street,
+                    user.city,
                     user.state,
                     user.zipCode
                 )}`}
