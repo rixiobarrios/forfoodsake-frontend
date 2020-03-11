@@ -108,36 +108,37 @@ const VendorProfile = ({ match, user, setUser }) => {
           </>
         ) : null}
         <Box>
-          {vendor.Listings.map(listing => (
+          {vendor.Listings.map((listing, index) => (
+            <FoodListItem key={index, listing.name} listing={listing}/>
             // need a key in here
-            <Link to={`vendors/${vendor.id}/listings/${listing.id}`}>
-              <Grid>
-                <Grid item xs={6}>
-                  <Card variant="outlined">
-                    <CardActionArea>
-                      <CardMedia
-                        className={classes.CardMedia}
-                        image=""
-                        title="listing food picture"
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          {listing.name}
-                        </Typography>
-                        <Typography
-                          gutterBottom
-                          variant="body2"
-                          color="textSecondary"
-                          component="p"
-                        >
-                          ${listing.price}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </Grid>
-              </Grid>
-            </Link>
+            // <Link to={`vendors/${vendor.id}/listings/${listing.id}`} key={vendor.id}>
+            //   <Grid>
+            //     <Grid item xs={6}>
+            //       <Card variant="outlined">
+            //         <CardActionArea>
+            //           <CardMedia
+            //             className={classes.CardMedia}
+            //             src={classes.image}
+            //             title="listing food picture"
+            //           />
+            //           <CardContent>
+            //             <Typography gutterBottom variant="h5" component="h2">
+            //               {listing.name}
+            //             </Typography>
+            //             <Typography
+            //               gutterBottom
+            //               variant="body2"
+            //               color="textSecondary"
+            //               component="p"
+            //             >
+            //               ${listing.price}
+            //             </Typography>
+            //           </CardContent>
+            //         </CardActionArea>
+            //       </Card>
+            //     </Grid>
+            //   </Grid>
+            // </Link>
           ))}
         </Box>
       </Box>
