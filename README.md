@@ -1,50 +1,60 @@
-# Project 4 ForFoodSake
+<img width=100% src=https://user-images.githubusercontent.com/56275819/76553977-6ced7100-646b-11ea-81ff-f7c28c670242.jpg>
 
-## Install
+## Concept
 
-To install you can download this repo, install it on your machine and install dependencies(code here)(e.g nmp install).
+
+Food waste in the US continues to be a crippling issue which effects everyone in our community. Here are a few state to illustrate the issue.
+
+##### 40% of all food in the US goes to waste
+##### 20% of landfill weight is food waste
+##### 49 million Americans struggle to put food on their table
+##### 1 in 5 children are at risk of hunger
+
+
+This app is a humble contribution to a solution that may bring about a much needed change in the dominant culture of waste. We can’t build electric cars or a rocket to mars but we can build this app while we get around to it.
 
 ## Overview
 
-The idea for the project came about through a mixture of activism and sustainability.
-Our main focus was to create a project that promotes waste reduction through food management.
-We consider this project our contribution to creating a more sustainable future for all.
+The idea for the project came about through a mixture of activism and sustainability. Our main focus was to create an app that promotes waste reduction through food management. Bring businesses and the community together to tackle a common issue and provide a tool to effectively fight hunger.
+[click here to view our app live](https://mmarmol88.github.io/forfoodsake-frontend/)
 
-## About
+## Table of Contents
+- [Who is ForFoodSake for?](https://github.com/mmarmol88/forfoodsake-frontend#who-is-ForFoodSake-for)
+- [Wireframes](https://github.com/mmarmol88/forfoodsake-frontend#wireframes)
+- [Mockups](https://github.com/mmarmol88/forfoodsake-frontend#mockups)
+- [User Stories](https://github.com/mmarmol88/forfoodsake-frontend#user-stories)
+- [User Data Flow Chart](https://github.com/mmarmol88/forfoodsake-frontend#user-data-flow-chart)
+- [Workflow & Responsiblities](https://github.com/mmarmol88/forfoodsake-frontend#workflow-&-responsibilities)
+- [Component Hierarchy](https://github.com/mmarmol88/forfoodsake-frontend#component-hierarchy)
+- [App Features](https://github.com/mmarmol88/forfoodsake-frontend#app-features)
+- [Technologies Used](https://github.com/mmarmol88/forfoodsake-frontend#technologies-used)
+- [Code Sample](https://github.com/mmarmol88/forfoodsake-frontend#code-sample)
+- [Contribution & Installation Instructions](https://github.com/mmarmol88/forfoodsake-frontend#contribution-&-installation-instructions)
+- [Attributions](https://github.com/mmarmol88/forfoodsake-frontend#attributions)
+- [About the Developers](https://github.com/mmarmol88/forfoodsake-frontend#about-the-developers)
 
-Food waste is a major problem among developed nations. In the United States, 40% of all food goes to waste.
-ForFoodSake is an app that would help alleviate some of that waste from farms, markets, restaurants and homes.
 
-### Who will use it?
+### Who is ForFoodSake for?
 
 -   Proactive people who are conscious about the impact that human footprint has on the environment.
 -   Vendors who want to reduce food waste and dedicate a portion of their business to sustainability.
 -   Anybone who enjoys eating and is looking for a good deal on delicious food.
 
-##### Reasons to use:
-
--   Saves Money
--   Reduces food waste
--   Promotes community activism and sustainability
--   Handles food waste in an ethical manner
--   Provides quality foods for low income families
 
 ## Wireframes
 
 ![wireframes](https://user-images.githubusercontent.com/56275819/76550136-00bd3e00-6468-11ea-945a-1a412b2c567b.jpg)
 
+## Mock Ups
+![Asset 6](https://user-images.githubusercontent.com/56275819/76559911-6ca6a300-6476-11ea-828d-e177aec711bd.png)
 
-## User Story
+## User Stories
 
-**Vendor**
+**As a Vendor**
+The vendor (farm, grocery store or restaurant) will signup; enter their information, and post information about the menu of choice for that day (price and units available) including a pickup by time.
 
-The vendor (farm, grocery store or restaurant) will signup; enter their information, and post information about the items they have available (price and units available).
-
-**Customer**
-
-MVP- The customer would be able to see listings from vendors nearby and be able to get in touch with the vendor to arrange order and pickup.
-
-SILVER- The customer would be able to see listings from vendors nearby. Choose the items they would like to purchase. Make a payment and then proceed to pickup time and contact information for vendor.
+**As a User**
+The customer will be able to look at the vendor, units available,purchase the product through the app and get pickup information.
 
 ## User Flow Data
 
@@ -53,30 +63,18 @@ SILVER- The customer would be able to see listings from vendors nearby. Choose t
 
 ## Workflow and Responsabilities
 
-The ForFoodSake team will use this workflows(workflow here)
-The responsabilities will be divided in the following ways;
+The ForFoodSake team used the Centralized, and Feature Branch Git workflow. We pair programmed to minimize time spent on finding solutions to any challenges we may encounter within our code. As a team we will be tackling testing for both backend and frontend.
 
-Sage Kerney: SCRUM Mistress?
-Mindy Marmol: SCRUM Mistress?
-Qusai Fares: ???
-Rixio Barrios: GIT Master?
-
-What are this responsabilities based on? How did we arrive at this decisions? who decided what?
-
-## Request Response Cycle
-
-![Request Response Cycle](mvc.jpg)
+**Sage Kearney** SCRUM, Project Manager, Testing, Styling, Layout
+**Qusai Fares** SCRUM, Master of the Git Arts, Testing, Layout
+**Rixio Barrios** Master of the Git Arts, Documentation, Testing, Styling, Layout
+**Mindy Marmol** Project Manager, Testing, Layout
 
 ## Component Hiearchy Diagram
 
 ![Project 4_ Component Hierarchy](https://user-images.githubusercontent.com/56275819/76550372-6c071000-6468-11ea-8206-82994bb9cf8e.jpg)
 
-
-## Database Diagram
-
-![Relationship Diagram](relationship-diagram-mvp.png)
-
-### Functionality
+### App Features
 
 **Minimum Viable Product**
 
@@ -116,8 +114,6 @@ What are this responsabilities based on? How did we arrive at this decisions? wh
 
 ### Technologies used
 
-**Front-end**
-
 -   React
     -   React Router
     -   React Hooks
@@ -128,8 +124,11 @@ What are this responsabilities based on? How did we arrive at this decisions? wh
     -   Jest
     -   React Testing Library
 
+<!-- ## Install
 
-### Why we chose this app???
+To install you can download this repo, install it on your machine and install dependencies(code here)(e.g nmp install). -->
+
+<!-- ### Why we chose this app???
 
 `I feel the app is a call to action.`
 \- Rixio Barrios
@@ -141,19 +140,17 @@ What are this responsabilities based on? How did we arrive at this decisions? wh
 \- Sage Kearney
 
 `To create an app that is a driving force for change, where people who are conscious about their impact can come together.`
-\- Mindy Marmol
+\- Mindy Marmol -->
 
+## Code Sample
 ```PY
-def food_listing(request):
-    listings = Listing.objects.all()
-    return # Response generate by our API
+need to see what code the team wants to show off & explain
 ```
 
-**This code helps us do (reasons here)**
+This code helps us do (reasons here)
 
-## How to Contribute
+## Installation & Contributing Instructions
 
-To contribute to this project submit an issue for review on this repository:
-![ForFoodSake Repository](picture here)
+[Click here to view instructions](https://github.com/firstcontributions/first-contributions)
 
-## Credits
+## Attributions
