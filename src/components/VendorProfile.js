@@ -100,13 +100,11 @@ const VendorProfile = ({ match, user, setUser }) => {
                         >
                             Delete Account
                         </Button>
-                        <Button
-                            variant="outlined"
-                            color="primary"
-                            onClick={editAccount}
-                        >
-                            Update Account
-                        </Button>
+                        <Link to="/edit/account">
+                            <Button variant="outlined" color="primary">
+                                Update Account
+                            </Button>
+                        </Link>
                         <Link to="/newlisting">
                             <Button variant="outlined" color="primary">
                                 Add listing
