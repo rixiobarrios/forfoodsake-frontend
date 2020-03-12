@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import { Grid, Typography, Box } from '@material-ui/core';
+import { Grid, Typography, Box, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/Styles';
 import Map from './Map';
 const useStyles = makeStyles({
@@ -55,7 +55,7 @@ const useStyles = makeStyles({
         padding: '2rem 1rem'
     }
 });
-const ListingDetail = ({ match }) => {
+const ListingDetail = ({ user, match }) => {
     const classes = useStyles();
     console.log(match);
     const [vendor, setVendor] = useState();
@@ -133,6 +133,23 @@ const ListingDetail = ({ match }) => {
                     {listing.description}
                 </Typography>
                 {vendor ? <Map user={vendor} /> : null}
+
+                {user && user.id === listing.VendorId ? (
+                    <>
+                        <Button
+                            variant="outlined"
+                            color="secondary"
+                            // onClick={deleteListing}
+                        >
+                            Delete Listing
+                        </Button>
+                        <Link to={`/edit/listing/${listing.id}`}>
+                            <Button variant="outlined" color="primary">
+                                Update Listing
+                            </Button>
+                        </Link>
+                    </>
+                ) : null}
             </Box>
         );
     } else {

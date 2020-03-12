@@ -32,7 +32,8 @@ const useStyles = makeStyles(theme => ({
     form: {
         minHeight: 350,
         width: 300,
-        background: '#fff'
+        background: '#fff',
+        borderRadius: 10
     },
     tabIndicator: {},
     tabs: {

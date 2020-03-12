@@ -15,6 +15,9 @@ import {
 import FoodListItem from './FoodListItem';
 
 const useStyles = makeStyles(() => ({
+    pageContainer: {
+        paddingBottom: 100
+    },
     img: {
         width: '100%'
     },
@@ -69,7 +72,7 @@ const VendorProfile = ({ match, user, setUser }) => {
 
     if (vendor) {
         return (
-            <Box>
+            <Box className={classes.pageContainer}>
                 <Box className={classes.imgContainer}>
                     <img
                         src={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
@@ -85,7 +88,7 @@ const VendorProfile = ({ match, user, setUser }) => {
                         <br />
                         {vendor.city}
                         <br />
-                        {vendor.state} {vendor.zipCode}
+                        {vendor.state} {vendor.zip_code}
                     </div>
                     <p>{vendor.phone}</p>
                 </Box>

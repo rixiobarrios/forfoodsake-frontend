@@ -16,9 +16,10 @@ import {
 import FoodListItem from './FoodListItem';
 
 const useStyles = makeStyles(() => ({
-    fields: {
+    container: {
         marginBottom: 100
     },
+    fields: {},
     card: {
         marginBottom: 1
     },
@@ -49,10 +50,13 @@ const EditDetails = ({ editType, user, match }) => {
     useEffect(() => {
         if (!user) {
             history.push('/login');
-        }
-        if (editType === 'listing') {
+        } else if (editType === 'listing') {
             // if type is listing, details should be of the listing of id in the url
-            const listing = user.Listings.find(l => l.id === match.params.id);
+            console.log(user);
+            const listing = user.Listings.find(
+                l => l.id === parseInt(match.params.id)
+            );
+            console.log('listing', listing, match.params.id);
             setDetails(listing);
         } else {
             // otherwise, we are editing the user
@@ -69,7 +73,7 @@ const EditDetails = ({ editType, user, match }) => {
     };
 
     return details ? (
-        <Box>
+        <Box className={classes.container}>
             <label htmlFor="image">
                 <Box
                     style={{
@@ -92,6 +96,12 @@ const EditDetails = ({ editType, user, match }) => {
                                 <CardActionArea
                                     key={field}
                                     className={classes.action}
+                                    component={Link}
+                                    to={
+                                        editType === 'listing'
+                                            ? `/edit/listing/${details.id}/${field}`
+                                            : `/edit/account/${field}`
+                                    }
                                 >
                                     <CardContent className={classes.field}>
                                         <Typography
