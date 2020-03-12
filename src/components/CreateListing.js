@@ -166,7 +166,7 @@ export default function CreateListing({ user }) {
           <IconButton
             value={image}
             name="image"
-            onChange={e => setImage(e.target.value)}
+            onChange={e => setImage(e.target.files[0])}
             multiple
             className={classes.icon}
             aria-label="upload picture"

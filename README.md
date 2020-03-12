@@ -11,7 +11,7 @@ Food waste in the US continues to be a crippling issue which effects everyone in
 ##### 1 in 5 children are at risk of hunger
 
 
-This app is a humble contribution to a solution that may bring about a much needed change in the dominant culture of waste. We can’t build electric cars or a rocket to mars but we can build this app while we get around to it.
+This app is a humble contribution to a solution that may bring about a much needed change in the dominant culture of waste. We can’t build electric cars or a rocket to mars, but we can build this app while we get around to it.
 
 ## Overview
 

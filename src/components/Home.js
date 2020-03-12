@@ -9,7 +9,7 @@ import {
     Typography,
     Box
 } from '@material-ui/core/';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 import { pink } from '@material-ui/core/colors';
 import { Link } from 'react-router-dom';
 
