@@ -10,17 +10,21 @@ import {
     Box
 } from '@material-ui/core';
 
-const EditField = ({ setUser, editType, details, match }) => {
+const EditField = ({ setUser, editType, user, match }) => {
     let history = useHistory();
     const [value, setValue] = useState();
     const numberFields = ['quantity', 'price', 'phone'];
     const boolFields = ['vegan', 'vegetarian'];
 
     useEffect(() => {
-        if (boolFields.includes(match.params.field)) {
-            setValue(details[match.params.field]);
-        } else {
-            setValue(details[match.params.field]);
+        if (editType === 'vendor') {
+            setValue(user[match.params.field]);
+        } else if (editType === 'listing') {
+            let tempListing = user.Listings.find(
+                listing => listing.id === parseInt(match.params.id)
+            );
+            console.log(user.Listings, tempListing, match.params.id);
+            setValue(tempListing[match.params.field]);
         }
     }, []);
 
@@ -34,9 +38,8 @@ const EditField = ({ setUser, editType, details, match }) => {
         }
     };
 
-    const updateListing = () => {};
-    const updateVendor = () => {
-        fetch(`http://localhost:5000/api/vendors/${details.id}/edit`, {
+    const updateListing = () => {
+        fetch(`http://localhost:5000/api/listings/${match.params.id}/edit`, {
             method: 'PUT',
             body: JSON.stringify({
                 field: match.params.field,
@@ -49,8 +52,27 @@ const EditField = ({ setUser, editType, details, match }) => {
             .then(res => res.json())
             .then(data => {
                 setUser(data);
-                history.push(`/vendors/${data.id}`);
-            });
+                history.push(`/vendors/${user.id}`);
+            })
+            .catch(err => console.log(err));
+    };
+    const updateVendor = () => {
+        fetch(`http://localhost:5000/api/vendors/${user.id}/edit`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                field: match.params.field,
+                value: value
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setUser(data);
+                history.push(`/vendors/${user.id}`);
+            })
+            .catch(err => console.log(err));
     };
 
     const update = () => {
@@ -66,7 +88,7 @@ const EditField = ({ setUser, editType, details, match }) => {
             <>
                 <Box>
                     <FormControl>
-                        <InputLabel htmlFor="details">
+                        <InputLabel htmlFor="user">
                             {match.params.field}
                         </InputLabel>
                         <Input
@@ -76,7 +98,7 @@ const EditField = ({ setUser, editType, details, match }) => {
                             // multiline if editing description
                             multiline={match.params.field === 'description'}
                             rows="4"
-                            id="details"
+                            id="user"
                             type={
                                 numberFields.includes(match.params.field)
                                     ? 'number'
