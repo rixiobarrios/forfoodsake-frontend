@@ -6,40 +6,45 @@ import {
   Input,
   Button,
   Box,
-  FormControlLabel
+  FormControlLabel,
+  TextField,
+  IconButton
 } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import { useHistory } from 'react-router-dom';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
-  form: {
-    border: '1px solid black'
+const useStyles = makeStyles(() => ({
+  root: {
+    '&.Mui-forcused fieldset': {
+      borderColor: '#b6d2c4'
+    },
+    '& label.Mui-focused': {
+      color: '#b6d2c4'
+    },
+    '& .MuiInput-underline:after': {
+      borderColor: '#b6d2c4'
+    },
+
+    padding: '5%',
+    borderRadius: '5px',
+    backgroundColor: '#fff'
   },
-
   formContent: {
-    maxWidth: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    padding: '10px 20px',
-    height: 130,
-    margin: '0 auto'
+    margin: '0 auto',
+    padding: '15px 20px',
+    background: '#EDE9E7',
+    height: '100vh'
   },
-  tabs: {
-    indicatorColor: 'blue',
-    color: 'black'
+  newButton: {
+    backgroundColor: '#b6d2c4'
   },
-  //   submitLogin: {
-  //     margin: '30px auto',
-  //     width: 200,
-  //     bottom: 100
-  //   },
-  tab: {
-    height: '100%'
+  submitLogin: {
+    padding: '2% 30%'
   },
-  paper: {
-    background: 'transparent'
+  icon: {
+    color: '#b6d2c4'
   }
 }));
 
@@ -82,7 +87,7 @@ export default function CreateListing({ user }) {
 
   return (
     <Box className={classes.formContent}>
-      <FormGroup className={classes.form}>
+      <FormGroup className={classes.root}>
         <FormControl>
           <InputLabel htmlFor="name">Item Name</InputLabel>
           <Input
@@ -108,15 +113,15 @@ export default function CreateListing({ user }) {
         <FormControl>
           <InputLabel htmlFor="4">Quantity</InputLabel>
           <Input
+            type="number"
+            InputLabelProps={{ shrink: true }}
             value={quantity}
             name="quantity"
             onChange={e => setQuantity(e.target.value)}
             id="quantity"
-            type="text"
             aria-describedby="my-helper-text"
           />
         </FormControl>
-
         <FormControlLabel
           control={<Checkbox color="variant" />}
           label="Vegan"
@@ -139,22 +144,41 @@ export default function CreateListing({ user }) {
             }
           }}
         />
-        <FormControl>
-          <InputLabel htmlFor="description">Description</InputLabel>
-          <Input
-            value={description}
-            name="description"
-            onChange={e => setDescription(e.target.value)}
-            type="textField"
-            id="description"
-          />
-        </FormControl>
-        <FormControlLabel control={<Input type="file" />} />
-        <FormControl>
+
+        <TextField
+          label="description"
+          value={description}
+          variant="outlined"
+          name="description"
+          onChange={e => setDescription(e.target.value)}
+          multiline
+          rows={4}
+          type="text"
+          id="description"
+        />
+        <Input
+          accept="image/*"
+          className={classes.input}
+          id="icon-button-file"
+          type="file"
+        />
+        <InputLabel htmlFor="icon-button-file">
+          <IconButton
+            value={image}
+            name="image"
+            onChange={e => setImage(e.target.value)}
+            multiple
+            className={classes.icon}
+            aria-label="upload picture"
+            component="span"
+          >
+            <PhotoCamera />
+          </IconButton>
+        </InputLabel>
+        <FormControl className={classes.submitLogin}>
           <Button
-            className={classes.submitLogin}
+            className={classes.newButton}
             variant="outlined"
-            color="secondary"
             onClick={createListing}
           >
             Submit
