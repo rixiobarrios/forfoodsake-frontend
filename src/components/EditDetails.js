@@ -113,7 +113,7 @@ const EditDetails = ({ editType, user, match }) => {
                     component="span"
                 ></IconButton>
                 <Box className={classes.imageOverlay}>
-                    <PublishIcon color="white" />
+                    <PublishIcon style={{ fontSize: 32 }} color="white" />
                 </Box>
             </InputLabel>
             <Box className="fields">
