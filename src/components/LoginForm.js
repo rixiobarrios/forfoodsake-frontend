@@ -1,213 +1,107 @@
 import React, { useState } from 'react';
 import {
-  FormControl,
-  FormGroup,
-  InputLabel,
-  Input,
-  Button,
-  Box,
-  Tabs,
-  Tab
+    FormControl,
+    FormGroup,
+    InputLabel,
+    Input,
+    FormHelperText,
+    Button,
+    Box,
+    Tabs,
+    Tab
 } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { withStyles, makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: '100vh',
-    background: '#EDE9E7'
-  },
-  form: {
-    border: '1px solid black',
-    height: 320,
-    width: 310,
-    background: '#fff'
-  },
-  tabIndicator: {},
-  formContent: {
-    maxWidth: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    padding: '10px 20px',
-    height: 130
-  },
-  tabs: {
-    indicatorColor: 'blue',
-    color: 'black'
-  },
-  submitLogin: {
-    margin: '30px auto',
-    width: 200
-  },
-  tab: {
-    height: '100%'
-  },
-  paper: {
-    background: 'transparent'
-  }
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        background: '#EDE9E7'
+    },
+    tabIndicator: {},
+    formContent: {
+        maxWidth: '100%',
+        padding: '15px 20px',
+        minHeight: 160,
+        display: 'flex',
+        flexDirection: 'column'
+    },
+    inputField: {
+        marginBottom: 35
+    },
+    tabs: {
+        indicatorColor: 'blue',
+        color: 'black'
+    },
+    submitLogin: {
+        margin: '30px auto',
+        width: 200
+    },
+    tab: {
+        height: '100%'
+    },
+    paper: {
+        background: 'transparent'
+    }
 }));
 
-const LoginForm = ({ url, setUser }) => {
-  const [valid, setValid] = useState({
-    username: true,
-    password: true,
-    passwordsMatch: true,
-    verified: true
-  });
-  const [validName, setValidName] = useState(true);
-  const [validPassword, setValidPassword] = useState(true);
-  const [passwordMatch, setPasswordMatch] = useState(true);
-
-  let history = useHistory();
-  const classes = useStyles();
-  const [userString, setUserString] = useState('');
-  const [passwordString, setPasswordString] = useState('');
-  const [confirmPasswordString, setConfirmPasswordString] = useState('');
-  const [formType, setFormType] = useState(1);
-  const changeTabs = (e, newValue) => {
-    setFormType(newValue);
-    // reset fields
-    setUserString('');
-    setPasswordString('');
-    setConfirmPasswordString('');
-
-    // reset errors
-    setValidName(true);
-    setValidPassword(true);
-    setPasswordMatch(true);
-  };
-  const [step, setStep] = useState(1);
-  const signUp = e => {
-    e.preventDefault();
-    // if username/password isnt empty, or password/confirm match
-    if (
-      userString &&
-      passwordString &&
-      passwordString === confirmPasswordString
-    ) {
-      // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/new`, {
-      fetch(`http://localhost:5000/api/vendors/new`, {
-        method: 'POST',
-        body: JSON.stringify({
-          name: userString,
-          password: passwordString
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        .then(res => res.json())
-        .then(data => {
-          setUser(data);
-          history.push('/');
-        });
-    } else {
-      setValidName(!!userString); //true if string isnt empty
-      setValidPassword(!!passwordString);
-      setPasswordMatch(passwordString === confirmPasswordString);
-    }
-  };
-  const logIn = e => {
-    e.preventDefault();
-    // if username and password aren't empty, and password and confirmPassword match
-    console.log('check', userString, passwordString);
-    if (userString && passwordString) {
-      console.log('pass');
-      fetch(`http://localhost:5000/api/vendors/login`, {
-        method: 'POST',
-        body: JSON.stringify({
-          name: userString,
-          password: passwordString
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-        .then((res, err) => {
-          if (err) {
-            console.log(err);
-            return;
-          }
-          console.log(res);
-          return res.json();
-        })
-        .then(data => {
-          setUser(data);
-          history.push('/');
-        })
-        .catch(err => console.error(err));
-    } else {
-      setValidName(!!userString); //true if string isnt empty
-      setValidPassword(!!passwordString);
-    }
-  };
-
-  return (
-    <Box className={classes.container}>
-      <h2>Welcome to ForFoodSake</h2>
-      <FormGroup className={classes.form}>
-        <Tabs
-          onChange={changeTabs}
-          value={formType}
-          className={classes.tabs}
-          variant="fullWidth"
-        >
-          <Tab label="Sign Up" className={classes.tab} />
-          <Tab label="Log In" className={classes.tab} />
-        </Tabs>
-        <Box className={classes.formContent}>
-          <FormControl>
-            <InputLabel htmlFor="my-input1">Username</InputLabel>
-            <Input
-              error={!validName}
-              value={userString}
-              onChange={e => setUserString(e.target.value)}
-              id="my-input1"
-              type="text"
-              aria-describedby="my-helper-text"
-            />
-          </FormControl>
-          <FormControl>
-            <InputLabel htmlFor="my-input2">Password</InputLabel>
-            <Input
-              error={!validPassword}
-              value={passwordString}
-              onChange={e => setPasswordString(e.target.value)}
-              type="password"
-              id="my-input2"
-            />
-          </FormControl>
-          {formType === 0 ? (
+const LoginForm = ({
+    emailString,
+    passwordString,
+    setEmailString,
+    setPasswordString,
+    validEmail,
+    validPassword,
+    logIn
+}) => {
+    const classes = useStyles();
+    return (
+        <>
+            <Box className={classes.formContent}>
+                <FormControl error={!validEmail}>
+                    <InputLabel htmlFor="email">Email</InputLabel>
+                    <Input
+                        className={classes.inputField}
+                        value={emailString}
+                        onChange={e => setEmailString(e.target.value)}
+                        id="email"
+                        type="text"
+                        aria-describedby="my-helper-text"
+                    />
+                    {validEmail ? null : (
+                        <FormHelperText>Please enter email</FormHelperText>
+                    )}
+                </FormControl>
+                <FormControl error={!validPassword}>
+                    <InputLabel htmlFor="password">Password</InputLabel>
+                    <Input
+                        className={classes.inputField}
+                        value={passwordString}
+                        onChange={e => setPasswordString(e.target.value)}
+                        type="password"
+                        id="password"
+                    />
+                    {validPassword ? null : (
+                        <FormHelperText>Please enter password</FormHelperText>
+                    )}
+                </FormControl>
+            </Box>
             <FormControl>
-              <InputLabel htmlFor="my-input2">Confirm password</InputLabel>
-              <Input
-                error={!passwordMatch}
-                value={confirmPasswordString}
-                onChange={e => setConfirmPasswordString(e.target.value)}
-                type="password"
-                id="my-input2"
-              />
+                <Button
+                    className={classes.submitLogin}
+                    variant="outlined"
+                    color="secondary"
+                    onClick={logIn}
+                >
+                    Log In
+                </Button>
             </FormControl>
-          ) : null}
-        </Box>
-        <FormControl>
-          <Button
-            className={classes.submitLogin}
-            variant="outlined"
-            color="secondary"
-            onClick={formType ? logIn : signUp}
-          >
-            {formType ? 'Log In' : 'Continue'}
-          </Button>
-        </FormControl>
-      </FormGroup>
-    </Box>
-  );
+        </>
+    );
 };
 
 export default LoginForm;
