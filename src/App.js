@@ -9,64 +9,95 @@ import VendorProfile from './components/VendorProfile';
 import ListingDetail from './components/ListingDetail';
 import { createMuiTheme } from '@material-ui/core/styles';
 import CreateListing from './components/CreateListing';
+import EditDetails from './components/EditDetails';
 
 function App() {
-  const [splash, setSplash] = useState(true);
-  const [user, setUser] = useState();
+    const [splash, setSplash] = useState(true);
+    const [user, setUser] = useState();
 
-  // const url = useState('http://forfoodsake-backend.herokuapp.com/api');
-  const url = useState('http://localhost:5000/api');
-  const hideSplash = () => {
-    setSplash(false);
-  };
-  useEffect(() => {
-    setTimeout(() => {
-      hideSplash();
-    }, 1000);
-  }, []);
-  return (
-    <div className="App">
-      <main className="app-content">
-        <Switch>
-          <Route
-            exact
-            path="/"
-            component={() => <Home hideSplash={hideSplash} splash={splash} />}
-          />
-          <Route exact path="/listing" component={FoodDetail} />
-          <Route
-            exact
-            path="/login"
-            component={() => (
-              <AccountForm url={url} setUser={setUser} user={user} />
-            )}
-          />
-          <Route
-            exact
-            path="/vendors/:id"
-            render={routerProps => (
-              <VendorProfile
-                match={routerProps.match}
-                user={user}
-                setUser={setUser}
-              />
-            )}
-          />
-          <Route exact path="/vendors/:vendorId/listings/:listingId" render= { routerProps => <ListingDetail match={routerProps.match}/>} />
-          <Route
-            exact
-            path="/newlisting"
-            render={routerProps => {
-              return <CreateListing user={user} />;
-            }}
-          />
-        </Switch>
-      </main>
-      <footer className="nav-container">
-        <NavBar splash={splash} user={user} />
-      </footer>
-    </div>
-  );
+    // const url = useState('http://forfoodsake-backend.herokuapp.com/api');
+    const url = useState('http://localhost:5000/api');
+    const hideSplash = () => {
+        setSplash(false);
+    };
+    useEffect(() => {
+        setTimeout(() => {
+            hideSplash();
+        }, 1000);
+    }, []);
+    return (
+        <div className="App">
+            <main className="app-content">
+                <Switch>
+                    <Route
+                        exact
+                        path="/"
+                        component={() => (
+                            <Home hideSplash={hideSplash} splash={splash} />
+                        )}
+                    />
+                    <Route exact path="/listing" component={FoodDetail} />
+                    <Route
+                        exact
+                        path="/login"
+                        component={() => (
+                            <AccountForm
+                                url={url}
+                                setUser={setUser}
+                                user={user}
+                            />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/vendors/:id"
+                        render={routerProps => (
+                            <VendorProfile
+                                match={routerProps.match}
+                                user={user}
+                                setUser={setUser}
+                            />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/vendors/:vendorId/listings/:listingId"
+                        render={routerProps => (
+                            <ListingDetail match={routerProps.match} />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/newlisting"
+                        render={routerProps => {
+                            return <CreateListing user={user} />;
+                        }}
+                    />
+                    <Route
+                        path="/edit/account"
+                        exact
+                        component={() => (
+                            <EditDetails user={user} type="vendor" />
+                        )}
+                    />
+                    <Route
+                        path="/edit/listing/:id"
+                        exact
+                        component={routerProps => (
+                            <EditDetails
+                                type="listing"
+                                user={user}
+                                match={routerProps.match}
+                            />
+                        )}
+                    />
+                </Switch>
+            </main>
+            <footer className="nav-container">
+                <NavBar splash={splash} user={user} />
+            </footer>
+        </div>
+    );
 }
 
 export default App;
