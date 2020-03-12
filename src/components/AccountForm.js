@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
         left: 35
     },
     form: {
-        minHeight: 400,
+        minHeight: 350,
         width: 300,
         background: '#fff'
     },
@@ -144,8 +144,10 @@ const AccountForm = ({ url, setUser }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('data', data);
-                setUser(data);
+                // hiding password from state
+                let tempUser = data;
+                delete tempUser.password;
+                setUser(tempUser);
                 history.push('/');
             });
     };
@@ -173,7 +175,10 @@ const AccountForm = ({ url, setUser }) => {
                     return res.json();
                 })
                 .then(data => {
-                    setUser(data);
+                    // hiding password from state
+                    let tempUser = data;
+                    delete tempUser.password;
+                    setUser(tempUser);
                     history.push('/');
                 })
                 .catch(err => console.error(err));
