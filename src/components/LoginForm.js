@@ -62,10 +62,9 @@ const LoginForm = ({
     return (
         <>
             <Box className={classes.formContent}>
-                <FormControl error={!validEmail}>
+                <FormControl error={!validEmail} className={classes.inputField}>
                     <InputLabel htmlFor="email">Email</InputLabel>
                     <Input
-                        className={classes.inputField}
                         value={emailString}
                         onChange={e => setEmailString(e.target.value)}
                         id="email"
@@ -76,10 +75,12 @@ const LoginForm = ({
                         <FormHelperText>Please enter email</FormHelperText>
                     )}
                 </FormControl>
-                <FormControl error={!validPassword}>
+                <FormControl
+                    error={!validPassword}
+                    className={classes.inputField}
+                >
                     <InputLabel htmlFor="password">Password</InputLabel>
                     <Input
-                        className={classes.inputField}
                         value={passwordString}
                         onChange={e => setPasswordString(e.target.value)}
                         type="password"

@@ -4,7 +4,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
     map: {
         width: '100%',
-        height: 150,
+        height: 160,
         border: 0
     }
 }));
@@ -15,7 +15,7 @@ const Map = ({ user }) => {
         <iframe
             title="map"
             className={classes.map}
-            frameborder="0"
+            frameBorder="0"
             src={`https://www.google.com/maps/embed/v1/place?key=${
                 process.env.REACT_APP_GMAPS_KEY
             }&q=${encodeURIComponent(
@@ -24,7 +24,7 @@ const Map = ({ user }) => {
                 user.state,
                 user.zipCode
             )}`}
-            allowfullscreen
+            allowFullScreen
         ></iframe>
     );
 };

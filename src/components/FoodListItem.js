@@ -40,47 +40,42 @@ const useStyles = makeStyles(() => ({
     padding: '1rem'
   },
   media: {
-    height: 200,
+    height: 200
   }
 }));
 
 const FoodListItem = ({ listing, vendor }) => {
-     const classes = useStyles();
-    return (
-      <>
-        <Link
-          to={`/vendors/${vendor.id}/listings/${listing.id}`}
-          key={vendor.id}
-        >
-          <Grid>
-            <Grid item xs={6}>
-              <Card variant="outlined">
-                <CardActionArea>
-                  <CardMedia
-                    className={classes.media}
-                    image={listing.image}
-                    title="listing food picture"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {listing.name}
-                    </Typography>
-                    <Typography
-                      gutterBottom
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      ${listing.price}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-          </Grid>
-        </Link>
-      </>
-    );
+  const classes = useStyles();
+  return (
+    <>
+      <Grid>
+        <Grid item xs={6}>
+          <Card variant="outlined">
+            <CardActionArea>
+              <CardMedia
+                className={classes.media}
+                image={listing.image}
+                title="listing food picture"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {listing.name}
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                >
+                  ${listing.price}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+      </Grid>
+    </>
+  );
 };
 
 export default FoodListItem;
