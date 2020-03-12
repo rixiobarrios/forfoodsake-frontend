@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Map from './Map';
 import { makeStyles } from '@material-ui/core/styles';
+import PublishIcon from '@material-ui/icons/Publish';
 import { Link } from 'react-router-dom';
 import {
     Card,
@@ -11,11 +12,35 @@ import {
     Typography,
     Box,
     Button,
-    Grid
+    Grid,
+    IconButton,
+    InputLabel
 } from '@material-ui/core/';
 import FoodListItem from './FoodListItem';
 
 const useStyles = makeStyles(() => ({
+    imageLabel: {
+        height: 150,
+        width: 150,
+        borderRadius: '50%',
+        margin: '30px auto',
+        overflow: 'hidden',
+        position: 'relative'
+    },
+    imageOverlay: {
+        opacity: 0,
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        top: 0,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: 'rgba(241,102,66, 0.6)',
+        '&:hover': {
+            opacity: 1
+        }
+    },
     container: {
         marginBottom: 100
     },
@@ -36,6 +61,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const EditDetails = ({ editType, user, match }) => {
+    const [image, setImage] = useState();
     const classes = useStyles();
     let history = useHistory();
     const [details, setDetails] = useState({});
@@ -52,11 +78,9 @@ const EditDetails = ({ editType, user, match }) => {
             history.push('/login');
         } else if (editType === 'listing') {
             // if type is listing, details should be of the listing of id in the url
-            console.log(user);
             const listing = user.Listings.find(
                 l => l.id === parseInt(match.params.id)
             );
-            console.log('listing', listing, match.params.id);
             setDetails(listing);
         } else {
             // otherwise, we are editing the user
@@ -74,15 +98,24 @@ const EditDetails = ({ editType, user, match }) => {
 
     return details ? (
         <Box className={classes.container}>
-            <label htmlFor="image">
-                <Box
-                    style={{
-                        background: details.image
-                            ? `url(${details.image})`
-                            : 'grey'
-                    }}
-                ></Box>
-            </label>
+            <InputLabel
+                className={classes.imageLabel}
+                htmlFor="icon-button-file"
+                style={{ background: `grey` }}
+            >
+                <IconButton
+                    value={image}
+                    name="image"
+                    onChange={e => setImage(e.target.value)}
+                    multiple
+                    className={classes.icon}
+                    aria-label="upload picture"
+                    component="span"
+                ></IconButton>
+                <Box className={classes.imageOverlay}>
+                    <PublishIcon color="white" />
+                </Box>
+            </InputLabel>
             <Box className="fields">
                 {Object.keys(details).map(field => {
                     if (!fieldsToIgnore[0].includes(field)) {
