@@ -100,7 +100,7 @@ function App() {
                         render={routerProps => (
                             <EditField
                                 editType="vendor"
-                                details={user}
+                                user={user}
                                 match={routerProps.match}
                                 setUser={setUser}
                             />
@@ -112,7 +112,7 @@ function App() {
                         render={routerProps => (
                             <EditField
                                 editType="listing"
-                                details={user}
+                                user={user}
                                 match={routerProps.match}
                                 setUser={setUser}
                             />
