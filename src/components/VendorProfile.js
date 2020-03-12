@@ -15,6 +15,9 @@ import {
 import FoodListItem from './FoodListItem';
 
 const useStyles = makeStyles(() => ({
+    pageContainer: {
+        paddingBottom: 100
+    },
     img: {
         width: '100%'
     },

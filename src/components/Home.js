@@ -2,96 +2,100 @@ import React, { useState, useEffect } from 'react';
 import Splash from './Splash';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography,
-  Box
+    Card,
+    CardActionArea,
+    CardContent,
+    CardMedia,
+    Typography,
+    Box
 } from '@material-ui/core/';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { pink } from '@material-ui/core/colors';
 import { Link } from 'react-router-dom';
 
 const theme = createMuiTheme({
-  typography: {
-    fontFamily: 'Montserrat, sans-serif'
-  }
+    typography: {
+        fontFamily: 'Montserrat, sans-serif'
+    }
 });
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    justifyContent: 'space-between'
-  },
-  container: {
-    padding: 10,
-    background: '#EDE9E7'
-  },
-  card: {
-    margin: '10px 0'
-  },
-  content: {},
-  cover: {
-    width: 151,
-    backgroundColor: pink
-  }
+    card: {
+        margin: '10px 0'
+    },
+    root: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        height: 120
+    },
+    container: {
+        padding: '10px 10px 100px 10px',
+        background: '#EDE9E7'
+    },
+    content: {
+        width: 200
+    },
+    cover: {
+        width: 151,
+        backgroundColor: pink
+    }
 }));
 
 const Home = ({ hideSplash, splash }) => {
-  const [vendors, setVendors] = useState([]);
-  const classes = useStyles();
-  const theme = useTheme();
+    const [vendors, setVendors] = useState([]);
+    const classes = useStyles();
+    const theme = useTheme();
 
-  useEffect(() => {
-    console.log(process.env.REACT_APP_SERVER_URL);
-    // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/`)
-    fetch(`http://localhost:5000/api/vendors/`)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setVendors(data);
-      })
-      .catch(err => console.error(err));
-  }, []);
+    useEffect(() => {
+        console.log(process.env.REACT_APP_SERVER_URL);
+        // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/`)
+        fetch(`http://localhost:5000/api/vendors/`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setVendors(data);
+            })
+            .catch(err => console.error(err));
+    }, []);
 
-  return (
-    <>
-      {/*====================SPLASH PAGE====================*/}
-      <Splash hideSplash={hideSplash} splash={splash} />
-      <section id="home" className={splash ? 'home-hidden' : null}>
-        <Box className={classes.container}>
-          {vendors.map(vendor => {
-            return (
-              <CardActionArea
-                key={vendor.id}
-                className={classes.card}
-                component={Link}
-                to={`/vendors/${vendor.id}`}
-              >
-                <Card className={classes.root}>
-                  <CardContent className={classes.content}>
-                    <Typography component="h5" variant="h5">
-                      {vendor.name}
-                    </Typography>
-                    <Typography>
-                      {vendor.street}, {vendor.city}, {vendor.state}
-                    </Typography>
-                  </CardContent>
+    return (
+        <>
+            {/*================SPLASH PAGE================*/}
+            <Splash hideSplash={hideSplash} splash={splash} />
+            <section id="home" className={splash ? 'home-hidden' : null}>
+                <Box className={classes.container}>
+                    {vendors.map(vendor => {
+                        return (
+                            <CardActionArea
+                                key={vendor.id}
+                                className={classes.card}
+                                component={Link}
+                                to={`/vendors/${vendor.id}`}
+                            >
+                                <Card className={classes.root}>
+                                    <CardContent className={classes.content}>
+                                        <Typography component="h5" variant="h5">
+                                            {vendor.name}
+                                        </Typography>
+                                        <Typography>
+                                            {vendor.street}, {vendor.city},{' '}
+                                            {vendor.state}
+                                        </Typography>
+                                    </CardContent>
 
-                  <CardMedia
-                    className={classes.cover}
-                    image={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
-                    title="placeholder image for vendor"
-                  />
-                </Card>
-              </CardActionArea>
-            );
-          })}
-        </Box>
-      </section>
-    </>
-  );
+                                    <CardMedia
+                                        className={classes.cover}
+                                        image={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
+                                        title="placeholder image for vendor"
+                                    />
+                                </Card>
+                            </CardActionArea>
+                        );
+                    })}
+                </Box>
+            </section>
+        </>
+    );
 };
 
 export default Home;

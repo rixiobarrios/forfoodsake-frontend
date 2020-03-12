@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Home from './components/Home';
-import FoodDetail from './components/FoodListItem';
 import { Route, Link, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import AccountForm from './components/AccountForm';
@@ -10,10 +9,12 @@ import ListingDetail from './components/ListingDetail';
 import { createMuiTheme } from '@material-ui/core/styles';
 import CreateListing from './components/CreateListing';
 import EditDetails from './components/EditDetails';
+import EditField from './components/EditField';
 
 function App() {
     const [splash, setSplash] = useState(true);
     const [user, setUser] = useState();
+    const [listingToEdit, setListingToEdit] = useState();
 
     const hideSplash = () => {
         setSplash(false);
@@ -34,7 +35,6 @@ function App() {
                             <Home hideSplash={hideSplash} splash={splash} />
                         )}
                     />
-                    <Route exact path="/listing" component={FoodDetail} />
                     <Route
                         exact
                         path="/login"
@@ -57,7 +57,10 @@ function App() {
                         exact
                         path="/vendors/:vendorId/listings/:listingId"
                         render={routerProps => (
-                            <ListingDetail match={routerProps.match} />
+                            <ListingDetail
+                                user={user}
+                                match={routerProps.match}
+                            />
                         )}
                     />
                     <Route
@@ -70,10 +73,11 @@ function App() {
                     <Route
                         path="/edit/account"
                         exact
-                        component={routerProps => (
+                        render={routerProps => (
                             <EditDetails
-                                user={user}
+                                setListingToEdit={setListingToEdit}
                                 editType="vendor"
+                                user={user}
                                 match={routerProps.match}
                             />
                         )}
@@ -81,11 +85,36 @@ function App() {
                     <Route
                         path="/edit/listing/:id"
                         exact
-                        component={routerProps => (
+                        render={routerProps => (
                             <EditDetails
+                                setListingToEdit={setListingToEdit}
                                 editType="listing"
                                 user={user}
                                 match={routerProps.match}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/edit/account/:field/"
+                        exact
+                        render={routerProps => (
+                            <EditField
+                                editType="vendor"
+                                details={user}
+                                match={routerProps.match}
+                                setUser={setUser}
+                            />
+                        )}
+                    />
+                    <Route
+                        path="/edit/listing/:id/:field/"
+                        exact
+                        render={routerProps => (
+                            <EditField
+                                editType="listing"
+                                details={listingToEdit}
+                                match={routerProps.match}
+                                setUser={setUser}
                             />
                         )}
                     />
