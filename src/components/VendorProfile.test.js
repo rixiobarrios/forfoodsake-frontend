@@ -6,19 +6,28 @@ import VendorProfile from './VendorProfile';
 afterEach(cleanup);
 
 // test if user can view vendor page *** add data-testid="vendor-page" on box element on line 70
-it('renders vendor profile page', () => {
+test('renders vendor profile page', () => {
   const { queryByTestId } = render(<VendorProfile />);
 
-  expect(queryByTestId('vendor-page')).toBe(true);
+  expect(queryByTestId('vendor-page')).toBeTruthy;
   // expect(queryByTestId('vendor-page')).toBeTruthy();
 });
 
-// page should contain correct vendor name... test get
-test("should render selected vendor's profile page", () => {
-  const selectedVendor = "Dolly's Donuts";
-  const { queryByText } = render(<VendorProfile />);
-
-  expect(queryByText(selectedVendor)).toBe(`Dolly's Donuts`);
+// GET vendor by vendor id
+test("should render vendor by id", async () => {
+fetch(`http://localhost:5000/api/vendors/1`)
+            .then(res => res.json())
+            .then(data => {
+                setVendor(data);
+            })
+            .catch(err => console.error(err));
 });
 
-// page should delete correct vendor account... test delete
+// DELETE vendor by vendor id
+test('should delete vendor by id', async () => {
+  fetch(`http://localhost:5000/api/vendors/1/delete`, {
+    method: 'DELETE'
+  }).then(res => console.log(res));
+});
+
+// GET listings by vendor id
