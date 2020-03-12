@@ -17,10 +17,14 @@ const EditField = ({ setUser, editType, details, match }) => {
     const boolFields = ['vegan', 'vegetarian'];
 
     useEffect(() => {
-        if (boolFields.includes(match.params.field)) {
+        if (editType === 'vendor') {
             setValue(details[match.params.field]);
-        } else {
-            setValue(details[match.params.field]);
+        } else if (editType === 'listing') {
+            let tempListing = details.Listings.find(
+                listing => listing.id === parseInt(match.params.id)
+            );
+            console.log(details.Listings, tempListing, match.params.id);
+            setValue(tempListing[match.params.field]);
         }
     }, []);
 
@@ -34,7 +38,24 @@ const EditField = ({ setUser, editType, details, match }) => {
         }
     };
 
-    const updateListing = () => {};
+    const updateListing = () => {
+        fetch(`http://localhost:5000/api/listings/${match.params.id}/edit`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                field: match.params.field,
+                value: value
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setUser(data);
+                history.push(`/vendors/${details.id}`);
+            })
+            .catch(err => console.log(err));
+    };
     const updateVendor = () => {
         fetch(`http://localhost:5000/api/vendors/${details.id}/edit`, {
             method: 'PUT',
@@ -49,8 +70,9 @@ const EditField = ({ setUser, editType, details, match }) => {
             .then(res => res.json())
             .then(data => {
                 setUser(data);
-                history.push(`/vendors/${data.id}`);
-            });
+                history.push(`/vendors/${details.id}`);
+            })
+            .catch(err => console.log(err));
     };
 
     const update = () => {

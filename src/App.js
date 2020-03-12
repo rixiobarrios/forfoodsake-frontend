@@ -112,7 +112,7 @@ function App() {
                         render={routerProps => (
                             <EditField
                                 editType="listing"
-                                details={listingToEdit}
+                                details={user}
                                 match={routerProps.match}
                                 setUser={setUser}
                             />
