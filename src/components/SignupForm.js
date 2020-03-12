@@ -34,6 +34,9 @@ const useStyles = makeStyles(theme => ({
     inputField: {
         marginBottom: 20
     },
+    selectField: {
+        marginBottom: 20
+    },
     formContent: {
         maxWidth: '100%',
         padding: '15px 20px',
@@ -63,10 +66,12 @@ const SignupForm = props => {
         return (
             <>
                 <Box className={classes.formContent}>
-                    <FormControl error={!props.validEmail}>
+                    <FormControl
+                        error={!props.validEmail}
+                        className={classes.inputField}
+                    >
                         <InputLabel htmlFor="email">Email</InputLabel>
                         <Input
-                            className={classes.inputField}
                             value={props.emailString}
                             onChange={e => props.setEmailString(e.target.value)}
                             id="email"
@@ -77,10 +82,12 @@ const SignupForm = props => {
                             <FormHelperText>Please enter email</FormHelperText>
                         )}
                     </FormControl>
-                    <FormControl error={!props.validPassword}>
+                    <FormControl
+                        error={!props.validPassword}
+                        className={classes.inputField}
+                    >
                         <InputLabel htmlFor="password">Password</InputLabel>
                         <Input
-                            className={classes.inputField}
                             value={props.passwordString}
                             onChange={e =>
                                 props.setPasswordString(e.target.value)
@@ -94,12 +101,14 @@ const SignupForm = props => {
                             </FormHelperText>
                         )}
                     </FormControl>
-                    <FormControl error={!props.passwordMatch}>
+                    <FormControl
+                        error={!props.passwordMatch}
+                        className={classes.inputField}
+                    >
                         <InputLabel htmlFor="confirmPassword">
                             Confirm password
                         </InputLabel>
                         <Input
-                            className={classes.inputField}
                             value={props.confirmPasswordString}
                             onChange={e =>
                                 props.setConfirmPasswordString(e.target.value)
@@ -130,10 +139,9 @@ const SignupForm = props => {
         return (
             <>
                 <Box className={classes.formContent}>
-                    <FormControl>
+                    <FormControl className={classes.inputField}>
                         <InputLabel htmlFor="name">Name</InputLabel>
                         <Input
-                            className={classes.inputField}
                             error={!props.validName}
                             value={props.nameString}
                             onChange={e => props.setNameString(e.target.value)}
@@ -142,20 +150,21 @@ const SignupForm = props => {
                             aria-describedby="my-helper-text"
                         />
                     </FormControl>
-                    <FormControl>
+                    <FormControl className={classes.inputField}>
                         <InputLabel htmlFor="phone">Phone Number</InputLabel>
                         <Input
-                            className={classes.inputField}
                             value={props.phoneString}
                             onChange={e => props.setPhoneString(e.target.value)}
                             type="number"
                             id="phone"
                         />
                     </FormControl>
-                    <FormControl error={!props.validType}>
+                    <FormControl
+                        error={!props.validType}
+                        className={classes.selectField}
+                    >
                         <InputLabel htmlFor="type">Type</InputLabel>
                         <Select
-                            className={classes.selectField}
                             value={props.typeString}
                             onChange={e => props.setTypeString(e.target.value)}
                             id="type"
@@ -182,10 +191,9 @@ const SignupForm = props => {
         return (
             <>
                 <Box className={classes.formContent}>
-                    <FormControl>
+                    <FormControl className={classes.inputField}>
                         <InputLabel htmlFor="street">Street</InputLabel>
                         <Input
-                            className={classes.inputField}
                             value={props.streetString}
                             onChange={e =>
                                 props.setStreetString(e.target.value)
@@ -195,10 +203,9 @@ const SignupForm = props => {
                             aria-describedby="my-helper-text"
                         />
                     </FormControl>
-                    <FormControl>
+                    <FormControl className={classes.inputField}>
                         <InputLabel htmlFor="city">City</InputLabel>
                         <Input
-                            className={classes.inputField}
                             value={props.cityString}
                             onChange={e => props.setCityString(e.target.value)}
                             id="city"
@@ -206,7 +213,7 @@ const SignupForm = props => {
                             aria-describedby="my-helper-text"
                         />
                     </FormControl>
-                    <FormControl>
+                    <FormControl className={classes.selectField}>
                         <InputLabel htmlFor="state">State</InputLabel>
                         <Select
                             value={props.stateString}
@@ -214,14 +221,15 @@ const SignupForm = props => {
                             id="state"
                         >
                             {states.map(state => (
-                                <MenuItem value={state}>{state}</MenuItem>
+                                <MenuItem value={state.abbreviation}>
+                                    {state.name}
+                                </MenuItem>
                             ))}
                         </Select>
                     </FormControl>
-                    <FormControl>
+                    <FormControl className={classes.inputField}>
                         <InputLabel htmlFor="zipCode">Zip Code</InputLabel>
                         <Input
-                            className={classes.inputField}
                             value={props.zipCodeString}
                             onChange={e =>
                                 props.setZipCodeString(e.target.value)
@@ -248,12 +256,11 @@ const SignupForm = props => {
         return (
             <>
                 <Box className={classes.formContent}>
-                    <FormControl>
+                    <FormControl className={classes.inputField}>
                         <InputLabel htmlFor="description">
                             Description
                         </InputLabel>
                         <Input
-                            className={classes.inputField}
                             value={props.descriptionString}
                             onChange={e =>
                                 props.setDescriptionString(e.target.value)
