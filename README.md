@@ -31,7 +31,8 @@ ForFoodSake is an app that would help alleviate some of that waste from farms, m
 
 ## Wireframes
 
-![Wireframes](wireframe-mvp.png)
+![wireframes](https://user-images.githubusercontent.com/56275819/76550136-00bd3e00-6468-11ea-945a-1a412b2c567b.jpg)
+
 
 ## User Story
 
@@ -47,7 +48,8 @@ SILVER- The customer would be able to see listings from vendors nearby. Choose t
 
 ## User Flow Data
 
-![User Flow Data](userdataflow.png)
+![userdataflow](https://user-images.githubusercontent.com/56275819/76550216-23e7ed80-6468-11ea-8158-35108dedd006.jpg)
+
 
 ## Workflow and Responsabilities
 
@@ -67,7 +69,8 @@ What are this responsabilities based on? How did we arrive at this decisions? wh
 
 ## Component Hiearchy Diagram
 
-![Hierarchy Diagram](component-hierarchy.jpg)
+![Project 4_ Component Hierarchy](https://user-images.githubusercontent.com/56275819/76550372-6c071000-6468-11ea-8206-82994bb9cf8e.jpg)
+
 
 ## Database Diagram
 
@@ -77,27 +80,27 @@ What are this responsabilities based on? How did we arrive at this decisions? wh
 
 **Minimum Viable Product**
 
--   [ ] CRUD functionality for Vendors
--   [ ] User can view vendors located in New York
--   [ ] User can view all listings displayed on Vendor page
--   [ ] Vendor can create, update, & delete listing
--   [ ] Basic styling using flexbox/grid
--   [ ] Mobile responsive
+-   [x] CRUD functionality for Vendors
+-   [x] User can view vendors located in New York
+-   [x] User can view all listings displayed on Vendor page
+-   [x] Vendor can create, update, & delete listing
+-   [x] Basic styling using flexbox/grid
+-   [x] Mobile responsive
 
-**Bronze version**
+**Bronze Features**
 
 -   [ ] Vendor authentication
 -   [ ] Users can search for vendors located in Nashville, Denver, or New York
--   [ ] Incorporate Material.UI for styling
+-   [x] Incorporate Material.UI for styling
 
-**Silver version**
+**Silver Features**
 
 -   [ ] Transition from React to React Native framework
 -   [ ] Add component for educational resources about waste free lifestyle
--   [ ] Continue to elevate styling through branding(colors, fonts, icons, graphic elements)
+-   [x] Continue to elevate styling through branding(colors, fonts, icons, graphic elements)
 -   [ ] Image upload for vendors
 
-**Gold version**
+**Gold Features**
 
 -   [ ] CRUD functionality for Users
 -   [ ] Use Google geolocation for 'view vendors by location' style search functionality
@@ -105,7 +108,7 @@ What are this responsabilities based on? How did we arrive at this decisions? wh
 -   [ ] Add animation & interactive design through transitions
 -   [ ] Carousel/Slideshow of available listings on home page
 
-**Platinum version**
+**Platinum Features**
 
 -   [ ] Add ability for user to write a review for vendor
 -   [ ] Incorporate social sharing abilities.
@@ -120,22 +123,11 @@ What are this responsabilities based on? How did we arrive at this decisions? wh
     -   React Hooks
 -   JavaScript
 -   Cascading Style Sheets(CSS)
--   Material-UI (maybe)
+-   Material-UI
 -   Testing
     -   Jest
-    -   Enzyme
+    -   React Testing Library
 
-**Back-end**
-
--   Python
-    -   Django
-        -   Django REST Framework
--   PostgreSQL
--   JSON Web Tokens (JWT)
--   Google Maps API
--   Amazon Web Services (AWS)
--   Testing
-    -   Unit Test
 
 ### Why we chose this app???
 
