@@ -15,8 +15,6 @@ function App() {
     const [splash, setSplash] = useState(true);
     const [user, setUser] = useState();
 
-    // const url = useState('http://forfoodsake-backend.herokuapp.com/api');
-    const url = useState('http://localhost:5000/api');
     const hideSplash = () => {
         setSplash(false);
     };
@@ -41,11 +39,7 @@ function App() {
                         exact
                         path="/login"
                         component={() => (
-                            <AccountForm
-                                url={url}
-                                setUser={setUser}
-                                user={user}
-                            />
+                            <AccountForm setUser={setUser} user={user} />
                         )}
                     />
                     <Route
@@ -76,8 +70,12 @@ function App() {
                     <Route
                         path="/edit/account"
                         exact
-                        component={() => (
-                            <EditDetails user={user} type="vendor" />
+                        component={routerProps => (
+                            <EditDetails
+                                user={user}
+                                editType="vendor"
+                                match={routerProps.match}
+                            />
                         )}
                     />
                     <Route
@@ -85,7 +83,7 @@ function App() {
                         exact
                         component={routerProps => (
                             <EditDetails
-                                type="listing"
+                                editType="listing"
                                 user={user}
                                 match={routerProps.match}
                             />
