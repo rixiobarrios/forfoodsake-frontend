@@ -118,7 +118,7 @@ const VendorProfile = ({ match, user, setUser }) => {
                         </Link>
                     </>
                 ) : null}
-                <Box>
+                <Grid container spacing={2}>
                     {vendor.Listings.map((listing, index) => (
                         <Link
                             to={`/vendors/${vendor.id}/listings/${listing.id}`}
@@ -131,7 +131,7 @@ const VendorProfile = ({ match, user, setUser }) => {
                             />
                         </Link>
                     ))}
-                </Box>
+                </Grid>
             </Box>
         );
     } else {
