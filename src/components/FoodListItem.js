@@ -1,13 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import {
   Card,
   CardActionArea,
   CardContent,
   CardMedia,
   Typography,
-  Box,
   Grid
 } from '@material-ui/core/';
 
@@ -39,7 +37,12 @@ const useStyles = makeStyles(() => ({
     padding: '1rem'
   },
   media: {
-    height: 200
+    height: 200,
+    border: '1px solid black'
+    // display: 'flex'
+  },
+  flexed: {
+    display: 'flex'
   }
 }));
 
@@ -47,31 +50,29 @@ const FoodListItem = ({ listing, vendor }) => {
   const classes = useStyles();
   return (
     <>
-      <Grid>
-        <Grid item xs={6}>
-          <Card variant="outlined">
-            <CardActionArea>
-              <CardMedia
-                className={classes.media}
-                image={listing.image}
-                title="listing food"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {listing.name}
-                </Typography>
-                <Typography
-                  gutterBottom
-                  variant="body2"
-                  color="textSecondary"
-                  component="p"
-                >
-                  ${listing.price}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
+      <Grid item xs={4}>
+        <Card variant="outlined" className={classes.flexed}>
+          <CardActionArea>
+            <CardMedia
+              className={classes.media}
+              image={listing.image}
+              title="listing food"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                {listing.name}
+              </Typography>
+              <Typography
+                gutterBottom
+                variant="body2"
+                color="textSecondary"
+                component="p"
+              >
+                ${listing.price}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
       </Grid>
     </>
   );
