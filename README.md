@@ -74,7 +74,7 @@ The customer will be able to look at the vendor, units available,purchase the pr
 
 ## Component Hiearchy Diagram
 
-![Project 4_ Component Hierarchy](https://user-images.githubusercontent.com/56275819/76550372-6c071000-6468-11ea-8206-82994bb9cf8e.jpg)
+![Project 4_ Component Hierarchy (1)](https://user-images.githubusercontent.com/56275819/76598071-634e2280-64d8-11ea-8a1f-4446dd0167d1.jpg)
 
 ## App Features
 
@@ -264,5 +264,7 @@ To my good friend **Chris Mendoza** who helped me and my cohort mates through th
 
 <hr>
 
+
 **Additional documentation can be found in the backend repository**
 [Click here](https://github.com/qusaifares/forfoodsake-backend)
+
