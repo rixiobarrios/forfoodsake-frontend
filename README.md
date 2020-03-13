@@ -18,7 +18,7 @@ This app is a humble contribution to a solution that may bring about a much need
 
 The idea for the project came about through a mixture of activism and sustainability. Our main focus was to create an app that promotes waste reduction through food management by bringing businesses and the community together to tackle a common issue and provide a tool to effectively fight hunger.
 
-:eight_pointed_black_star: [Click here to view our app live](https://mmarmol88.github.io/forfoodsake-frontend/)
+:eight_pointed_black_star: [Click here to view our app live](https://forfoodsake.herokuapp.com/)
 
 ---
 
@@ -264,7 +264,5 @@ To my good friend **Chris Mendoza** who helped me and my cohort mates through th
 
 <hr>
 
-
 **Additional documentation can be found in the backend repository**
 [Click here](https://github.com/qusaifares/forfoodsake-backend)
-
