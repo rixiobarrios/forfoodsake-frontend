@@ -78,45 +78,44 @@ During the initial stages of our app build, we used a centralized workflow, but 
 
 ![Project 4_ Component Hierarchy](https://user-images.githubusercontent.com/56275819/76550372-6c071000-6468-11ea-8206-82994bb9cf8e.jpg)
 
-### App Features
+## App Features
 
 **Minimum Viable Product**
 
 -   [x] CRUD functionality for Vendors
--   [x] User can view vendors located in New York
+-   [x] User can view vendors located in New York City
 -   [x] User can view all listings displayed on Vendor page
 -   [x] Vendor can create, update, & delete listing
--   [x] Basic styling using flexbox/grid
+-   [x] Incorporate Material.UI for styling
 -   [x] Mobile responsive
 
 **Bronze Features**
 
 -   [ ] Vendor authentication
 -   [ ] Users can search for vendors located in Nashville, Denver, or New York
--   [x] Incorporate Material.UI for styling
+-   [ ] Add component for educational resources about waste free lifestyle
 
 **Silver Features**
 
 -   [ ] Transition from React to React Native framework
--   [ ] Add component for educational resources about waste free lifestyle
--   [x] Continue to elevate styling through branding(colors, fonts, icons, graphic elements)
+-   [x] Elevate styling through branding(colors, fonts, icons, graphic elements)
 -   [ ] Image upload for vendors
 
 **Gold Features**
 
 -   [ ] CRUD functionality for Users
--   [ ] Use Google geolocation for 'view vendors by location' style search functionality
+-   [ ] Use Google geolocation to filter search results
 -   [ ] Add Twitter thread linking to releated hashtags
 -   [ ] Add animation & interactive design through transitions
 -   [ ] Carousel/Slideshow of available listings on home page
 
 **Platinum Features**
 
--   [ ] Add ability for user to write a review for vendor
--   [ ] Incorporate social sharing abilities.
--   [ ] Use Nodemailer or other technology to send order receipts to user
+-   [ ] Add ability for user to write a vendor review
+-   [ ] Incorporate social media sharing capabilities
+-   [ ] Send order confirmation to users via email and/or text message
 
-### Technologies used
+### Technologies Used
 
 -   React
     -   React Router
@@ -155,23 +154,30 @@ This code helps us do (reasons here)
 
 ## Installation & Contributing Instructions
 
-[Click here to view instructions](https://github.com/firstcontributions/first-contributions)
+[Click here](https://github.com/firstcontributions/first-contributions)
 
 ## Attributions
-
+Instructors with GA
+Cohortmates with GA
+Other resources
+Websites we used to build our app
+Pictures
 ## About the Developers
 
 ##### Mindy Marmol
 Mindy is a software engineer and designer with a passion for functionality, efficiency and collaboration. Her experience as a Visual Merchandising Manager helped solidify her capacity for building efficient processes to solve complex problems. It is her purpose to nurture the implementation of technology in different aspects of human life. 
 [Connect with Mindy on LinkedIn](https://www.linkedin.com/in/mindymarmol/)
+<br>
 
 ##### Qusai Fares
 Qusai is a Miami based full-stack software engineer. He appreciates motivated teams with collaborative environments & is constantly pushing himself to learn new things and connect with new people.
 [Connect with Qusai on LinkedIn](https://www.linkedin.com/in/qusaifares/)
+<br>
 
 ##### Rixio Barrios
 Diplomat turned Software Engineer, Rixio is driven by the desire to change everything. His creative and inquisitive nature is constantly evolving. He is passionate about making interactive products shaped around human experience, diversity, and intuitive, efficient functionality. 
 [Connect with Rixio on LinkedIn](https://www.linkedin.com/in/rixiobarrios/)
+<br>
 
 ##### Sage Kearney
 Sage is a visionary full stack software engineer who’s artfully managed to weld her background in graphic design with tech expertise in the form of web development to further fuel her passion for storytelling.
