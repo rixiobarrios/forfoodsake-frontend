@@ -105,7 +105,7 @@ const ListingDetail = ({ user, match }) => {
                         </Link>
                     </Box>
                     <img
-                        src={`${process.env.PUBLIC_URL}/images/food-placeholder.jpg`}
+                        src={listing.image}
                         alt="food"
                         className={classes.media}
                     />

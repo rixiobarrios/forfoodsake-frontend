@@ -122,7 +122,7 @@ const Home = ({ hideSplash, splash }) => {
 
                                     <CardMedia
                                         className={classes.cover}
-                                        image={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
+                                        image={vendor.image}
                                         title="placeholder image for vendor"
                                     />
                                 </Card>

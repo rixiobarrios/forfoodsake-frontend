@@ -56,7 +56,7 @@ const VendorProfile = ({ match, user, setUser }) => {
             <Box className={classes.container}>
                 <Box className={classes.imgContainer}>
                     <img
-                        src={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
+                        src={vendor.image}
                         alt="vendor profile"
                         className={classes.img}
                     />
