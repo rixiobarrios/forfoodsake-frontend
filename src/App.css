@@ -66,3 +66,17 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+
+.MuiFormControl-root {
+    border: 1px solid gray;
+    margin: 40% 25%;
+    display: inline-flex;
+    padding: 10px;
+    z-index: 0;
+    position: relative;
+    min-width: 0;
+    flex-direction: column;
+    vertical-align: top;
+    border-radius: 5px;
+}

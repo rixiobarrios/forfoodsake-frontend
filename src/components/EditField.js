@@ -17,13 +17,30 @@ import {
     Tab
 } from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/styles';
+
 const states = require('./states.json');
 const vendorTypes = ['Restaurant', 'Farm', 'Market'];
 const numberFields = ['quantity', 'price', 'phone'];
 const boolFields = ['vegan', 'vegetarian'];
 const selectFields = ['state', 'type'];
 
-const useStyles = makeStyles(theme => ({}));
+const useStyles = makeStyles(theme => ({
+    root: {
+    margin: '100 auto',
+    },
+    value: {
+    // border: '1px solid gray',
+    // margin: '40% 25%',
+    display: 'inline-flex',
+    padding: 10,
+    zIndex: 0,
+    position: 'relative',
+    minWidth: 0,
+    flexDirection: 'column',
+    verticalAlign: 'top',
+    borderRadius: 5,
+    },
+}));
 
 const EditField = ({ setUser, editType, user, match }) => {
     const classes = useStyles();
@@ -110,40 +127,38 @@ const EditField = ({ setUser, editType, user, match }) => {
     };
     if (selectFields.includes(match.params.field)) {
         return (
-            <>
-                <Link
-                    className={classes.back}
-                    to={
-                        editType === 'listing'
-                            ? `/edit/listing/${match.params.id}`
-                            : `/edit/account`
+          <>
+            <Link
+              className={classes.back}
+              to={
+                editType === 'listing'
+                  ? `/edit/listing/${match.params.id}`
+                  : `/edit/account`
+              }
+            >
+              <ArrowBackIosIcon />
+              Back
+            </Link>
+            <FormControl className={classes.selectField}>
+              <InputLabel>State</InputLabel>
+              <Select value={value} onChange={e => setValue(e.target.value)}>
+                {selectValues.map(option => (
+                  <MenuItem
+                    value={
+                      match.params.field === 'state'
+                        ? option.abbreviation
+                        : option
                     }
-                >
-                    <ArrowBackIosIcon />
-                    Back
-                </Link>
-                <FormControl className={classes.selectField}>
-                    <InputLabel>State</InputLabel>
-                    <Select
-                        value={value}
-                        onChange={e => setValue(e.target.value)}
-                    >
-                        {selectValues.map(option => (
-                            <MenuItem
-                                value={
-                                    match.params.field === 'state'
-                                        ? option.abbreviation
-                                        : option
-                                }
-                            >
-                                {match.params.field === 'state'
-                                    ? option.name
-                                    : option}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
-            </>
+                  >
+                    {match.params.field === 'state' ? option.name : option}
+                  </MenuItem>
+                ))}
+              </Select>
+              <Button variant="outlined" color="secondary" onClick={update}>
+                Update
+              </Button>
+            </FormControl>
+          </>
         );
     } else {
         return (
@@ -165,6 +180,7 @@ const EditField = ({ setUser, editType, user, match }) => {
                             {match.params.field}
                         </InputLabel>
                         <Input
+                            className={classes.value}
                             checked={value}
                             value={value}
                             onChange={handleChange}
