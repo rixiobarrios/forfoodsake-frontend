@@ -2,14 +2,15 @@
 
 ## Concept
 
-
 Food waste in the US continues to be a crippling issue which effects everyone in our community. Here are a few stats to illustrate the issue.
 
 ##### 40% of all food in the US goes to waste
-##### 20% of landfill weight is food waste
-##### 49 million Americans struggle to put food on their table
-##### 1 in 5 children are at risk of hunger
 
+##### 20% of landfill weight is food waste
+
+##### 49 million Americans struggle to put food on their table
+
+##### 1 in 5 children are at risk of hunger
 
 This app is a humble contribution to a solution that may bring about a much needed change in the dominant culture of waste. We can’t build electric cars or a rocket to mars, but we can build this app in the mean time.
 
@@ -19,24 +20,26 @@ The idea for the project came about through a mixture of activism and sustainabi
 
 :eight_pointed_black_star: [Click here to view our app live](https://mmarmol88.github.io/forfoodsake-frontend/)
 
---------
+---
 
 ## Table of Contents
-- [Who is ForFoodSake for?](https://github.com/mmarmol88/forfoodsake-frontend#who-is-ForFoodSake-for)
-- [Wireframes](https://github.com/mmarmol88/forfoodsake-frontend#wireframes)
-- [Mockups](https://github.com/mmarmol88/forfoodsake-frontend#mockups)
-- [User Stories](https://github.com/mmarmol88/forfoodsake-frontend#user-stories)
-- [User Data Flow Chart](https://github.com/mmarmol88/forfoodsake-frontend#user-data-flow-chart)
-- [Workflow & Responsiblities](https://github.com/mmarmol88/forfoodsake-frontend#workflow-&-responsibilities)
-- [Component Hierarchy](https://github.com/mmarmol88/forfoodsake-frontend#component-hierarchy)
-- [App Features](https://github.com/mmarmol88/forfoodsake-frontend#app-features)
-- [Technologies Used](https://github.com/mmarmol88/forfoodsake-frontend#technologies-used)
-- [Code Sample](https://github.com/mmarmol88/forfoodsake-frontend#code-sample)
-- [Contribution & Installation Instructions](https://github.com/mmarmol88/forfoodsake-frontend#contribution-&-installation-instructions)
-- [Attributions](https://github.com/mmarmol88/forfoodsake-frontend#attributions)
-- [About the Developers](https://github.com/mmarmol88/forfoodsake-frontend#about-the-developers)
 
---------------
+-   [Who is ForFoodSake for?](https://github.com/mmarmol88/forfoodsake-frontend#who-is-ForFoodSake-for)
+-   [Wireframes](https://github.com/mmarmol88/forfoodsake-frontend#wireframes)
+-   [Mockups](https://github.com/mmarmol88/forfoodsake-frontend#mockups)
+-   [User Stories](https://github.com/mmarmol88/forfoodsake-frontend#user-stories)
+-   [User Data Flow Chart](https://github.com/mmarmol88/forfoodsake-frontend#user-data-flow-chart)
+    <!-- -   [Workflow & Responsiblities](https://github.com/mmarmol88/forfoodsake-frontend#workflow-&-responsibilities) -->
+-   [Component Hierarchy](https://github.com/mmarmol88/forfoodsake-frontend#component-hierarchy)
+-   [App Features](https://github.com/mmarmol88/forfoodsake-frontend#app-features)
+-   [Technologies Used](https://github.com/mmarmol88/forfoodsake-frontend#technologies-used)
+-   [Code Sample](https://github.com/mmarmol88/forfoodsake-frontend#code-sample)
+-   [Contribution & Installation Instructions](https://github.com/mmarmol88/forfoodsake-frontend#contribution-&-installation-instructions)
+-   [Building Team](https://github.com/mmarmol88/forfoodsake-frontend#building-team)
+-   [Attributions](https://github.com/mmarmol88/forfoodsake-frontend#attributions)
+-   [Special Thanks](https://github.com/mmarmol88/forfoodsake-frontend#special-thanks)
+
+---
 
 ### Who is ForFoodSake for?
 
@@ -44,12 +47,12 @@ The idea for the project came about through a mixture of activism and sustainabi
 -   Vendors who want to reduce food waste and dedicate a portion of their business to sustainability.
 -   Anybone who enjoys eating and is looking for a good deal on delicious food.
 
-
 ## Wireframes
 
 ![wireframes](https://user-images.githubusercontent.com/56275819/76550136-00bd3e00-6468-11ea-945a-1a412b2c567b.jpg)
 
 ## Mock Ups
+
 ![Asset 6](https://user-images.githubusercontent.com/56275819/76559911-6ca6a300-6476-11ea-828d-e177aec711bd.png)
 
 ## User Stories
@@ -64,15 +67,14 @@ The customer will be able to look at the vendor, units available,purchase the pr
 
 ![userdataflow](https://user-images.githubusercontent.com/56275819/76550216-23e7ed80-6468-11ea-8158-35108dedd006.jpg)
 
+<!-- ## Workflow and Responsabilities
 
-## Workflow and Responsabilities
-
-During the initial stages of our app build, we used a centralized workflow, but as soon as we had the skeleton built we transitioned into a feature branch workflow to maximize our time. We also prioritized pair programming throught the app build to catch errors and minimize time spent debugging in the long run. For testing, we decided to 'divide and conqure', once again prioritizing our time & to keep things efficient. Below you will find each team members individual responsibilities during the app build. 
+During the initial stages of our app build, we used a centralized workflow, but as soon as we had the skeleton built we transitioned into a feature branch workflow to maximize our time. We also prioritized pair programming throught the app build to catch errors and minimize time spent debugging in the long run. For testing, we decided to 'divide and conqure', once again prioritizing our time & to keep things efficient. Below you will find each team members individual responsibilities during the app build.
 
 **Sage Kearney** SCRUM, Project Manager, Testing, Styling, Layout
 **Qusai Fares** SCRUM, Master of the Git Arts, Testing, Layout
 **Rixio Barrios** Master of the Git Arts, Documentation, Testing, Styling, Layout
-**Mindy Marmol** Project Manager, Testing, Layout
+**Mindy Marmol** Project Manager, Testing, Layout -->
 
 ## Component Hiearchy Diagram
 
@@ -146,6 +148,7 @@ To install you can download this repo, install it on your machine and install de
 \- Mindy Marmol -->
 
 ## Code Sample
+
 ```PY
 need to see what code the team wants to show off & explain
 ```
@@ -156,29 +159,37 @@ This code helps us do (reasons here)
 
 [Click here](https://github.com/firstcontributions/first-contributions)
 
+## Building Team
+
+##### Mindy Marmol [Github Profile](https://github.com/mmarmol88)
+
+<br>
+
+##### Qusai Fares [Github Profile](https://github.com/qusaifares)
+
+<br>
+
+##### Rixio Barrios [Github Profile](https://github.com/rixiobarrios)
+
+<br>
+
+##### Sage Kearney [Github Profile](https://github.com/sage-kearney)
+
 ## Attributions
-Instructors with GA
-Cohortmates with GA
-Other resources
-Websites we used to build our app
-Pictures
-## About the Developers
 
-##### Mindy Marmol
-Mindy is a software engineer and designer with a passion for functionality, efficiency and collaboration. Her experience as a Visual Merchandising Manager helped solidify her capacity for building efficient processes to solve complex problems. It is her purpose to nurture the implementation of technology in different aspects of human life. 
-[Connect with Mindy on LinkedIn](https://www.linkedin.com/in/mindymarmol/)
-<br>
+**Instructors at General Assembly:**
 
-##### Qusai Fares
-Qusai is a Miami based full-stack software engineer. He appreciates motivated teams with collaborative environments & is constantly pushing himself to learn new things and connect with new people.
-[Connect with Qusai on LinkedIn](https://www.linkedin.com/in/qusaifares/)
-<br>
+**Cohort Mates at General Assembly:**
 
-##### Rixio Barrios
-Diplomat turned Software Engineer, Rixio is driven by the desire to change everything. His creative and inquisitive nature is constantly evolving. He is passionate about making interactive products shaped around human experience, diversity, and intuitive, efficient functionality. 
-[Connect with Rixio on LinkedIn](https://www.linkedin.com/in/rixiobarrios/)
-<br>
+**Resources**
 
-##### Sage Kearney
-Sage is a visionary full stack software engineer who’s artfully managed to weld her background in graphic design with tech expertise in the form of web development to further fuel her passion for storytelling.
-[Connect with Sage on LinkedIn](https://www.linkedin.com/in/sage-kearney/)
+-   [Miro]()
+-   [Trello]()
+-   [Google Docs]()
+-   [Heroku]()
+-   [DB Diagram](https://dbdriagram.io)
+-   [Pixlr](https://pixlr.com/)
+
+## Special Thanks
+
+family members, friends, people outside of GA
