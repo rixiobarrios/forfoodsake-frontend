@@ -26,20 +26,20 @@ const selectFields = ['state', 'type'];
 
 const useStyles = makeStyles(theme => ({
     root: {
-    margin: '100 auto',
+        margin: '100 auto'
     },
     value: {
-    // border: '1px solid gray',
-    // margin: '40% 25%',
-    display: 'inline-flex',
-    padding: 10,
-    zIndex: 0,
-    position: 'relative',
-    minWidth: 0,
-    flexDirection: 'column',
-    verticalAlign: 'top',
-    borderRadius: 5,
-    },
+        // border: '1px solid gray',
+        // margin: '40% 25%',
+        display: 'inline-flex',
+        padding: 10,
+        zIndex: 0,
+        position: 'relative',
+        minWidth: 0,
+        flexDirection: 'column',
+        verticalAlign: 'top',
+        borderRadius: 5
+    }
 }));
 
 const EditField = ({ setUser, editType, user, match }) => {
@@ -82,16 +82,19 @@ const EditField = ({ setUser, editType, user, match }) => {
     };
 
     const updateListing = () => {
-        fetch(`http://localhost:5000/api/listings/${match.params.id}/edit`, {
-            method: 'PUT',
-            body: JSON.stringify({
-                field: match.params.field,
-                value: value
-            }),
-            headers: {
-                'Content-Type': 'application/json'
+        fetch(
+            `${process.env.REACT_APP_SERVER_URL}/listings/${match.params.id}/edit`,
+            {
+                method: 'PUT',
+                body: JSON.stringify({
+                    field: match.params.field,
+                    value: value
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }
-        })
+        )
             .then(res => res.json())
             .then(data => {
                 setUser(data);
@@ -100,7 +103,7 @@ const EditField = ({ setUser, editType, user, match }) => {
             .catch(err => console.log(err));
     };
     const updateVendor = () => {
-        fetch(`http://localhost:5000/api/vendors/${user.id}/edit`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/${user.id}/edit`, {
             method: 'PUT',
             body: JSON.stringify({
                 field: match.params.field,
@@ -127,38 +130,47 @@ const EditField = ({ setUser, editType, user, match }) => {
     };
     if (selectFields.includes(match.params.field)) {
         return (
-          <>
-            <Link
-              className={classes.back}
-              to={
-                editType === 'listing'
-                  ? `/edit/listing/${match.params.id}`
-                  : `/edit/account`
-              }
-            >
-              <ArrowBackIosIcon />
-              Back
-            </Link>
-            <FormControl className={classes.selectField}>
-              <InputLabel>State</InputLabel>
-              <Select value={value} onChange={e => setValue(e.target.value)}>
-                {selectValues.map(option => (
-                  <MenuItem
-                    value={
-                      match.params.field === 'state'
-                        ? option.abbreviation
-                        : option
+            <>
+                <Link
+                    className={classes.back}
+                    to={
+                        editType === 'listing'
+                            ? `/edit/listing/${match.params.id}`
+                            : `/edit/account`
                     }
-                  >
-                    {match.params.field === 'state' ? option.name : option}
-                  </MenuItem>
-                ))}
-              </Select>
-              <Button variant="outlined" color="secondary" onClick={update}>
-                Update
-              </Button>
-            </FormControl>
-          </>
+                >
+                    <ArrowBackIosIcon />
+                    Back
+                </Link>
+                <FormControl className={classes.selectField}>
+                    <InputLabel>State</InputLabel>
+                    <Select
+                        value={value}
+                        onChange={e => setValue(e.target.value)}
+                    >
+                        {selectValues.map(option => (
+                            <MenuItem
+                                value={
+                                    match.params.field === 'state'
+                                        ? option.abbreviation
+                                        : option
+                                }
+                            >
+                                {match.params.field === 'state'
+                                    ? option.name
+                                    : option}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                    <Button
+                        variant="outlined"
+                        color="secondary"
+                        onClick={update}
+                    >
+                        Update
+                    </Button>
+                </FormControl>
+            </>
         );
     } else {
         return (

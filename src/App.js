@@ -25,7 +25,9 @@ function App() {
         }, 1000);
         console.log(localStorage.userId);
         if (localStorage.userId) {
-            fetch(`http://localhost:5000/api/vendors/${localStorage.userId}`)
+            fetch(
+                `${process.env.REACT_APP_SERVER_URL}/vendors/${localStorage.userId}`
+            )
                 .then(res => res.json())
                 .then(data => {
                     if (data) {

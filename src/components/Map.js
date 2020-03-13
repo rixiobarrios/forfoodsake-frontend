@@ -4,7 +4,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
     map: {
         width: '100%',
-        height: 160,
+        height: 190,
         border: 0
     }
 }));

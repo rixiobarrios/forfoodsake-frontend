@@ -124,7 +124,7 @@ const AccountForm = ({ url, setUser }) => {
         e.preventDefault();
 
         // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/new`, {
-        fetch(`http://localhost:5000/api/vendors/new`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/new`, {
             method: 'POST',
             body: JSON.stringify({
                 name: nameString,
@@ -159,7 +159,7 @@ const AccountForm = ({ url, setUser }) => {
         // if email and password aren't empty, and password and confirmPassword match
         console.log('check', emailString, passwordString);
         if (emailString && passwordString) {
-            fetch(`http://localhost:5000/api/vendors/login`, {
+            fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/login`, {
                 method: 'POST',
                 body: JSON.stringify({
                     email: emailString,

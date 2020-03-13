@@ -15,17 +15,39 @@ import FoodListItem from './FoodListItem';
 
 const VendorProfile = ({ match, user, setUser }) => {
     const [vendor, setVendor] = useState();
-
+    const [formattedPhone, setFormattedPhone] = useState();
     console.log('match', match);
     useEffect(() => {
         // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/${match.params.id}`)
-        fetch(`http://localhost:5000/api/vendors/${match.params.id}`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/${match.params.id}`)
             .then(res => res.json())
             .then(data => {
                 setVendor(data);
             })
             .catch(err => console.error(err));
     }, [match.params.id]);
+    useEffect(() => {
+        // formatting phone (XXX) XXX-XXXX
+        let tempArr = [];
+        if (!user) {
+            return;
+        }
+        for (let i = 0; i < user.phone.length; i++) {
+            if (i === 0) {
+                tempArr.push('(');
+            }
+            if (i === 3) {
+                tempArr.push(')');
+                tempArr.push(' ');
+            }
+            if (i === 6) {
+                tempArr.push('-');
+            }
+            tempArr.push(user.phone.charAt(i));
+        }
+
+        setFormattedPhone(tempArr.join(''));
+    }, [user]);
 
     const classes = useStyles();
 
@@ -63,7 +85,7 @@ const VendorProfile = ({ match, user, setUser }) => {
                         <br />
                         {vendor.zip_code}
                     </Typography>
-                    <p>{vendor.phone}</p>
+                    <p>{formattedPhone}</p>
                 </Box>
                 <Box className={classes.description}>{vendor.description}</Box>
                 <Map user={vendor} />

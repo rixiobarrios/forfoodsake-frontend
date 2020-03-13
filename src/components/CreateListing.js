@@ -70,13 +70,16 @@ export default function CreateListing({ user }) {
                 description,
                 image
             };
-            fetch(`http://localhost:5000/api/listings/${user.id}/new`, {
-                method: 'POST',
-                body: JSON.stringify(body),
-                headers: {
-                    'Content-Type': 'application/json'
+            fetch(
+                `${process.env.REACT_APP_SERVER_URL}/listings/${user.id}/new`,
+                {
+                    method: 'POST',
+                    body: JSON.stringify(body),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
                 }
-            }).then(res => {
+            ).then(res => {
                 console.log(res);
                 history.push(`/vendors/${user.id}`);
             });
