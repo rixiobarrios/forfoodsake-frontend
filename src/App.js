@@ -22,7 +22,7 @@ function App() {
     useEffect(() => {
         setTimeout(() => {
             hideSplash();
-        }, 1000);
+        }, 3000);
         console.log(localStorage.userId);
         if (localStorage.userId) {
             fetch(
