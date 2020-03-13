@@ -29,7 +29,6 @@ The idea for the project came about through a mixture of activism and sustainabi
 -   [Mockups](https://github.com/mmarmol88/forfoodsake-frontend#mockups)
 -   [User Stories](https://github.com/mmarmol88/forfoodsake-frontend#user-stories)
 -   [User Data Flow Chart](https://github.com/mmarmol88/forfoodsake-frontend#user-data-flow-chart)
-    <!-- -   [Workflow & Responsiblities](https://github.com/mmarmol88/forfoodsake-frontend#workflow-&-responsibilities) -->
 -   [Component Hierarchy](https://github.com/mmarmol88/forfoodsake-frontend#component-hierarchy)
 -   [App Features](https://github.com/mmarmol88/forfoodsake-frontend#app-features)
 -   [Technologies Used](https://github.com/mmarmol88/forfoodsake-frontend#technologies-used)
@@ -66,15 +65,6 @@ The customer will be able to look at the vendor, units available,purchase the pr
 ## User Flow Data
 
 ![userdataflow](https://user-images.githubusercontent.com/56275819/76550216-23e7ed80-6468-11ea-8158-35108dedd006.jpg)
-
-<!-- ## Workflow and Responsabilities
-
-During the initial stages of our app build, we used a centralized workflow, but as soon as we had the skeleton built we transitioned into a feature branch workflow to maximize our time. We also prioritized pair programming throught the app build to catch errors and minimize time spent debugging in the long run. For testing, we decided to 'divide and conqure', once again prioritizing our time & to keep things efficient. Below you will find each team members individual responsibilities during the app build.
-
-**Sage Kearney** SCRUM, Project Manager, Testing, Styling, Layout
-**Qusai Fares** SCRUM, Master of the Git Arts, Testing, Layout
-**Rixio Barrios** Master of the Git Arts, Documentation, Testing, Styling, Layout
-**Mindy Marmol** Project Manager, Testing, Layout -->
 
 ## Component Hiearchy Diagram
 
@@ -128,24 +118,6 @@ During the initial stages of our app build, we used a centralized workflow, but 
 -   Testing
     -   Jest
     -   React Testing Library
-
-<!-- ## Install
-
-To install you can download this repo, install it on your machine and install dependencies(code here)(e.g nmp install). -->
-
-<!-- ### Why we chose this app???
-
-`I feel the app is a call to action.`
-\- Rixio Barrios
-
-`Creating a tool for everyone to benefit.`
-\- Qusai Fares
-
-`The more resources people have to make a difference, the easier it is to make a difference. DIFFERENCE.`
-\- Sage Kearney
-
-`To create an app that is a driving force for change, where people who are conscious about their impact can come together.`
-\- Mindy Marmol -->
 
 ## Code Sample
 
@@ -235,27 +207,22 @@ This code helps us do (reasons here)
 
 ## Building Team
 
-**Mindy Marmol** 
+**Mindy Marmol**
 [Github Profile](https://github.com/mmarmol88)
 
-<!-- <br> -->
-
-**Qusai Fares** 
+**Qusai Fares**
 [Github Profile](https://github.com/qusaifares)
 
-<!-- <br> -->
-
-**Rixio Barrios** 
+**Rixio Barrios**
 [Github Profile](https://github.com/rixiobarrios)
 
-<!-- <br> -->
-
-**Sage Kearney** 
+**Sage Kearney**
 [Github Profile](https://github.com/sage-kearney)
 
 ## Attributions
 
 **Instructors at General Assembly:**
+
 -   Esin Saribudak
 -   Hou Chia
 
@@ -264,8 +231,7 @@ This code helps us do (reasons here)
 -   [Miro](https://miro.com/)
 -   [Trello](https://trello.com/)
 -   [Google Docs](https://docs.google.com/)
--   [Heroku](www.heroku.com
-)
+-   [Heroku](www.heroku.com)
 -   [DB Diagram](https://dbdriagram.io)
 -   [Pixlr](https://pixlr.com/)
 -   [Adobe Illustrator](hhttps://www.adobe.com/products/illustrator.html)
@@ -276,12 +242,14 @@ This code helps us do (reasons here)
 -   [Jest Docs](https://jestjs.io/docs/en/expect)
 
 ## Special Thanks
--   Chris Mendoza
+
 **Sage Kearney**
-Mom & Dad, for keeping me fed during this program :heart: 
+Mom & Dad, for keeping me fed during this program :heart:
 **Qusai Fares**
 **Mindy Marmol**
 **Rixio Barrios**
+I thank my family for supporting me and my efforts to improve myself.
+To my good friend Chris Mendoza who helped me and my cohort mates through this project.
 
 <hr>
 **Additional documenation can be found in the backend repository** 
