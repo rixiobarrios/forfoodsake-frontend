@@ -1,22 +1,121 @@
 import React, { useState, useEffect } from 'react';
 import Map from './Map';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import EditIcon from '@material-ui/icons/Edit';
+import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
 import {
-    Card,
-    CardActionArea,
-    CardContent,
-    CardMedia,
     Typography,
     Box,
-    Grid
+    Button,
+    IconButton,
+    InputLabel
 } from '@material-ui/core/';
 import FoodListItem from './FoodListItem';
 
+const VendorProfile = ({ match, user, setUser }) => {
+    const [vendor, setVendor] = useState();
+
+    console.log('match', match);
+    useEffect(() => {
+        // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/${match.params.id}`)
+        fetch(`http://localhost:5000/api/vendors/${match.params.id}`)
+            .then(res => res.json())
+            .then(data => {
+                setVendor(data);
+            })
+            .catch(err => console.error(err));
+    }, [match.params.id]);
+
+    const classes = useStyles();
+
+    if (vendor) {
+        return (
+            <Box className={classes.container}>
+                <Box className={classes.imgContainer}>
+                    <img
+                        src={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
+                        alt="vendor profile"
+                        className={classes.img}
+                    />
+                </Box>
+                <Box className={classes.vendorInfo}>
+                    {user && user.id === vendor.id ? (
+                        <InputLabel
+                            className={classes.edit}
+                            htmlFor="icon-button-file"
+                        >
+                            <IconButton
+                                aria-label="upload picture"
+                                component={Link}
+                                to="/edit/account"
+                            >
+                                <EditIcon className={classes.icon} />
+                            </IconButton>
+                        </InputLabel>
+                    ) : null}
+                    <h2>{vendor.name}</h2>
+                    <a href={`mailto:${vendor.email}`}>{vendor.email}</a>
+                    <Typography className={classes.address}>
+                        {vendor.street}
+                        <br />
+                        {vendor.city} {vendor.state}
+                        <br />
+                        {vendor.zip_code}
+                    </Typography>
+                    <p>{vendor.phone}</p>
+                </Box>
+                <Box className={classes.description}>{vendor.description}</Box>
+                <Map user={vendor} />
+                {user && user.id === vendor.id ? (
+                    <Box className={classes.addContainer}>
+                        <Link to="/newlisting">
+                            <Button
+                                className={classes.add}
+                                variant="contained"
+                                color="primary"
+                                startIcon={<AddIcon />}
+                            >
+                                Add listing
+                            </Button>
+                        </Link>
+                    </Box>
+                ) : null}
+
+                <Box className={classes.wrapper}>
+                    {vendor.Listings.map((listing, index) => (
+                        <Link
+                            to={`/vendors/${vendor.id}/listings/${listing.id}`}
+                            key={`${vendor.id}-${listing.id}`}
+                        >
+                            <FoodListItem
+                                key={(index, listing.name)}
+                                listing={listing}
+                                vendor={vendor}
+                            />
+                        </Link>
+                    ))}
+                </Box>
+            </Box>
+        );
+    } else {
+        return <Box></Box>;
+    }
+};
+
 const useStyles = makeStyles(() => ({
-    pageContainer: {
-        paddingBottom: 100
+    edit: {
+        position: 'absolute',
+        top: 10,
+        right: 10
+    },
+    icon: {
+        fontSize: 32,
+        color: '#F16642'
+    },
+    container: {
+        paddingBottom: 100,
+        margin: '0 auto'
     },
     img: {
         width: '100%'
@@ -34,7 +133,8 @@ const useStyles = makeStyles(() => ({
         justifyContent: 'space-evenly',
         alignItems: 'flex-start',
         margin: '0 auto',
-        width: 'calc(100% - 4rem)'
+        width: 'calc(100% - 4rem)',
+        position: 'relative'
     },
     address: {
         lineHeight: 1.4
@@ -45,95 +145,24 @@ const useStyles = makeStyles(() => ({
         lineHeight: '1.4',
         width: 'calc(100% - 4rem)',
         padding: '2rem 1rem'
+    },
+    wrapper: {
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        margin: 'o auto',
+        padding: '4%'
+    },
+    update: {
+        margin: '2%',
+        backgroundColor: '#b6d2c4'
+    },
+    addContainer: {
+        marginTop: 40,
+        paddingRight: 40,
+        width: '90%',
+        display: 'flex',
+        justifyContent: 'flex-end'
     }
 }));
-
-const VendorProfile = ({ match, user, setUser }) => {
-    const [vendor, setVendor] = useState();
-
-    console.log('match', match);
-    useEffect(() => {
-        // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/${match.params.id}`)
-        fetch(`http://localhost:5000/api/vendors/${match.params.id}`)
-            .then(res => res.json())
-            .then(data => {
-                setVendor(data);
-            })
-            .catch(err => console.error(err));
-    }, [match.params.id]);
-
-    const classes = useStyles();
-    const deleteAccount = () => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/${user.id}/delete`, {
-            method: 'DELETE'
-        }).then(res => console.log(res));
-    };
-    const editAccount = () => {};
-
-    if (vendor) {
-        return (
-          <Box>
-            <Box className={classes.imgContainer}>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
-                alt="vendor profile"
-                className={classes.img}
-              />
-            </Box>
-            <Box className={classes.vendorInfo}>
-              <h2>{vendor.name}</h2>
-              <a href={`mailto:${vendor.email}`}>{vendor.email}</a>
-              <div className={classes.address}>
-                {vendor.street}
-                <br />
-                {vendor.city}
-                <br />
-                {vendor.state} {vendor.zipCode}
-              </div>
-              <p>{vendor.phone}</p>
-            </Box>
-            <Box className={classes.description}>{vendor.description}</Box>
-            <Map user={vendor} />
-            {user && user.id === vendor.id ? (
-              <>
-                <Button
-                  variant="outlined"
-                  color="secondary"
-                  onClick={deleteAccount}
-                >
-                  Delete Account
-                </Button>
-                <Link to="/edit/account">
-                  <Button variant="outlined" color="primary">
-                    Update Account
-                  </Button>
-                </Link>
-                <Link to="/newlisting">
-                  <Button variant="outlined" color="primary">
-                    Add listing
-                  </Button>
-                </Link>
-              </>
-            ) : null}
-            <Box>
-              {vendor.Listings.map((listing, index) => (
-                <Link
-                  to={`/vendors/${vendor.id}/listings/${listing.id}`}
-                  key={vendor.id}
-                >
-                  <FoodListItem
-                    key={(index, listing.name)}
-                    listing={listing}
-                    vendor={vendor}
-                  />
-                </Link>
-              ))}
-            </Box>
-          </Box>
-        );
-    } else {
-        return <Box></Box>;
-    }
-};
 
 export default VendorProfile;
