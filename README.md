@@ -2,37 +2,44 @@
 
 ## Concept
 
-
-Food waste in the US continues to be a crippling issue which effects everyone in our community. Here are a few state to illustrate the issue.
+Food waste in the US continues to be a crippling issue which effects everyone in our community. Here are a few stats to illustrate the issue.
 
 ##### 40% of all food in the US goes to waste
+
 ##### 20% of landfill weight is food waste
+
 ##### 49 million Americans struggle to put food on their table
+
 ##### 1 in 5 children are at risk of hunger
 
-
-This app is a humble contribution to a solution that may bring about a much needed change in the dominant culture of waste. We can’t build electric cars or a rocket to mars, but we can build this app while we get around to it.
+This app is a humble contribution to a solution that may bring about a much needed change in the dominant culture of waste. We can’t build electric cars or a rocket to mars, but we can build this app in the mean time.
 
 ## Overview
 
-The idea for the project came about through a mixture of activism and sustainability. Our main focus was to create an app that promotes waste reduction through food management. Bring businesses and the community together to tackle a common issue and provide a tool to effectively fight hunger.
-[click here to view our app live](https://mmarmol88.github.io/forfoodsake-frontend/)
+The idea for the project came about through a mixture of activism and sustainability. Our main focus was to create an app that promotes waste reduction through food management by bringing businesses and the community together to tackle a common issue and provide a tool to effectively fight hunger.
+
+:eight_pointed_black_star: [Click here to view our app live](https://mmarmol88.github.io/forfoodsake-frontend/)
+
+---
 
 ## Table of Contents
-- [Who is ForFoodSake for?](https://github.com/mmarmol88/forfoodsake-frontend#who-is-ForFoodSake-for)
-- [Wireframes](https://github.com/mmarmol88/forfoodsake-frontend#wireframes)
-- [Mockups](https://github.com/mmarmol88/forfoodsake-frontend#mockups)
-- [User Stories](https://github.com/mmarmol88/forfoodsake-frontend#user-stories)
-- [User Data Flow Chart](https://github.com/mmarmol88/forfoodsake-frontend#user-data-flow-chart)
-- [Workflow & Responsiblities](https://github.com/mmarmol88/forfoodsake-frontend#workflow-&-responsibilities)
-- [Component Hierarchy](https://github.com/mmarmol88/forfoodsake-frontend#component-hierarchy)
-- [App Features](https://github.com/mmarmol88/forfoodsake-frontend#app-features)
-- [Technologies Used](https://github.com/mmarmol88/forfoodsake-frontend#technologies-used)
-- [Code Sample](https://github.com/mmarmol88/forfoodsake-frontend#code-sample)
-- [Contribution & Installation Instructions](https://github.com/mmarmol88/forfoodsake-frontend#contribution-&-installation-instructions)
-- [Attributions](https://github.com/mmarmol88/forfoodsake-frontend#attributions)
-- [About the Developers](https://github.com/mmarmol88/forfoodsake-frontend#about-the-developers)
 
+-   [Who is ForFoodSake for?](https://github.com/mmarmol88/forfoodsake-frontend#who-is-ForFoodSake-for)
+-   [Wireframes](https://github.com/mmarmol88/forfoodsake-frontend#wireframes)
+-   [Mockups](https://github.com/mmarmol88/forfoodsake-frontend#mockups)
+-   [Browser and Mobile Views](https://github.com/mmarmol88/forfoodsake-frontend#browser-and-mobile-views)
+-   [User Stories](https://github.com/mmarmol88/forfoodsake-frontend#user-stories)
+-   [User Data Flow Chart](https://github.com/mmarmol88/forfoodsake-frontend#user-data-flow-chart)
+-   [Component Hierarchy](https://github.com/mmarmol88/forfoodsake-frontend#component-hierarchy)
+-   [App Features](https://github.com/mmarmol88/forfoodsake-frontend#app-features)
+-   [Technologies Used](https://github.com/mmarmol88/forfoodsake-frontend#technologies-used)
+-   [Code Sample](https://github.com/mmarmol88/forfoodsake-frontend#code-sample)
+-   [Contribution & Installation Instructions](https://github.com/mmarmol88/forfoodsake-frontend#contribution-&-installation-instructions)
+-   [Building Team](https://github.com/mmarmol88/forfoodsake-frontend#building-team)
+-   [Attributions](https://github.com/mmarmol88/forfoodsake-frontend#attributions)
+-   [Special Thanks](https://github.com/mmarmol88/forfoodsake-frontend#special-thanks)
+
+---
 
 ### Who is ForFoodSake for?
 
@@ -40,13 +47,18 @@ The idea for the project came about through a mixture of activism and sustainabi
 -   Vendors who want to reduce food waste and dedicate a portion of their business to sustainability.
 -   Anybone who enjoys eating and is looking for a good deal on delicious food.
 
-
 ## Wireframes
 
 ![wireframes](https://user-images.githubusercontent.com/56275819/76550136-00bd3e00-6468-11ea-945a-1a412b2c567b.jpg)
 
 ## Mock Ups
+
 ![Asset 6](https://user-images.githubusercontent.com/56275819/76559911-6ca6a300-6476-11ea-828d-e177aec711bd.png)
+
+## Browser and Mobile Views
+
+![Browser View](Link here)
+![Mobile View](Link here)
 
 ## User Stories
 
@@ -60,97 +72,197 @@ The customer will be able to look at the vendor, units available,purchase the pr
 
 ![userdataflow](https://user-images.githubusercontent.com/56275819/76550216-23e7ed80-6468-11ea-8158-35108dedd006.jpg)
 
-
-## Workflow and Responsabilities
-
-The ForFoodSake team used the Centralized, and Feature Branch Git workflow. We pair programmed to minimize time spent on finding solutions to any challenges we may encounter within our code. As a team we will be tackling testing for both backend and frontend.
-
-**Sage Kearney** SCRUM, Project Manager, Testing, Styling, Layout
-**Qusai Fares** SCRUM, Master of the Git Arts, Testing, Layout
-**Rixio Barrios** Master of the Git Arts, Documentation, Testing, Styling, Layout
-**Mindy Marmol** Project Manager, Testing, Layout
-
 ## Component Hiearchy Diagram
 
 ![Project 4_ Component Hierarchy](https://user-images.githubusercontent.com/56275819/76550372-6c071000-6468-11ea-8206-82994bb9cf8e.jpg)
 
-### App Features
+## App Features
 
 **Minimum Viable Product**
 
 -   [x] CRUD functionality for Vendors
--   [x] User can view vendors located in New York
+-   [x] User can view vendors located in New York City
 -   [x] User can view all listings displayed on Vendor page
 -   [x] Vendor can create, update, & delete listing
--   [x] Basic styling using flexbox/grid
+-   [x] Incorporate Material.UI for styling
 -   [x] Mobile responsive
 
 **Bronze Features**
 
--   [ ] Vendor authentication
+-   [x] Vendor authentication
 -   [ ] Users can search for vendors located in Nashville, Denver, or New York
--   [x] Incorporate Material.UI for styling
+-   [ ] Add component for educational resources about waste free lifestyle
 
 **Silver Features**
 
 -   [ ] Transition from React to React Native framework
--   [ ] Add component for educational resources about waste free lifestyle
--   [x] Continue to elevate styling through branding(colors, fonts, icons, graphic elements)
+-   [x] Elevate styling through branding(colors, fonts, icons, graphic elements)
 -   [ ] Image upload for vendors
 
 **Gold Features**
 
 -   [ ] CRUD functionality for Users
--   [ ] Use Google geolocation for 'view vendors by location' style search functionality
--   [ ] Add Twitter thread linking to releated hashtags.
+-   [ ] Use Google geolocation to filter search results
+-   [ ] Add Twitter thread linking to releated hashtags
 -   [ ] Add animation & interactive design through transitions
 -   [ ] Carousel/Slideshow of available listings on home page
 
 **Platinum Features**
 
--   [ ] Add ability for user to write a review for vendor
--   [ ] Incorporate social sharing abilities.
--   [ ] Use Nodemailer or other technology to send order receipts to user
+-   [ ] Add ability for user to write a vendor review
+-   [ ] Incorporate social media sharing capabilities
+-   [ ] Send order confirmation to users via email and/or text message
 
-### Technologies used
+### Technologies Used
 
 -   React
     -   React Router
     -   React Hooks
 -   JavaScript
--   Cascading Style Sheets(CSS)
+-   Cascading Style Sheets (CSS)
 -   Material-UI
 -   Testing
     -   Jest
     -   React Testing Library
 
-<!-- ## Install
-
-To install you can download this repo, install it on your machine and install dependencies(code here)(e.g nmp install). -->
-
-<!-- ### Why we chose this app???
-
-`I feel the app is a call to action.`
-\- Rixio Barrios
-
-`Creating a tool for everyone to benefit.`
-\- Qusai Fares
-
-`The more resources people have to make a difference, the easier it is to make a difference. DIFFERENCE.`
-\- Sage Kearney
-
-`To create an app that is a driving force for change, where people who are conscious about their impact can come together.`
-\- Mindy Marmol -->
-
 ## Code Sample
+
 ```PY
-need to see what code the team wants to show off & explain
+    if (props.signupStep === 1) {
+        return (
+            <>
+                <Box className={classes.formContent}>
+                    <FormControl
+                        error={!props.validEmail}
+                        className={classes.inputField}
+                    >
+                        <InputLabel htmlFor="email">Email</InputLabel>
+                        <Input
+                            value={props.emailString}
+                            onChange={e => props.setEmailString(e.target.value)}
+                            id="email"
+                            type="email"
+                            aria-describedby="my-helper-text"
+                        />
+                        {props.validEmail ? null : (
+                            <FormHelperText>Please enter email</FormHelperText>
+                        )}
+                    </FormControl>
+                    <FormControl
+                        error={!props.validPassword}
+                        className={classes.inputField}
+                    >
+                        <InputLabel htmlFor="password">Password</InputLabel>
+                        <Input
+                            value={props.passwordString}
+                            onChange={e =>
+                                props.setPasswordString(e.target.value)
+                            }
+                            type="password"
+                            id="password"
+                        />
+                        {props.validPassword ? null : (
+                            <FormHelperText>
+                                Please enter password
+                            </FormHelperText>
+                        )}
+                    </FormControl>
+                    <FormControl
+                        error={!props.passwordMatch}
+                        className={classes.inputField}
+                    >
+                        <InputLabel htmlFor="confirmPassword">
+                            Confirm password
+                        </InputLabel>
+                        <Input
+                            value={props.confirmPasswordString}
+                            onChange={e =>
+                                props.setConfirmPasswordString(e.target.value)
+                            }
+                            type="password"
+                            id="confirmPassword"
+                        />
+                        {props.passwordMatch ? null : (
+                            <FormHelperText>
+                                Passwords must match
+                            </FormHelperText>
+                        )}
+                    </FormControl>
+                </Box>
+                <FormControl>
+                    <Button
+                        className={classes.submitLogin}
+                        variant="outlined"
+                        color="secondary"
+                        onClick={props.incrementSignup}
+                    >
+                        Continue
+                    </Button>
+                </FormControl>
+            </>
+        );
+    } else if (props.signupStep === 2) {
+        return (
 ```
 
-This code helps us do (reasons here)
+This code’s purpose is to reuse the same form component to allow the user to fill all sign up fields without having too many fields to fill out on screen
 
 ## Installation & Contributing Instructions
 
-[Click here to view instructions](https://github.com/firstcontributions/first-contributions)
+[Click here](https://github.com/firstcontributions/first-contributions)
+
+## Building Team
+
+**Mindy Marmol**
+[Github Profile](https://github.com/mmarmol88)
+
+**Qusai Fares**
+[Github Profile](https://github.com/qusaifares)
+
+**Rixio Barrios**
+[Github Profile](https://github.com/rixiobarrios)
+
+**Sage Kearney**
+[Github Profile](https://github.com/sage-kearney)
 
 ## Attributions
+
+**Instructors at General Assembly:**
+
+-   Esin Saribudak
+-   Hou Chia
+
+**Resources & Tools**
+
+-   [Miro](https://miro.com/)
+-   [Trello](https://trello.com/)
+-   [Google Docs](https://docs.google.com/)
+-   [Heroku](www.heroku.com)
+-   [DB Diagram](https://dbdriagram.io)
+-   [Pixlr](https://pixlr.com/)
+-   [Adobe Illustrator](hhttps://www.adobe.com/products/illustrator.html)
+-   [Adobe Indesign](https://www.adobe.com/products/indesign.html)
+-   [Adobe XD](https://www.adobe.com/products/xd.html)
+-   [Material-UI Docs](https://material-ui.com/)
+-   [React Testing Library Docs](https://testing-library.com/docs/react-testing-library/intro)
+-   [Jest Docs](https://jestjs.io/docs/en/expect)
+
+## Special Thanks
+
+**Sage Kearney:**
+Mom & Dad, for keeping me fed during this program :heart:
+
+**Qusai Fares:**
+Thanks to my family for being there. Also thanks to my colleagues and instructors
+
+**Mindy Marmol:**
+To all the bugs and errors that made us google masters, thank you.
+
+**Rixio Barrios:**
+I thank my family for supporting me and my efforts to improve myself.
+To my good friend **Chris Mendoza** who helped me and my cohort mates through this project.
+
+<hr>
+
+**Additional documentation can be found in the backend repository**
+[Click here](https://github.com/qusaifares/forfoodsake-backend)
