@@ -1,20 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-
 import {
     FormControl,
+    FormGroup,
     InputLabel,
     Input,
     Select,
+    MenuItem,
+    FormHelperText,
     Button,
-    Box
+    Box,
+    Tabs,
+    Tab
 } from '@material-ui/core';
+import { withStyles, makeStyles } from '@material-ui/styles';
+const states = require('./states.json');
+const vendorTypes = ['Restaurant', 'Farm', 'Market'];
+const numberFields = ['quantity', 'price', 'phone'];
+const boolFields = ['vegan', 'vegetarian'];
+const selectFields = ['state', 'type'];
+
+const useStyles = makeStyles(theme => ({}));
 
 const EditField = ({ setUser, editType, user, match }) => {
+    const classes = useStyles();
     let history = useHistory();
     const [value, setValue] = useState();
-    const numberFields = ['quantity', 'price', 'phone'];
-    const boolFields = ['vegan', 'vegetarian'];
+    const [selectValues, setSelectValues] = useState([]);
 
     useEffect(() => {
         if (editType === 'vendor') {
@@ -26,7 +38,18 @@ const EditField = ({ setUser, editType, user, match }) => {
             console.log(user.Listings, tempListing, match.params.id);
             setValue(tempListing[match.params.field]);
         }
-    }, []);
+        switch (match.params.field) {
+            case 'state':
+                setSelectValues(states);
+                break;
+            case 'type':
+                setSelectValues(vendorTypes);
+                break;
+
+            default:
+                break;
+        }
+    }, [match.params.field]);
 
     const handleChange = e => {
         if (boolFields.includes(match.params.field)) {
@@ -82,7 +105,27 @@ const EditField = ({ setUser, editType, user, match }) => {
             updateVendor();
         }
     };
-    if (false) {
+    if (selectFields.includes(match.params.field)) {
+        return (
+            <FormControl className={classes.selectField}>
+                <InputLabel>State</InputLabel>
+                <Select value={value} onChange={e => setValue(e.target.value)}>
+                    {selectValues.map(option => (
+                        <MenuItem
+                            value={
+                                match.params.field === 'state'
+                                    ? option.abbreviation
+                                    : option
+                            }
+                        >
+                            {match.params.field === 'state'
+                                ? option.name
+                                : option}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+        );
     } else {
         return (
             <>

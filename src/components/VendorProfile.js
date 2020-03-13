@@ -10,7 +10,7 @@ import {
   InputLabel
 } from '@material-ui/core/';
 import FoodListItem from './FoodListItem';
-import { EditIcon } from '@material-ui/icons/Edit';
+
 
 const VendorProfile = ({ match, user, setUser }) => {
   const [vendor, setVendor] = useState();
