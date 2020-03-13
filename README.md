@@ -72,10 +72,6 @@ The customer will be able to look at the vendor, units available,purchase the pr
 
 ![userdataflow](https://user-images.githubusercontent.com/56275819/76550216-23e7ed80-6468-11ea-8158-35108dedd006.jpg)
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8c3c912bdbdc9188ac617a73843befd3d512f7cf
 ## Component Hiearchy Diagram
 
 ![Project 4_ Component Hierarchy (1)](https://user-images.githubusercontent.com/56275819/76598071-634e2280-64d8-11ea-8a1f-4446dd0167d1.jpg)
@@ -129,10 +125,6 @@ The customer will be able to look at the vendor, units available,purchase the pr
     -   Jest
     -   React Testing Library
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8c3c912bdbdc9188ac617a73843befd3d512f7cf
 ## Code Sample
 
 ```PY
@@ -272,10 +264,7 @@ To my good friend **Chris Mendoza** who helped me and my cohort mates through th
 
 <hr>
 
-<<<<<<< HEAD
-**Additional documenation can be found in the backend repository** 
-[Click here](https://github.com/qusaifares/forfoodsake-backend)
-=======
+
 **Additional documentation can be found in the backend repository**
 [Click here](https://github.com/qusaifares/forfoodsake-backend)
->>>>>>> 8c3c912bdbdc9188ac617a73843befd3d512f7cf
+
