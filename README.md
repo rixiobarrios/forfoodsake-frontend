@@ -150,7 +150,81 @@ To install you can download this repo, install it on your machine and install de
 ## Code Sample
 
 ```PY
-need to see what code the team wants to show off & explain
+    if (props.signupStep === 1) {
+        return (
+            <>
+                <Box className={classes.formContent}>
+                    <FormControl
+                        error={!props.validEmail}
+                        className={classes.inputField}
+                    >
+                        <InputLabel htmlFor="email">Email</InputLabel>
+                        <Input
+                            value={props.emailString}
+                            onChange={e => props.setEmailString(e.target.value)}
+                            id="email"
+                            type="email"
+                            aria-describedby="my-helper-text"
+                        />
+                        {props.validEmail ? null : (
+                            <FormHelperText>Please enter email</FormHelperText>
+                        )}
+                    </FormControl>
+                    <FormControl
+                        error={!props.validPassword}
+                        className={classes.inputField}
+                    >
+                        <InputLabel htmlFor="password">Password</InputLabel>
+                        <Input
+                            value={props.passwordString}
+                            onChange={e =>
+                                props.setPasswordString(e.target.value)
+                            }
+                            type="password"
+                            id="password"
+                        />
+                        {props.validPassword ? null : (
+                            <FormHelperText>
+                                Please enter password
+                            </FormHelperText>
+                        )}
+                    </FormControl>
+                    <FormControl
+                        error={!props.passwordMatch}
+                        className={classes.inputField}
+                    >
+                        <InputLabel htmlFor="confirmPassword">
+                            Confirm password
+                        </InputLabel>
+                        <Input
+                            value={props.confirmPasswordString}
+                            onChange={e =>
+                                props.setConfirmPasswordString(e.target.value)
+                            }
+                            type="password"
+                            id="confirmPassword"
+                        />
+                        {props.passwordMatch ? null : (
+                            <FormHelperText>
+                                Passwords must match
+                            </FormHelperText>
+                        )}
+                    </FormControl>
+                </Box>
+                <FormControl>
+                    <Button
+                        className={classes.submitLogin}
+                        variant="outlined"
+                        color="secondary"
+                        onClick={props.incrementSignup}
+                    >
+                        Continue
+                    </Button>
+                </FormControl>
+            </>
+        );
+    } else if (props.signupStep === 2) {
+        return (
 ```
 
 This code helps us do (reasons here)
@@ -161,35 +235,54 @@ This code helps us do (reasons here)
 
 ## Building Team
 
-##### Mindy Marmol [Github Profile](https://github.com/mmarmol88)
+**Mindy Marmol** 
+[Github Profile](https://github.com/mmarmol88)
 
-<br>
+<!-- <br> -->
 
-##### Qusai Fares [Github Profile](https://github.com/qusaifares)
+**Qusai Fares** 
+[Github Profile](https://github.com/qusaifares)
 
-<br>
+<!-- <br> -->
 
-##### Rixio Barrios [Github Profile](https://github.com/rixiobarrios)
+**Rixio Barrios** 
+[Github Profile](https://github.com/rixiobarrios)
 
-<br>
+<!-- <br> -->
 
-##### Sage Kearney [Github Profile](https://github.com/sage-kearney)
+**Sage Kearney** 
+[Github Profile](https://github.com/sage-kearney)
 
 ## Attributions
 
 **Instructors at General Assembly:**
+-   Esin Saribudak
+-   Hou Chia
 
-**Cohort Mates at General Assembly:**
+**Resources & Tools**
 
-**Resources**
-
--   [Miro]()
--   [Trello]()
--   [Google Docs]()
--   [Heroku]()
+-   [Miro](https://miro.com/)
+-   [Trello](https://trello.com/)
+-   [Google Docs](https://docs.google.com/)
+-   [Heroku](www.heroku.com
+)
 -   [DB Diagram](https://dbdriagram.io)
 -   [Pixlr](https://pixlr.com/)
+-   [Adobe Illustrator](hhttps://www.adobe.com/products/illustrator.html)
+-   [Adobe Indesign](https://www.adobe.com/products/indesign.html)
+-   [Adobe XD](https://www.adobe.com/products/xd.html)
+-   [Material-UI Docs](https://material-ui.com/)
+-   [React Testing Library Docs](https://testing-library.com/docs/react-testing-library/intro)
+-   [Jest Docs](https://jestjs.io/docs/en/expect)
 
 ## Special Thanks
+-   Chris Mendoza
+**Sage Kearney**
+Mom & Dad, for keeping me fed during this program :heart: 
+**Qusai Fares**
+**Mindy Marmol**
+**Rixio Barrios**
 
-family members, friends, people outside of GA
+<hr>
+**Additional documenation can be found in the backend repository** 
+[Click here](https://github.com/qusaifares/forfoodsake-backend)
