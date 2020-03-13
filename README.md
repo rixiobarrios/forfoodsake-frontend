@@ -3,7 +3,7 @@
 ## Concept
 
 
-Food waste in the US continues to be a crippling issue which effects everyone in our community. Here are a few state to illustrate the issue.
+Food waste in the US continues to be a crippling issue which effects everyone in our community. Here are a few stats to illustrate the issue.
 
 ##### 40% of all food in the US goes to waste
 ##### 20% of landfill weight is food waste
@@ -11,12 +11,15 @@ Food waste in the US continues to be a crippling issue which effects everyone in
 ##### 1 in 5 children are at risk of hunger
 
 
-This app is a humble contribution to a solution that may bring about a much needed change in the dominant culture of waste. We can’t build electric cars or a rocket to mars, but we can build this app while we get around to it.
+This app is a humble contribution to a solution that may bring about a much needed change in the dominant culture of waste. We can’t build electric cars or a rocket to mars, but we can build this app in the mean time.
 
 ## Overview
 
-The idea for the project came about through a mixture of activism and sustainability. Our main focus was to create an app that promotes waste reduction through food management. Bring businesses and the community together to tackle a common issue and provide a tool to effectively fight hunger.
-[click here to view our app live](https://mmarmol88.github.io/forfoodsake-frontend/)
+The idea for the project came about through a mixture of activism and sustainability. Our main focus was to create an app that promotes waste reduction through food management by bringing businesses and the community together to tackle a common issue and provide a tool to effectively fight hunger.
+
+:eight_pointed_black_star: [Click here to view our app live](https://mmarmol88.github.io/forfoodsake-frontend/)
+
+--------
 
 ## Table of Contents
 - [Who is ForFoodSake for?](https://github.com/mmarmol88/forfoodsake-frontend#who-is-ForFoodSake-for)
@@ -33,6 +36,7 @@ The idea for the project came about through a mixture of activism and sustainabi
 - [Attributions](https://github.com/mmarmol88/forfoodsake-frontend#attributions)
 - [About the Developers](https://github.com/mmarmol88/forfoodsake-frontend#about-the-developers)
 
+--------------
 
 ### Who is ForFoodSake for?
 
@@ -63,7 +67,7 @@ The customer will be able to look at the vendor, units available,purchase the pr
 
 ## Workflow and Responsabilities
 
-The ForFoodSake team used the Centralized, and Feature Branch Git workflow. We pair programmed to minimize time spent on finding solutions to any challenges we may encounter within our code. As a team we will be tackling testing for both backend and frontend.
+During the initial stages of our app build, we used a centralized workflow, but as soon as we had the skeleton built we transitioned into a feature branch workflow to maximize our time. We also prioritized pair programming throught the app build to catch errors and minimize time spent debugging in the long run. For testing, we decided to 'divide and conqure', once again prioritizing our time & to keep things efficient. Below you will find each team members individual responsibilities during the app build. 
 
 **Sage Kearney** SCRUM, Project Manager, Testing, Styling, Layout
 **Qusai Fares** SCRUM, Master of the Git Arts, Testing, Layout
@@ -102,7 +106,7 @@ The ForFoodSake team used the Centralized, and Feature Branch Git workflow. We p
 
 -   [ ] CRUD functionality for Users
 -   [ ] Use Google geolocation for 'view vendors by location' style search functionality
--   [ ] Add Twitter thread linking to releated hashtags.
+-   [ ] Add Twitter thread linking to releated hashtags
 -   [ ] Add animation & interactive design through transitions
 -   [ ] Carousel/Slideshow of available listings on home page
 
@@ -118,7 +122,7 @@ The ForFoodSake team used the Centralized, and Feature Branch Git workflow. We p
     -   React Router
     -   React Hooks
 -   JavaScript
--   Cascading Style Sheets(CSS)
+-   Cascading Style Sheets (CSS)
 -   Material-UI
 -   Testing
     -   Jest
@@ -154,3 +158,21 @@ This code helps us do (reasons here)
 [Click here to view instructions](https://github.com/firstcontributions/first-contributions)
 
 ## Attributions
+
+## About the Developers
+
+##### Mindy Marmol
+Mindy is a software engineer and designer with a passion for functionality, efficiency and collaboration. Her experience as a Visual Merchandising Manager helped solidify her capacity for building efficient processes to solve complex problems. It is her purpose to nurture the implementation of technology in different aspects of human life. 
+[Connect with Mindy on LinkedIn](https://www.linkedin.com/in/mindymarmol/)
+
+##### Qusai Fares
+Qusai is a Miami based full-stack software engineer. He appreciates motivated teams with collaborative environments & is constantly pushing himself to learn new things and connect with new people.
+[Connect with Qusai on LinkedIn](https://www.linkedin.com/in/qusaifares/)
+
+##### Rixio Barrios
+Diplomat turned Software Engineer, Rixio is driven by the desire to change everything. His creative and inquisitive nature is constantly evolving. He is passionate about making interactive products shaped around human experience, diversity, and intuitive, efficient functionality. 
+[Connect with Rixio on LinkedIn](https://www.linkedin.com/in/rixiobarrios/)
+
+##### Sage Kearney
+Sage is a visionary full stack software engineer who’s artfully managed to weld her background in graphic design with tech expertise in the form of web development to further fuel her passion for storytelling.
+[Connect with Sage on LinkedIn](https://www.linkedin.com/in/sage-kearney/)
