@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     FormControl,
     FormGroup,
@@ -7,11 +7,9 @@ import {
     Button,
     Box,
     FormControlLabel,
-    TextField,
-    IconButton
+    TextField
 } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -80,7 +78,6 @@ export default function CreateListing({ user }) {
                     }
                 }
             ).then(res => {
-                console.log(res);
                 history.push(`/vendors/${user.id}`);
             });
         } else {
@@ -126,7 +123,7 @@ export default function CreateListing({ user }) {
                     />
                 </FormControl>
                 <FormControlLabel
-                    control={<Checkbox color="variant" />}
+                    control={<Checkbox />}
                     label="Vegan"
                     labelPlacement="end"
                     onChange={e => {
@@ -137,7 +134,7 @@ export default function CreateListing({ user }) {
                     }}
                 />
                 <FormControlLabel
-                    control={<Checkbox color="variant" />}
+                    control={<Checkbox />}
                     label="Vegetarian"
                     labelPlacement="end"
                     onChange={e => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import { Grid, Typography, Box, Button } from '@material-ui/core';
+import { Typography, Box, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Map from './Map';
 const useStyles = makeStyles({
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
         position: 'absolute',
         height: '100%',
         width: '100%',
-        background: 'linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.2))',
+        background: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.2))',
         color: '#fff',
         fontSize: '1.5rem',
         padding: 20
@@ -60,18 +60,15 @@ const useStyles = makeStyles({
 });
 const ListingDetail = ({ user, match }) => {
     const classes = useStyles();
-    console.log(match);
     const [vendor, setVendor] = useState();
     const [listing, setListing] = useState();
 
     useEffect(() => {
-        console.log('IS THIS WORKING');
         fetch(
             `${process.env.REACT_APP_SERVER_URL}/vendors/${match.params.vendorId}`
         )
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setVendor(data);
                 setListing(
                     data.Listings.find(

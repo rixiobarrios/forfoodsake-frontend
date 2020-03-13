@@ -25,12 +25,25 @@ const boolFields = ['vegan', 'vegetarian'];
 const selectFields = ['state', 'type'];
 
 const useStyles = makeStyles(theme => ({
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '30vh'
+    },
     root: {
         margin: '100 auto'
     },
-    value: {
+    back: {
+        position: 'absolute',
+        top: 10,
+        left: 10
+    },
+    input: {
         // border: '1px solid gray',
         // margin: '40% 25%',
+        marginBottom: 15,
         display: 'inline-flex',
         padding: 10,
         zIndex: 0,
@@ -39,6 +52,9 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'column',
         verticalAlign: 'top',
         borderRadius: 5
+    },
+    select: {
+        padding: 10
     }
 }));
 
@@ -55,7 +71,6 @@ const EditField = ({ setUser, editType, user, match }) => {
             let tempListing = user.Listings.find(
                 listing => listing.id === parseInt(match.params.id)
             );
-            console.log(user.Listings, tempListing, match.params.id);
             setValue(tempListing[match.params.field]);
         }
         switch (match.params.field) {
@@ -130,7 +145,7 @@ const EditField = ({ setUser, editType, user, match }) => {
     };
     if (selectFields.includes(match.params.field)) {
         return (
-            <>
+            <Box className={classes.container}>
                 <Link
                     className={classes.back}
                     to={
@@ -145,6 +160,7 @@ const EditField = ({ setUser, editType, user, match }) => {
                 <FormControl className={classes.selectField}>
                     <InputLabel>State</InputLabel>
                     <Select
+                        className={classes.select}
                         value={value}
                         onChange={e => setValue(e.target.value)}
                     >
@@ -170,11 +186,11 @@ const EditField = ({ setUser, editType, user, match }) => {
                         Update
                     </Button>
                 </FormControl>
-            </>
+            </Box>
         );
     } else {
         return (
-            <>
+            <Box className={classes.container}>
                 <Link
                     className={classes.back}
                     to={
@@ -192,7 +208,7 @@ const EditField = ({ setUser, editType, user, match }) => {
                             {match.params.field}
                         </InputLabel>
                         <Input
-                            className={classes.value}
+                            className={classes.input}
                             checked={value}
                             value={value}
                             onChange={handleChange}
@@ -218,7 +234,7 @@ const EditField = ({ setUser, editType, user, match }) => {
                         </Button>
                     </FormControl>
                 </Box>
-            </>
+            </Box>
         );
     }
 };

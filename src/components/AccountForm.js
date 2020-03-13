@@ -1,16 +1,7 @@
 import React, { useState } from 'react';
-import {
-    FormControl,
-    FormGroup,
-    InputLabel,
-    Input,
-    Button,
-    Box,
-    Tabs,
-    Tab
-} from '@material-ui/core';
+import { FormGroup, Box, Tabs, Tab } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-import { withStyles, makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
 
@@ -67,15 +58,8 @@ const AccountForm = ({ url, setUser }) => {
     const [validPassword, setValidPassword] = useState(true);
     const [passwordMatch, setPasswordMatch] = useState(true);
     const [validName, setValidName] = useState(true);
-    const [validCity, setValidCity] = useState(true);
-    const [validState, setValidState] = useState(true);
-    const [validZipCode, setValidZipCode] = useState(true);
     const [validType, setValidType] = useState(true);
-    const [validStreet, setValidStreet] = useState(true);
-    const [validPhone, setValidPhone] = useState(true);
-    const [validDescription, setValidDescription] = useState(true);
-    const [validImage, setValidImage] = useState(true);
-    const [validClosing, setValidClosing] = useState(true);
+
     // Switch between login and signup
     const [formType, setFormType] = useState(1);
     let history = useHistory();
@@ -157,7 +141,6 @@ const AccountForm = ({ url, setUser }) => {
     const logIn = e => {
         e.preventDefault();
         // if email and password aren't empty, and password and confirmPassword match
-        console.log('check', emailString, passwordString);
         if (emailString && passwordString) {
             fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/login`, {
                 method: 'POST',
@@ -171,10 +154,8 @@ const AccountForm = ({ url, setUser }) => {
             })
                 .then((res, err) => {
                     if (err) {
-                        console.log(err);
                         return;
                     }
-                    console.log(res);
                     return res.json();
                 })
                 .then(data => {

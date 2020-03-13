@@ -59,6 +59,16 @@ main {
     padding: 10vh;
     position: relative;
     z-index: 7;
+    animation: start 1.5s forwards ease-in-out;
+}
+
+@keyframes start {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 footer {
@@ -66,7 +76,6 @@ footer {
     bottom: 0;
     width: 100%;
 }
-
 
 .MuiFormControl-root {
     border: 1px solid gray;

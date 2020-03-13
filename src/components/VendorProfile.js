@@ -16,7 +16,6 @@ import FoodListItem from './FoodListItem';
 const VendorProfile = ({ match, user, setUser }) => {
     const [vendor, setVendor] = useState();
     const [formattedPhone, setFormattedPhone] = useState();
-    console.log('match', match);
     useEffect(() => {
         // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/${match.params.id}`)
         fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/${match.params.id}`)

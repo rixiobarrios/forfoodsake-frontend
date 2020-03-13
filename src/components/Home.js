@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Splash from './Splash';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import {
     Card,
     CardActionArea,
@@ -8,20 +8,12 @@ import {
     CardMedia,
     Typography,
     Box,
-    Input,
-    TextField
+    Input
 } from '@material-ui/core/';
-import { createMuiTheme } from '@material-ui/core/styles';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import { pink } from '@material-ui/core/colors';
 import { Link } from 'react-router-dom';
-
-const theme = createMuiTheme({
-    typography: {
-        fontFamily: 'Montserrat, sans-serif'
-    }
-});
 
 const useStyles = makeStyles(theme => ({
     search: {
@@ -53,7 +45,6 @@ const Home = ({ hideSplash, splash }) => {
     const [vendors, setVendors] = useState([]);
     const [filtered, setFiltered] = useState([]);
     const classes = useStyles();
-    const theme = useTheme();
     const [searchString, setSearchString] = useState('');
 
     useEffect(() => {
@@ -72,12 +63,9 @@ const Home = ({ hideSplash, splash }) => {
     };
 
     useEffect(() => {
-        console.log(process.env.REACT_APP_SERVER_URL);
-        // fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/`)
         fetch(`${process.env.REACT_APP_SERVER_URL}/vendors/`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setVendors(data);
                 setFiltered(data);
             })

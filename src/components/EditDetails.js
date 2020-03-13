@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import Map from './Map';
 import { makeStyles } from '@material-ui/core/styles';
 import PublishIcon from '@material-ui/icons/Publish';
 import DeleteIcon from '@material-ui/icons/Delete';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { Link } from 'react-router-dom';
 import {
     Card,
@@ -13,11 +13,9 @@ import {
     Typography,
     Box,
     Button,
-    Grid,
     IconButton,
     InputLabel
 } from '@material-ui/core/';
-import FoodListItem from './FoodListItem';
 
 const EditDetails = ({ setUser, editType, user, match }) => {
     const [image, setImage] = useState();
@@ -33,7 +31,6 @@ const EditDetails = ({ setUser, editType, user, match }) => {
         'Listings'
     ]);
     useEffect(() => {
-        console.log('this is WORKING', details, Object.keys(details));
         if (!user) {
             history.push('/login');
         } else if (editType === 'listing') {
@@ -42,16 +39,16 @@ const EditDetails = ({ setUser, editType, user, match }) => {
                 l => l.id === parseInt(match.params.id)
             );
             setDetails(listing);
-            console.log(details);
         } else {
             // otherwise, we are editing the user
             setDetails(user);
-            console.log(details);
         }
     }, [match.params.id, editType, user]);
-    const cleanUp = () => {
-        setDetails(null);
-        console.log(details);
+
+    const logOut = () => {
+        setUser({});
+        localStorage.removeItem('userId');
+        history.push('/');
     };
     const deleteDetails = () => {
         fetch(
@@ -145,6 +142,20 @@ const EditDetails = ({ setUser, editType, user, match }) => {
                 })}
             </Box>
             <Box className={classes.deleteContainer}>
+                {editType === 'vendor' ? (
+                    <Button
+                        variant="contained"
+                        className={classes.logout}
+                        color="secondary"
+                        onClick={logOut}
+                        startIcon={<ExitToAppIcon />}
+                    >
+                        Log Out
+                    </Button>
+                ) : (
+                    <Box></Box>
+                )}
+
                 <Button
                     variant="contained"
                     className={classes.delete}
@@ -210,12 +221,15 @@ const useStyles = makeStyles(() => ({
     deleteContainer: {
         marginTop: 40,
         paddingRight: 40,
-        width: '90%',
+        width: '100vw',
         display: 'flex',
-        justifyContent: 'flex-end'
+        justifyContent: 'space-around'
     },
     delete: {
         background: '#ff1c1c'
+    },
+    logout: {
+        background: '#3b8dd1'
     }
 }));
 

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Home from './components/Home';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import AccountForm from './components/AccountForm';
 import VendorProfile from './components/VendorProfile';
 import ListingDetail from './components/ListingDetail';
-import { createMuiTheme } from '@material-ui/core/styles';
 import CreateListing from './components/CreateListing';
 import EditDetails from './components/EditDetails';
 import EditField from './components/EditField';
@@ -14,7 +13,7 @@ import EditField from './components/EditField';
 function App() {
     const [splash, setSplash] = useState(true);
     const [user, setUser] = useState();
-    const [listingToEdit, setListingToEdit] = useState();
+    const [setListingToEdit] = useState();
 
     const hideSplash = () => {
         setSplash(false);
