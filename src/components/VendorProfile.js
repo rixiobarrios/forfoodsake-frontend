@@ -15,6 +15,9 @@ import {
 import FoodListItem from './FoodListItem';
 
 const useStyles = makeStyles(() => ({
+    container: {
+        paddingBottom: 100
+    },
     pageContainer: {
         paddingBottom: 100
     },
@@ -72,64 +75,64 @@ const VendorProfile = ({ match, user, setUser }) => {
 
     if (vendor) {
         return (
-          <Box>
-            <Box className={classes.imgContainer}>
-              <img
-                src={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
-                alt="vendor profile"
-                className={classes.img}
-              />
+            <Box className={classes.container}>
+                <Box className={classes.imgContainer}>
+                    <img
+                        src={`${process.env.PUBLIC_URL}/images/home-placeholder.jpg`}
+                        alt="vendor profile"
+                        className={classes.img}
+                    />
+                </Box>
+                <Box className={classes.vendorInfo}>
+                    <h2>{vendor.name}</h2>
+                    <a href={`mailto:${vendor.email}`}>{vendor.email}</a>
+                    <div className={classes.address}>
+                        {vendor.street}
+                        <br />
+                        {vendor.city}
+                        <br />
+                        {vendor.state} {vendor.zipCode}
+                    </div>
+                    <p>{vendor.phone}</p>
+                </Box>
+                <Box className={classes.description}>{vendor.description}</Box>
+                <Map user={vendor} />
+                {user && user.id === vendor.id ? (
+                    <>
+                        <Button
+                            variant="outlined"
+                            color="secondary"
+                            onClick={deleteAccount}
+                        >
+                            Delete Account
+                        </Button>
+                        <Link to="/edit/account">
+                            <Button variant="outlined" color="primary">
+                                Update Account
+                            </Button>
+                        </Link>
+                        <Link to="/newlisting">
+                            <Button variant="outlined" color="primary">
+                                Add listing
+                            </Button>
+                        </Link>
+                    </>
+                ) : null}
+                <Box>
+                    {vendor.Listings.map((listing, index) => (
+                        <Link
+                            to={`/vendors/${vendor.id}/listings/${listing.id}`}
+                            key={vendor.id}
+                        >
+                            <FoodListItem
+                                key={(index, listing.name)}
+                                listing={listing}
+                                vendor={vendor}
+                            />
+                        </Link>
+                    ))}
+                </Box>
             </Box>
-            <Box className={classes.vendorInfo}>
-              <h2>{vendor.name}</h2>
-              <a href={`mailto:${vendor.email}`}>{vendor.email}</a>
-              <div className={classes.address}>
-                {vendor.street}
-                <br />
-                {vendor.city}
-                <br />
-                {vendor.state} {vendor.zipCode}
-              </div>
-              <p>{vendor.phone}</p>
-            </Box>
-            <Box className={classes.description}>{vendor.description}</Box>
-            <Map user={vendor} />
-            {user && user.id === vendor.id ? (
-              <>
-                <Button
-                  variant="outlined"
-                  color="secondary"
-                  onClick={deleteAccount}
-                >
-                  Delete Account
-                </Button>
-                <Link to="/edit/account">
-                  <Button variant="outlined" color="primary">
-                    Update Account
-                  </Button>
-                </Link>
-                <Link to="/newlisting">
-                  <Button variant="outlined" color="primary">
-                    Add listing
-                  </Button>
-                </Link>
-              </>
-            ) : null}
-            <Box>
-              {vendor.Listings.map((listing, index) => (
-                <Link
-                  to={`/vendors/${vendor.id}/listings/${listing.id}`}
-                  key={vendor.id}
-                >
-                  <FoodListItem
-                    key={(index, listing.name)}
-                    listing={listing}
-                    vendor={vendor}
-                  />
-                </Link>
-              ))}
-            </Box>
-          </Box>
         );
     } else {
         return <Box></Box>;

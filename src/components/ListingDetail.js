@@ -5,6 +5,9 @@ import { Grid, Typography, Box, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/Styles';
 import Map from './Map';
 const useStyles = makeStyles({
+    container: {
+        paddingBottom: 100
+    },
     mediaContainer: {
         width: '100%',
         height: 200,
@@ -88,7 +91,7 @@ const ListingDetail = ({ user, match }) => {
     };
     if (listing) {
         return (
-            <Box>
+            <Box className={classes.container}>
                 <Box className={classes.mediaContainer}>
                     <Box className={classes.imgOverlay}>
                         <Link to={`/vendors/${vendor.id}`}>
