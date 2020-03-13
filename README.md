@@ -27,6 +27,7 @@ The idea for the project came about through a mixture of activism and sustainabi
 -   [Who is ForFoodSake for?](https://github.com/mmarmol88/forfoodsake-frontend#who-is-ForFoodSake-for)
 -   [Wireframes](https://github.com/mmarmol88/forfoodsake-frontend#wireframes)
 -   [Mockups](https://github.com/mmarmol88/forfoodsake-frontend#mockups)
+-   [Browser and Mobile Views](https://github.com/mmarmol88/forfoodsake-frontend#browser-and-mobile-views)
 -   [User Stories](https://github.com/mmarmol88/forfoodsake-frontend#user-stories)
 -   [User Data Flow Chart](https://github.com/mmarmol88/forfoodsake-frontend#user-data-flow-chart)
 -   [Component Hierarchy](https://github.com/mmarmol88/forfoodsake-frontend#component-hierarchy)
@@ -54,6 +55,11 @@ The idea for the project came about through a mixture of activism and sustainabi
 
 ![Asset 6](https://user-images.githubusercontent.com/56275819/76559911-6ca6a300-6476-11ea-828d-e177aec711bd.png)
 
+## Browser and Mobile Views
+
+![Browser View](Link here)
+![Mobile View](Link here)
+
 ## User Stories
 
 **As a Vendor**
@@ -66,7 +72,10 @@ The customer will be able to look at the vendor, units available,purchase the pr
 
 ![userdataflow](https://user-images.githubusercontent.com/56275819/76550216-23e7ed80-6468-11ea-8158-35108dedd006.jpg)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8c3c912bdbdc9188ac617a73843befd3d512f7cf
 ## Component Hiearchy Diagram
 
 ![Project 4_ Component Hierarchy (1)](https://user-images.githubusercontent.com/56275819/76598071-634e2280-64d8-11ea-8a1f-4446dd0167d1.jpg)
@@ -84,7 +93,7 @@ The customer will be able to look at the vendor, units available,purchase the pr
 
 **Bronze Features**
 
--   [ ] Vendor authentication
+-   [x] Vendor authentication
 -   [ ] Users can search for vendors located in Nashville, Denver, or New York
 -   [ ] Add component for educational resources about waste free lifestyle
 
@@ -120,7 +129,10 @@ The customer will be able to look at the vendor, units available,purchase the pr
     -   Jest
     -   React Testing Library
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8c3c912bdbdc9188ac617a73843befd3d512f7cf
 ## Code Sample
 
 ```PY
@@ -201,7 +213,7 @@ The customer will be able to look at the vendor, units available,purchase the pr
         return (
 ```
 
-This code helps us do (reasons here)
+This code’s purpose is to reuse the same form component to allow the user to fill all sign up fields without having too many fields to fill out on screen
 
 ## Installation & Contributing Instructions
 
@@ -209,27 +221,22 @@ This code helps us do (reasons here)
 
 ## Building Team
 
-**Mindy Marmol** 
+**Mindy Marmol**
 [Github Profile](https://github.com/mmarmol88)
 
-
-
-**Qusai Fares** 
+**Qusai Fares**
 [Github Profile](https://github.com/qusaifares)
 
-
-
-**Rixio Barrios** 
+**Rixio Barrios**
 [Github Profile](https://github.com/rixiobarrios)
 
-
-
-**Sage Kearney** 
+**Sage Kearney**
 [Github Profile](https://github.com/sage-kearney)
 
 ## Attributions
 
 **Instructors at General Assembly:**
+
 -   Esin Saribudak
 -   Hou Chia
 
@@ -249,14 +256,26 @@ This code helps us do (reasons here)
 -   [Jest Docs](https://jestjs.io/docs/en/expect)
 
 ## Special Thanks
--   Chris Mendoza
-**Sage Kearney**
-Mom & Dad, for keeping me fed during this program :heart: 
-**Qusai Fares**
-**Mindy Marmol**
-**Rixio Barrios**
+
+**Sage Kearney:**
+Mom & Dad, for keeping me fed during this program :heart:
+
+**Qusai Fares:**
+Thanks to my family for being there. Also thanks to my colleagues and instructors
+
+**Mindy Marmol:**
+To all the bugs and errors that made us google masters, thank you.
+
+**Rixio Barrios:**
+I thank my family for supporting me and my efforts to improve myself.
+To my good friend **Chris Mendoza** who helped me and my cohort mates through this project.
 
 <hr>
 
+<<<<<<< HEAD
 **Additional documenation can be found in the backend repository** 
 [Click here](https://github.com/qusaifares/forfoodsake-backend)
+=======
+**Additional documentation can be found in the backend repository**
+[Click here](https://github.com/qusaifares/forfoodsake-backend)
+>>>>>>> 8c3c912bdbdc9188ac617a73843befd3d512f7cf
