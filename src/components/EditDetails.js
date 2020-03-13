@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Map from './Map';
 import { makeStyles } from '@material-ui/core/styles';
 import PublishIcon from '@material-ui/icons/Publish';
+import DeleteIcon from '@material-ui/icons/Delete';
 import { Link } from 'react-router-dom';
 import {
     Card,
@@ -18,7 +19,7 @@ import {
 } from '@material-ui/core/';
 import FoodListItem from './FoodListItem';
 
-const EditDetails = ({ editType, user, match }) => {
+const EditDetails = ({ setUser, editType, user, match }) => {
     const [image, setImage] = useState();
     const classes = useStyles();
     let history = useHistory();
@@ -32,6 +33,7 @@ const EditDetails = ({ editType, user, match }) => {
         'Listings'
     ]);
     useEffect(() => {
+        console.log('this is WORKING', details, Object.keys(details));
         if (!user) {
             history.push('/login');
         } else if (editType === 'listing') {
@@ -40,21 +42,41 @@ const EditDetails = ({ editType, user, match }) => {
                 l => l.id === parseInt(match.params.id)
             );
             setDetails(listing);
+            console.log(details);
         } else {
             // otherwise, we are editing the user
             setDetails(user);
+            console.log(details);
         }
-        // return cleanUp();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [match.params.id, editType, user]);
-    // useEffect(() => {
-    //     return cleanUp();
-    // }, []);
     const cleanUp = () => {
         setDetails(null);
+        console.log(details);
+    };
+    const deleteDetails = () => {
+        fetch(
+            `${process.env.REACT_APP_SERVER_URL}/${editType}s/${details.id}/delete`,
+            {
+                method: 'DELETE'
+            }
+        ).then(async res => {
+            if (editType === 'vendor') {
+                setUser({});
+                history.push('/');
+            } else {
+                const response = await fetch(
+                    `${process.env.REACT_APP_SERVER_URL}/vendors/${user.id}`
+                );
+                const data = await response.json();
+                let tempData = data;
+                delete tempData.password;
+                setUser(tempData);
+                history.push(`/vendors/${user.id}`);
+            }
+        });
     };
 
-    return details ? (
+    return details.name ? (
         <Box className={classes.container}>
             <InputLabel
                 className={classes.imageLabel}
@@ -84,11 +106,6 @@ const EditDetails = ({ editType, user, match }) => {
             <Box className="fields">
                 {Object.keys(details).map(field => {
                     if (!fieldsToIgnore[0].includes(field)) {
-                        console.log(
-                            fieldsToIgnore,
-                            field,
-                            fieldsToIgnore[0].includes(field)
-                        );
                         return (
                             <Card className={classes.card}>
                                 <CardActionArea
@@ -127,6 +144,19 @@ const EditDetails = ({ editType, user, match }) => {
                     }
                 })}
             </Box>
+            <Box className={classes.deleteContainer}>
+                <Button
+                    variant="contained"
+                    className={classes.delete}
+                    color="secondary"
+                    onClick={deleteDetails}
+                    startIcon={<DeleteIcon />}
+                >
+                    {editType === 'listing'
+                        ? 'Delete Listing'
+                        : 'Delete Account'}
+                </Button>
+            </Box>
         </Box>
     ) : (
         <Box className="none"></Box>
@@ -159,7 +189,11 @@ const useStyles = makeStyles(() => ({
     container: {
         marginBottom: 100
     },
-    fields: {},
+    fieldValue: {
+        height: 25,
+        maxWidth: 150,
+        overflow: 'hidden'
+    },
     card: {
         marginBottom: 1
     },
@@ -172,6 +206,16 @@ const useStyles = makeStyles(() => ({
         justifyContent: 'space-between',
         alignItems: 'center',
         fontSize: '1.2rem'
+    },
+    deleteContainer: {
+        marginTop: 40,
+        paddingRight: 40,
+        width: '90%',
+        display: 'flex',
+        justifyContent: 'flex-end'
+    },
+    delete: {
+        background: '#ff1c1c'
     }
 }));
 

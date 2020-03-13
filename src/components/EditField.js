@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { Link } from 'react-router-dom';
+
 import {
     FormControl,
     FormGroup,
@@ -107,28 +110,55 @@ const EditField = ({ setUser, editType, user, match }) => {
     };
     if (selectFields.includes(match.params.field)) {
         return (
-            <FormControl className={classes.selectField}>
-                <InputLabel>State</InputLabel>
-                <Select value={value} onChange={e => setValue(e.target.value)}>
-                    {selectValues.map(option => (
-                        <MenuItem
-                            value={
-                                match.params.field === 'state'
-                                    ? option.abbreviation
-                                    : option
-                            }
-                        >
-                            {match.params.field === 'state'
-                                ? option.name
-                                : option}
-                        </MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
+            <>
+                <Link
+                    className={classes.back}
+                    to={
+                        editType === 'listing'
+                            ? `/edit/listing/${match.params.id}`
+                            : `/edit/account`
+                    }
+                >
+                    <ArrowBackIosIcon />
+                    Back
+                </Link>
+                <FormControl className={classes.selectField}>
+                    <InputLabel>State</InputLabel>
+                    <Select
+                        value={value}
+                        onChange={e => setValue(e.target.value)}
+                    >
+                        {selectValues.map(option => (
+                            <MenuItem
+                                value={
+                                    match.params.field === 'state'
+                                        ? option.abbreviation
+                                        : option
+                                }
+                            >
+                                {match.params.field === 'state'
+                                    ? option.name
+                                    : option}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+            </>
         );
     } else {
         return (
             <>
+                <Link
+                    className={classes.back}
+                    to={
+                        editType === 'listing'
+                            ? `/edit/listing/${match.params.id}`
+                            : `/edit/account`
+                    }
+                >
+                    <ArrowBackIosIcon />
+                    Back
+                </Link>
                 <Box>
                     <FormControl>
                         <InputLabel htmlFor="user">

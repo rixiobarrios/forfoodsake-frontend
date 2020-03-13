@@ -89,6 +89,7 @@ function App() {
                         exact
                         render={routerProps => (
                             <EditDetails
+                                setUser={setUser}
                                 setListingToEdit={setListingToEdit}
                                 editType="vendor"
                                 user={user}
@@ -101,6 +102,7 @@ function App() {
                         exact
                         render={routerProps => (
                             <EditDetails
+                                setUser={setUser}
                                 setListingToEdit={setListingToEdit}
                                 editType="listing"
                                 user={user}
