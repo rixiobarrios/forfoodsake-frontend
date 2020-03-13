@@ -18,48 +18,6 @@ import {
 } from '@material-ui/core/';
 import FoodListItem from './FoodListItem';
 
-const useStyles = makeStyles(() => ({
-    imageLabel: {
-        height: 150,
-        width: 150,
-        borderRadius: '50%',
-        margin: '30px auto',
-        overflow: 'hidden',
-        position: 'relative'
-    },
-    imageOverlay: {
-        opacity: 0,
-        height: '100%',
-        width: '100%',
-        position: 'absolute',
-        top: 0,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        background: 'rgba(241,102,66, 0.6)',
-        '&:hover': {
-            opacity: 1
-        }
-    },
-    container: {
-        marginBottom: 100
-    },
-    fields: {},
-    card: {
-        marginBottom: 1
-    },
-    fieldName: {
-        textTransform: 'capitalize'
-    },
-    field: {
-        height: 50,
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        fontSize: '1.2rem'
-    }
-}));
-
 const EditDetails = ({ editType, user, match }) => {
     const [image, setImage] = useState();
     const classes = useStyles();
@@ -112,9 +70,16 @@ const EditDetails = ({ editType, user, match }) => {
                     aria-label="upload picture"
                     component="span"
                 ></IconButton>
-                <Box className={classes.imageOverlay}>
+                <Link
+                    to={
+                        editType === 'listing'
+                            ? `/edit/listing/${details.id}/image`
+                            : `/edit/account/image`
+                    }
+                    className={classes.imageOverlay}
+                >
                     <PublishIcon style={{ fontSize: 32 }} color="white" />
-                </Box>
+                </Link>
             </InputLabel>
             <Box className="fields">
                 {Object.keys(details).map(field => {
@@ -167,5 +132,47 @@ const EditDetails = ({ editType, user, match }) => {
         <Box className="none"></Box>
     );
 };
+
+const useStyles = makeStyles(() => ({
+    imageLabel: {
+        height: 150,
+        width: 150,
+        borderRadius: '50%',
+        margin: '30px auto',
+        overflow: 'hidden',
+        position: 'relative'
+    },
+    imageOverlay: {
+        opacity: 0,
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        top: 0,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: 'rgba(241,102,66, 0.6)',
+        '&:hover': {
+            opacity: 1
+        }
+    },
+    container: {
+        marginBottom: 100
+    },
+    fields: {},
+    card: {
+        marginBottom: 1
+    },
+    fieldName: {
+        textTransform: 'capitalize'
+    },
+    field: {
+        height: 50,
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        fontSize: '1.2rem'
+    }
+}));
 
 export default EditDetails;

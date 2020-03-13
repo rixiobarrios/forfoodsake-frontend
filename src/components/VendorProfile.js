@@ -18,9 +18,6 @@ const useStyles = makeStyles(() => ({
     container: {
         paddingBottom: 100
     },
-    pageContainer: {
-        paddingBottom: 100
-    },
     img: {
         width: '100%'
     },
