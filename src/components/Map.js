@@ -19,10 +19,7 @@ const Map = ({ user }) => {
             src={`https://www.google.com/maps/embed/v1/place?key=${
                 process.env.REACT_APP_GMAPS_KEY
             }&q=${encodeURIComponent(
-                user.street,
-                user.city,
-                user.state,
-                user.zipCode
+                `${user.street}, ${user.city}, ${user.state} ${user.zip_code}`
             )}`}
             allowFullScreen
         ></iframe>
