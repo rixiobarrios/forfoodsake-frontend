@@ -28,7 +28,7 @@ const VendorProfile = ({ match, user, setUser }) => {
     useEffect(() => {
         // formatting phone (XXX) XXX-XXXX
         let tempArr = [];
-        if (!user) {
+        if (!user || !user.phone) {
             return;
         }
         for (let i = 0; i < user.phone.length; i++) {

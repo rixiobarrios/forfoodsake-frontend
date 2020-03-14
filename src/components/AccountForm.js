@@ -22,18 +22,16 @@ const useStyles = makeStyles(theme => ({
         left: 35
     },
     form: {
-        minHeight: 350,
-        width: 300,
+        height: 446,
+        width: 320,
         background: '#fff',
-        borderRadius: 10
+        borderRadius: 10,
+        border: '1px solid #F16642'
     },
-    tabIndicator: {},
     tabs: {
         indicatorColor: 'blue',
-        color: 'black'
-    },
-    tab: {
-        height: '100%'
+        color: 'black',
+        height: 48
     }
 }));
 
@@ -186,6 +184,7 @@ const AccountForm = ({ url, setUser }) => {
                     value={formType}
                     className={classes.tabs}
                     variant="fullWidth"
+                    indicatorColor="primary"
                 >
                     <Tab label="Sign Up" className={classes.tab} />
                     <Tab label="Log In" className={classes.tab} />

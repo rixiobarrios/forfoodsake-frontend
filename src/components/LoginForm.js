@@ -10,38 +10,24 @@ import {
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
-    container: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-        background: '#EDE9E7'
-    },
-    tabIndicator: {},
     formContent: {
-        maxWidth: '100%',
         padding: '15px 20px',
         minHeight: 160,
         display: 'flex',
+        justifyContent: 'space-around',
+        height: 272,
         flexDirection: 'column'
     },
     inputField: {
         marginBottom: 35
     },
-    tabs: {
-        indicatorColor: 'blue',
-        color: 'black'
-    },
     submitLogin: {
         margin: '30px auto',
-        width: 200
-    },
-    tab: {
-        height: '100%'
-    },
-    paper: {
-        background: 'transparent'
+        width: 200,
+        background: '#F16642',
+        '&:hover': {
+            background: '#F16642'
+        }
     }
 }));
 
@@ -90,7 +76,7 @@ const LoginForm = ({
             <FormControl>
                 <Button
                     className={classes.submitLogin}
-                    variant="outlined"
+                    variant="contained"
                     color="secondary"
                     onClick={logIn}
                 >

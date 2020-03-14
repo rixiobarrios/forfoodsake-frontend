@@ -13,20 +13,6 @@ import { makeStyles } from '@material-ui/styles';
 const states = require('./states.json');
 
 const useStyles = makeStyles(theme => ({
-    container: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-        background: '#EDE9E7'
-    },
-    form: {
-        border: '1px solid black',
-        minHeight: 320,
-        width: 310,
-        background: '#fff'
-    },
     inputField: {
         marginBottom: 20
     },
@@ -37,22 +23,18 @@ const useStyles = makeStyles(theme => ({
         maxWidth: '100%',
         padding: '15px 20px',
         minHeight: 140,
+        height: 272,
         display: 'flex',
-        flexDirection: 'column'
-    },
-    tabs: {
-        indicatorColor: 'blue',
-        color: 'black'
+        flexDirection: 'column',
+        justifyContent: 'space-around'
     },
     submitLogin: {
         margin: '30px auto',
-        width: 200
-    },
-    tab: {
-        height: '100%'
-    },
-    paper: {
-        background: 'transparent'
+        width: 200,
+        background: '#F16642',
+        '&:hover': {
+            background: '#F16642'
+        }
     }
 }));
 
@@ -122,7 +104,7 @@ const SignupForm = props => {
                 <FormControl>
                     <Button
                         className={classes.submitLogin}
-                        variant="outlined"
+                        variant="contained"
                         color="secondary"
                         onClick={props.incrementSignup}
                     >
@@ -174,7 +156,7 @@ const SignupForm = props => {
                 <FormControl>
                     <Button
                         className={classes.submitLogin}
-                        variant="outlined"
+                        variant="contained"
                         color="secondary"
                         onClick={props.incrementSignup}
                     >
@@ -239,7 +221,7 @@ const SignupForm = props => {
                 <FormControl>
                     <Button
                         className={classes.submitLogin}
-                        variant="outlined"
+                        variant="contained"
                         color="secondary"
                         onClick={props.incrementSignup}
                     >
@@ -272,7 +254,7 @@ const SignupForm = props => {
                 <FormControl>
                     <Button
                         className={classes.submitLogin}
-                        variant="outlined"
+                        variant="contained"
                         color="secondary"
                         onClick={props.signUp}
                     >
