@@ -1,5 +1,9 @@
 <img width=100% src=https://user-images.githubusercontent.com/56275819/76553977-6ced7100-646b-11ea-81ff-f7c28c670242.jpg>
 
+# PROJECT 4:  GA-SEIR-129 FRONTEND
+
+## For Food Sake: Eat Delicious Food, Save the Planet
+
 ## Concept
 
 Food waste in the US continues to be a crippling issue which effects everyone in our community. Here are a few stats to illustrate the issue.
@@ -18,17 +22,15 @@ This app is a humble contribution to a solution that may bring about a much need
 
 The idea for the project came about through a mixture of activism and sustainability. Our main focus was to create an app that promotes waste reduction through food management by bringing businesses and the community together to tackle a common issue and provide a tool to effectively fight hunger.
 
-:eight_pointed_black_star: [Click here to view our app live](https://forfoodsake.herokuapp.com/)
-
 ---
 
 ## Table of Contents
 
--   [Who is ForFoodSake for?](https://github.com/mmarmol88/forfoodsake-frontend#who-is-ForFoodSake-for)
--   [Wireframes](https://github.com/mmarmol88/forfoodsake-frontend#wireframes)
--   [Mockups](https://github.com/mmarmol88/forfoodsake-frontend#mockups)
--   [Browser and Mobile Views](https://github.com/mmarmol88/forfoodsake-frontend#browser-and-mobile-views)
--   [User Stories](https://github.com/mmarmol88/forfoodsake-frontend#user-stories)
+-   [Who is ForFoodSake for?](https://github.com/rixiobarrios/forfoodsake-frontend#who-is-ForFoodSake-for)
+-   [Wireframes](https://github.com/rixiobarrios/forfoodsake-frontend#wireframes)
+-   [Mockups](https://github.com/rixiobarrios/forfoodsake-frontend#mockups)
+-   [Browser and Mobile Views](https://github.com/rixiobarrios/forfoodsake-frontend#browser-and-mobile-views)
+-   [User Stories](https://github.com/rixiobarrios/forfoodsake-frontend#user-stories)
 -   [User Data Flow Chart](https://github.com/mmarmol88/forfoodsake-frontend#user-data-flow-chart)
 -   [Component Hierarchy](https://github.com/mmarmol88/forfoodsake-frontend#component-hierarchy)
 -   [App Features](https://github.com/mmarmol88/forfoodsake-frontend#app-features)
@@ -36,6 +38,8 @@ The idea for the project came about through a mixture of activism and sustainabi
 -   [Code Sample](https://github.com/mmarmol88/forfoodsake-frontend#code-sample)
 -   [Contribution & Installation Instructions](https://github.com/mmarmol88/forfoodsake-frontend#contribution-&-installation-instructions)
 -   [Building Team](https://github.com/mmarmol88/forfoodsake-frontend#building-team)
+-   [Link to the App](https://github.com/mmarmol88/forfoodsake-frontend#link-to-the-app)
+-   [Link to the Article on Linkedin](https://github.com/mmarmol88/forfoodsake-frontend#link-to-the-article-on-linkedin)
 -   [Attributions](https://github.com/mmarmol88/forfoodsake-frontend#attributions)
 -   [Special Thanks](https://github.com/mmarmol88/forfoodsake-frontend#special-thanks)
 
@@ -248,6 +252,14 @@ This code’s purpose is to reuse the same form component to allow the user to f
 -   [React Testing Library Docs](https://testing-library.com/docs/react-testing-library/intro)
 -   [Jest Docs](https://jestjs.io/docs/en/expect)
 
+## Link to the App
+
+[For Food Sake App](https://forfoodsake.herokuapp.com/)
+
+## Link to the Article on Linkedin
+
+[For Food Sake: The Last Project](https://www.linkedin.com/pulse/for-food-sake-the-last-project-rixio-barrios/)
+
 ## Special Thanks
 
 **Sage Kearney:**
@@ -266,4 +278,4 @@ To my good friend **Chris Mendoza** who helped me and my cohort mates through th
 <hr>
 
 **Additional documentation can be found in the backend repository**
-[Click here](https://github.com/qusaifares/forfoodsake-backend)
+[Click here](https://github.com/rixiobarrios/forfoodsake-backend)
