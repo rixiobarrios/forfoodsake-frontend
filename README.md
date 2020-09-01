@@ -4,6 +4,8 @@
 
 ## For Food Sake: Eat Delicious Food, Save the Planet
 
+-   [Documentation for Project# 2 Assignment by General Assembly](https://www.notlinkedyet.com)
+
 ## Concept
 
 Food waste in the US continues to be a crippling issue which effects everyone in our community. Here are a few stats to illustrate the issue.
